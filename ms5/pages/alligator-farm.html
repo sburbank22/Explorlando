@@ -9,25 +9,56 @@
 <body>
 
   <header>
-    <h1>Explorlando</h1>
+    <div class="header-inner">
+      <h1>Explorlando</h1>
+      <div class="account">
+        <div class="avatar" aria-hidden="true"></div>
+        <span>My Account</span>
+      </div>
+    </div>
   </header>
+  <div class="page">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#" class="selected">Attractions</a></li>
+          <li><a href="#">Open Lobby</a></li>
+          <li><a href="#">Spotlight</a></li>
+          <li><a href="#">For Businesses</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main>
+    <main>
    <h1>Baby Joey’s Alligator Farm</h1>
 
-<img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
+  <section class="detail">
+  <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
+  <div class="detail-content">
+    <section>
+      <h2>About</h2>
+      <p>
+        Baby Joey’s Alligator Farm offers a hands-on wildlife experience where
+        visitors can learn about conservation efforts and rescued reptiles.
+      </p>
+    </section>
+    <div class="detail-actions">
+      <button class="primary-btn">Save Attraction</button>
+      <button class="primary-btn">Available Discounts</button>
+    </div>
 
-<section>
-  <h2>About</h2>
-  <p>
-    Baby Joey’s Alligator Farm offers a hands-on wildlife experience where
-    visitors can learn about conservation efforts and rescued reptiles.
-  </p>
+    <div class="secondary-actions">
+      <button class="btn-cta">Purchase Tickets</button>
+      <button class="btn-cta">Open Lobby</button>
+    </div>
+  </div>
 </section>
 
-<button class="primary-btn">Save Attraction</button>
-
-  </main>
+    </main>
+  </div>
 
   <footer>
     <p>© Explorlando</p>

@@ -9,13 +9,33 @@
 <body>
 
   <header>
-    <h1>Explorlando</h1>
+    <div class="header-inner">
+      <h1>Explorlando</h1>
+      <div class="account">
+        <div class="avatar" aria-hidden="true"></div>
+        <span>My Account</span>
+      </div>
+    </div>
   </header>
+  <div class="page">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#" class="selected">Attractions</a></li>
+          <li><a href="#">Open Lobby</a></li>
+          <li><a href="#">Spotlight</a></li>
+          <li><a href="#">For Businesses</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main>
-  <h1>Attractions</h1>
+    <main>
+    <h1> Local Attractions</h1>
 
-<section class="card-list">
+  <section class="card-list">
   <a href="alligator-farm.html" class="card">
     <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
     <h2>Baby Joey’s Alligator Farm</h2>
@@ -27,9 +47,22 @@
     <h2>Skyline Rooftop Lounge</h2>
     <p>Rooftop dining and city views in downtown Orlando.</p>
   </a>
+
+  <a class="card">
+    <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
+    <h2>Orange Grove Mini Golf</h2>
+    <p>Playful mini-golf course set among orange groves — family fun for all ages.</p>
+  </a>
+
+  <a class="card">
+    <img src="../images/botanical.jpg" alt="Winter Town Botanical Trails">
+    <h2>Winter Town Botanical Trails</h2>
+    <p>Scenic botanical trails featuring native flora and peaceful walking paths.</p>
+  </a>
 </section>
 
-  </main>
+    </main>
+  </div>
 
   <footer>
     <p>© Explorlando</p>

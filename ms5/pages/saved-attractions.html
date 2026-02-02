@@ -6,30 +6,81 @@
   <title>Explorlando</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="saved-page">
 
   <header>
-    <h1>Explorlando</h1>
+    <div class="header-inner">
+      <h1>Explorlando</h1>
+      <div class="account">
+        <div class="avatar" aria-hidden="true"></div>
+        <span>My Account</span>
+      </div>
+    </div>
   </header>
+  <div class="page">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#" class="selected">Attractions</a></li>
+          <li><a href="#">Open Lobby</a></li>
+          <li><a href="#">Spotlight</a></li>
+          <li><a href="#">For Businesses</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main>
-    <h1>Saved Attractions</h1>
+    <main>
+      <h1>Your Attractions</h1>
 
-<section class="card-list">
-  <div class="card">
-    <img src="../images/golf.jpg" alt="Mini Golf Attraction">
-    <h2>Orange Grove Mini Golf</h2>
-    <p>Saved attraction</p>
+    <section>
+      <div class="card-list">
+        <div class="card saved-card">
+          <div class="card-inner">
+            <h3 class="card-inner-title">Saved Attractions</h3>
+            <div class="saved-item">
+              <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
+              <div class="saved-info">
+                <h3>Skyline Rooftop Lounge</h3>
+                <p class="category">Dining & Nightlife</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card-list">
+        <div class="card fav-combined">
+          <div class="card-inner">
+            <h3 class="card-inner-title">Favorited Attractions</h3>
+            <div class="fav-items">
+              <div class="fav-item">
+                <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
+                <div class="fav-info">
+                  <h3>Baby Joey’s Alligator Farm</h3>
+                  <p class="category">Wildlife & Education</p>
+                </div>
+              </div>
+
+              <div class="fav-item">
+                <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
+                <div class="fav-info">
+                  <h3>Orange Grove Mini Golf</h3>
+                  <p class="category">Family Entertainment</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </main>
   </div>
-
-  <div class="card">
-    <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
-    <h2>Baby Joey’s Alligator Farm</h2>
-    <p>Saved attraction</p>
-  </div>
-</section>
-
-  </main>
 
   <footer>
     <p>© Explorlando</p>
