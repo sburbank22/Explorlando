@@ -6,7 +6,7 @@
   <title>Explorlando</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="attractions-page">
 
   <header>
     <div class="header-inner">
@@ -33,33 +33,61 @@
     </aside>
 
     <main>
-    <h1> Local Attractions</h1>
+      <div class="page-header">
+        <h1>Local Attractions</h1>
+      </div>
 
-  <section class="card-list">
-  <a href="alligator-farm.html" class="card">
-    <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
-    <h2>Baby Joey’s Alligator Farm</h2>
-    <p>Family-friendly wildlife experience featuring rescued alligators.</p>
-  </a>
+      <section class="intro">
+        <h2 class="subheading">Have some fun while you're in Orlando!</h2>
+      </section>
 
-  <a href="skyline-rooftop.html" class="card">
-    <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
-    <h2>Skyline Rooftop Lounge</h2>
-    <p>Rooftop dining and city views in downtown Orlando.</p>
-  </a>
+      <section class="search-section">
+        <div class="search-row">
+          <div class="search-bar" role="search">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="search" placeholder="search your interest..." aria-label="Search attractions">
+            <details class="filters-dropdown" aria-label="Filters">
+              <summary>Filters</summary>
+              <div class="filter-list" role="group" aria-label="Filter options">
+                <label><input type="checkbox" name="filter" value="weather"> Weather</label>
+                <label><input type="checkbox" name="filter" value="family"> Family</label>
+                <label><input type="checkbox" name="filter" value="age"> Age</label>
+                <label><input type="checkbox" name="filter" value="weekend"> Weekend</label>
+              </div>
+            </details>
+          </div>
+          <button class="search-btn" aria-label="Search (placeholder)">Search</button>
+        </div>
+      </section>
 
-  <a class="card">
-    <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
-    <h2>Orange Grove Mini Golf</h2>
-    <p>Playful mini-golf course set among orange groves — family fun for all ages.</p>
-  </a>
+      <section class="card-list carousel">
+        <a href="alligator-farm.html" class="card">
+          <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
+          <h2>Baby Joey’s Alligator Farm</h2>
+          <p>Family-friendly wildlife experience featuring rescued alligators.</p>
+        </a>
 
-  <a class="card">
-    <img src="../images/botanical.jpg" alt="Winter Town Botanical Trails">
-    <h2>Winter Town Botanical Trails</h2>
-    <p>Scenic botanical trails featuring native flora and peaceful walking paths.</p>
-  </a>
-</section>
+        <a href="skyline-rooftop.html" class="card">
+          <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
+          <h2>Skyline Rooftop Lounge</h2>
+          <p>Rooftop dining and city views in downtown Orlando.</p>
+        </a>
+
+        <a class="card">
+          <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
+          <h2>Orange Grove Mini Golf</h2>
+          <p>Playful mini-golf course set among orange groves — family fun for all ages.</p>
+        </a>
+
+        <a class="card">
+          <img src="../images/botanical.jpg" alt="Winter Town Botanical Trails">
+          <h2>Winter Town Botanical Trails</h2>
+          <p>Scenic botanical trails featuring native flora and peaceful walking paths.</p>
+        </a>
+      </section>
 
     </main>
   </div>
@@ -70,4 +98,5 @@
 
   <script src="../js/main.js"></script>
 </body>
-</html>
+
+

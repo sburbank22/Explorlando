@@ -12,7 +12,7 @@
   --header-height: 72px;
   --lime: #a8e063; /* lime green for sidebar and titles */
   --indigo: #4c51bf; /* indigo for saved attractions */
-  --light-blue: #9fd3ff; /* light blue for saved/favorited boxes (darker) */
+  --light-blue: #d9f1ff; /* light blue for saved/favorited boxes */
 }
 
 body {
@@ -39,10 +39,8 @@ header {
   gap: 1rem;
 }
 
-/* Make the site title orange */
-.header-inner h1 {
-  color: var(--orange);
-}
+/* Site title color (ensure visibility on all header backgrounds) */
+.header-inner h1 { color: var(--orange); }
 
 /* Page layout with sidebar */
 .page {
@@ -99,6 +97,22 @@ main {
   font-weight: 600;
 }
 
+/* Attractions page overrides: blue header and sidebar (scoped) */
+.attractions-page header {
+  background: var(--blue);
+}
+.attractions-page .sidebar {
+  background: var(--blue);
+}
+.attractions-page .sidebar a.selected {
+  color: var(--blue);
+}
+
+/* Ensure the site title remains orange on the blue attractions header */
+.attractions-page .header-inner h1 {
+  color: var(--orange);
+}
+
 @media (max-width: 900px) {
   .page { flex-direction: column; padding: 0 1rem; }
   .sidebar { position: static; width: 100%; display: flex; gap: 0.5rem; overflow-x: auto; height: auto; }
@@ -119,9 +133,24 @@ main {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
   border: 2px solid rgba(255,255,255,0.12);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* blue to green gradient background */
+  background: linear-gradient(135deg, var(--blue), var(--green));
+}
+
+.avatar::before {
+  content: "";
+  width: 62%;
+  height: 62%;
+  display: block;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000000' d='M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.866 0-7 3.134-7 7h2c0-2.761 2.239-5 5-5s5 2.239 5 5h2c0-3.866-3.134-7-7-7z'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 main {
@@ -147,10 +176,14 @@ main > h1 {
   text-align: center;
 }
 
-/* Saved attractions page: indigo heading and card backgrounds */
+.saved-page main { text-align: center; }
 .saved-page main > h1 {
-  background: var(--light-blue);
-  color: var(--text);
+  background: var(--grass);
+  color: #000;
+  display: inline-block;
+  margin: 1.5rem auto;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
 }
 .saved-page .card {
   background: var(--light-blue);
@@ -162,25 +195,6 @@ main > h1 {
 .saved-page .card p {
   color: var(--muted);
 }
-
-/* Center the main heading on the saved page and keep sections left-aligned */
-.saved-page main { text-align: center; }
-.saved-page section { text-align: left; max-width: 900px; margin: 0 auto 1rem; }
-.saved-page main > h1 { display: inline-block; margin: 1.5rem auto; }
-
-/* Saved card specifics */
-.saved-card { width: 100%; padding: 1rem; }
-.card-inner-title { margin: 0 0 0.75rem 0; color: #000; }
-.saved-item { display: flex; gap: 0.75rem; align-items: center; }
-.saved-item img { width: 140px; height: 100px; object-fit: cover; border-radius: 8px; }
-.saved-info h3 { margin: 0 0 0.25rem 0; }
-
-/* Favorited combined card */
-.fav-combined { width: 100%; padding: 1rem; }
-.fav-items { display: flex; gap: 1rem; }
-.fav-item { display: flex; gap: 0.75rem; align-items: center; flex: 1; }
-.fav-item img { width: 120px; height: 90px; object-fit: cover; border-radius: 8px; }
-.fav-info h3 { margin: 0 0 0.25rem 0; }
 
 .section-title {
   margin-top: 1.5rem;
@@ -309,6 +323,82 @@ main > h1 {
     height: 200px;
     border-radius: 10px;
   }
+}
+
+/* --- Restored page-specific UI: carousel, search, filters, saved cards --- */
+
+/* Carousel layout for attractions page */
+.card-list.carousel {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0 1.5rem;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.card-list.carousel .card {
+  width: 300px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-list.carousel .card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Centered page header and intro */
+.page-header { text-align: center; margin: 1.25rem 0; }
+.page-header h1 { display: inline-block; background: var(--lime); color: #000; padding:0.6rem 1rem; border-radius:12px; margin:0; }
+
+.intro .subheading { color: #000; text-align: center; margin: 0.5rem 0 1rem; font-weight:600; font-size:1.05rem; }
+
+/* Search section */
+.search-section { max-width: 1100px; margin: 0 auto 1rem; padding: 0 1.25rem; }
+.search-row { display:flex; gap: 0.75rem; align-items:center; }
+.search-bar { background: #eef2f6; padding: 0.45rem 0.6rem; border-radius: 10px; display:flex; align-items:center; gap:0.6rem; flex:1; min-width:0; }
+.search-bar .search-icon { color: var(--muted); flex:0 0 auto; }
+.search-bar input { border: none; background: transparent; outline: none; flex:1; min-width:0; font-size:1rem; color:var(--text); }
+
+/* Filters dropdown (details/summary) */
+.filters-dropdown { border-left:1px solid rgba(18,52,59,0.06); padding-left:0.6rem; margin-left:0.4rem; color:var(--muted); }
+.filters-dropdown summary { list-style: none; cursor: pointer; padding: 0; margin: 0; font-size: 0.95rem; color: var(--muted); }
+.filters-dropdown summary::marker { display: none; }
+.filters-dropdown summary::-webkit-details-marker { display: none; }
+.filters-dropdown summary::after { content: '\25BC'; display: inline-block; margin-left: 0.5rem; font-size: 0.7rem; transform: translateY(1px); }
+.filters-dropdown[open] summary::after { content: '\25B2'; }
+.filter-list { display:flex; gap:0.6rem; flex-direction:column; padding-top:0.5rem; }
+.filter-list label { font-size:0.95rem; color:var(--text); display:flex; gap:0.5rem; align-items:center; }
+
+.search-btn { background: var(--blue); color: #fff; border: none; padding: 0.6rem 1rem; border-radius: 10px; font-weight:600; cursor: pointer; box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+
+@media (max-width: 700px) {
+  .card-list.carousel .card { width: 80%; }
+  .search-row { flex-direction: column; align-items: stretch; }
+  .search-btn { width: 100%; }
+  .search-bar { width: 100%; }
+}
+
+/* Saved page combined cards */
+.saved-cards { display:flex; gap:1.25rem; align-items:flex-start; justify-content:center; flex-wrap:wrap; }
+.saved-card { width: 100%; padding: 1rem; }
+.fav-combined { padding: 1rem; }
+
+/* Scoped saved-page card widths: show left-to-right on larger screens */
+.saved-page .card {
+  width: calc(50% - 0.625rem);
+  max-width: 520px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .saved-page .card { width: 100%; }
 }
 
 footer {
