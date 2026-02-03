@@ -1,0 +1,330 @@
+/* =========================================================
+   ATTRACTIONS.CSS
+   Page-specific styles for Attractions, Saved, and Detail
+   Global layout, colors, typography, and navigation
+   are handled by base.css (owned by another teammate).
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   GLOBAL VARIABLES — MOVED TO base.css
+--------------------------------------------------------- */
+/*
+:root {
+  --blue: #0b86a8;
+  --green: #2f9e44;
+  --grass: #60b86b;
+  --orange: #ff8c42;
+  --bg: #fbfbf9;
+  --card-bg: #ffffff;
+  --text: #12343b;
+  --muted: #6b7280;
+  --shadow: rgba(16,24,40,0.06);
+  --cta-yellow: #ffdba8;
+  --header-height: 72px;
+  --lime: #a8e063;
+  --indigo: #4c51bf;
+  --light-blue: #d9f1ff;
+  --sidebar-width: 220px;
+}
+*/
+
+
+/* ---------------------------------------------------------
+   GLOBAL ELEMENT & LAYOUT STYLES — MOVED TO base.css
+--------------------------------------------------------- */
+/*
+body { ... }
+header { ... }
+footer { ... }
+main { ... }
+h1 { ... }
+.page { ... }
+.sidebar { ... }
+.header-inner { ... }
+.account { ... }
+.avatar { ... }
+*/
+
+
+/* ---------------------------------------------------------
+   ATTRACTIONS-SCOPED HEADER & SIDEBAR OVERRIDES
+--------------------------------------------------------- */
+
+.attractions-page header {
+  background: var(--blue);
+}
+
+.attractions-page .sidebar {
+  background: var(--blue);
+}
+
+.attractions-page .sidebar a.selected {
+  color: var(--blue);
+}
+
+.attractions-page .header-inner h1 {
+  color: var(--orange);
+}
+
+
+/* ---------------------------------------------------------
+   PAGE HEADERS & SECTION TITLES
+--------------------------------------------------------- */
+
+.page-header {
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.page-header h1 {
+  display: inline-block;
+  background: var(--lime);
+  color: #000;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.section-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+
+/* ---------------------------------------------------------
+   CARD LAYOUTS (ATTRACTIONS & SAVED)
+--------------------------------------------------------- */
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 0.75rem;
+  box-shadow: 0 6px 18px var(--shadow);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: calc(50% - 1.25rem);
+  max-width: 520px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(16,24,40,0.12);
+}
+
+.card img {
+  width: 40%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.card h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.category {
+  font-size: 0.85rem;
+  color: var(--orange);
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS (ATTRACTIONS ONLY)
+--------------------------------------------------------- */
+
+.primary-btn {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.95rem;
+  background-color: var(--grass);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-cta {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background-color: var(--cta-yellow);
+  color: var(--text);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+
+/* ---------------------------------------------------------
+   SEARCH & FILTERS (ATTRACTIONS PAGE)
+--------------------------------------------------------- */
+
+.search-section {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+}
+
+.search-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-bar {
+  background: #eef2f6;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+}
+
+.filters-dropdown summary {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+
+/* ---------------------------------------------------------
+   CAROUSEL (FEATURED ATTRACTIONS)
+--------------------------------------------------------- */
+
+.card-list.carousel {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem 0 1.5rem;
+  justify-content: flex-start;
+}
+
+.card-list.carousel .card {
+  width: 300px;
+  flex: 0 0 auto;
+  flex-direction: column;
+}
+
+.card-list.carousel .card img {
+  width: 100%;
+  height: 160px;
+}
+
+
+/* ---------------------------------------------------------
+   SAVED & FAVORITED ATTRACTIONS PAGE
+--------------------------------------------------------- */
+
+.saved-page main {
+  text-align: center;
+}
+
+.saved-page .card {
+  background: var(--light-blue);
+  width: calc(50% - 0.625rem);
+  flex-direction: column;
+}
+
+.saved-cards {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL PAGES (ALLIGATOR FARM / SKYLINE)
+--------------------------------------------------------- */
+
+.detail {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px var(--shadow);
+  display: flex;
+  gap: 1rem;
+}
+
+.detail img {
+  width: 48%;
+  border-radius: 10px;
+}
+
+.detail .detail-content {
+  width: 52%;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .card {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .detail {
+    flex-direction: column;
+  }
+
+  .detail img,
+  .detail .detail-content {
+    width: 100%;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+}
+
+/* Discounts button: fixed at bottom-center of the viewport (placeholder) */
+.discounts-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: var(--blue);
+  color: #000; /* user requested black text */
+  border: none;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(11,134,168,0.18);
+  font-weight: 700;
+  z-index: 1200;
+  cursor: pointer;
+}
+.discounts-btn:hover { filter: brightness(0.98); }
