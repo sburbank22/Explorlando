@@ -52,11 +52,31 @@
             <input type="search" placeholder="search your interest..." aria-label="Search attractions">
             <details class="filters-dropdown" aria-label="Filters">
               <summary>Filters</summary>
-              <div class="filter-list" role="group" aria-label="Filter options">
-                <label><input type="checkbox" name="filter" value="weather"> Weather</label>
-                <label><input type="checkbox" name="filter" value="family"> Family</label>
-                <label><input type="checkbox" name="filter" value="age"> Age</label>
-                <label><input type="checkbox" name="filter" value="weekend"> Weekend</label>
+              <div class="filter-sections">
+                <details class="filter-group">
+                  <summary>Attraction Type</summary>
+                  <div class="types-list" role="group" aria-label="Attraction types">
+                    <label><input type="checkbox" name="type" value="family"> Family</label>
+                    <label><input type="checkbox" name="type" value="museums"> Museums / Cultural</label>
+                    <label><input type="checkbox" name="type" value="food"> Food / Drink</label>
+                    <label><input type="checkbox" name="type" value="parks"> Parks / Natural</label>
+                    <label><input type="checkbox" name="type" value="shopping"> Shopping</label>
+                    <label><input type="checkbox" name="type" value="outdoors"> Outdoors</label>
+                    <label><input type="checkbox" name="type" value="indoors"> Indoors</label>
+                    <label><input type="checkbox" name="type" value="historic"> Historic</label>
+                    <label><input type="checkbox" name="type" value="arts"> Arts & Performance</label>
+                    <label><input type="checkbox" name="type" value="nightlife"> Nightlife</label>
+                  </div>
+                </details>
+
+                <details class="filter-group">
+                  <summary>Amusement</summary>
+                  <div class="filter-list" role="group" aria-label="Amusement options">
+                    <label><input type="checkbox" name="amusement" value="rides"> Rides</label>
+                    <label><input type="checkbox" name="amusement" value="arcade"> Arcade</label>
+                    <label><input type="checkbox" name="amusement" value="mini-golf"> Mini Golf</label>
+                  </div>
+                </details>
               </div>
             </details>
           </div>
