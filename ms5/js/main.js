@@ -20,3 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
+// once everything is uploaded, link discounts page 
+// Discounts button placeholder navigation (attractions page)
+const discountsBtn = document.getElementById('discounts-btn');
+if (discountsBtn) {
+	discountsBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		// Placeholder: navigate to discounts.html (teammate will create this page later)
+		window.location.href = 'discounts.html';
+	});
+}
