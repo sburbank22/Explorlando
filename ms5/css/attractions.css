@@ -79,6 +79,24 @@ h1 { ... }
 .filter-list { display:flex; flex-direction:column; gap:0.4rem; }
 .filter-list label { font-size: 0.95rem; color: var(--text); }
 
+/* Filters container visuals (non-destructive, attractions-scoped) */
+.filters-dropdown { border-left: 1px solid rgba(18,52,59,0.06); padding-left: 0.6rem; margin-left: 0.4rem; color: var(--muted); }
+.filters-dropdown summary { list-style: none; }
+.filters-dropdown summary::after { content: '▾'; display: inline-block; margin-left: 0.5rem; font-size: 0.75rem; transform: translateY(1px); transition: transform 120ms ease; }
+.filters-dropdown[open] summary::after { content: '▴'; transform: translateY(0); }
+
+/* Visual for nested group summaries */
+.filter-group { background: transparent; padding: 0.25rem 0; }
+.filter-group summary::marker, .filter-group summary::-webkit-details-marker { display:none; }
+
+/* Scrollbar styling for types list (subtle) */
+.types-list::-webkit-scrollbar { width: 8px; }
+.types-list::-webkit-scrollbar-thumb { background: rgba(18,52,59,0.08); border-radius: 6px; }
+.types-list { -ms-overflow-style: auto; scrollbar-width: thin; }
+
+/* Make labels easier to tap */
+.types-list label, .filter-list label { padding: 0.18rem 0.2rem; display: flex; gap: 0.6rem; align-items: center; }
+
 
 /* 
    PAGE HEADERS & SECTION TITLES
