@@ -1,0 +1,170 @@
+/* CREATE ACCOUNT PAGES ONLY
+   Applies to create-account1.html + create-account2.html
+   Uses the .create-account-page wrapper to scope styles. */
+
+
+/* ------Page Base------- */
+.create-account-page {
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Search bar in top header (Create Account pages only) */
+/* Adds spacing between logo / search / account button */
+.create-account-page .top-bar {
+    gap: 16px;
+}
+
+/* Top search bar */
+.create-account-page .top-search {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+}
+
+.create-account-page .top-search input {
+    width: 100%;
+    max-width: 520px;
+    height: 38px;
+    border-radius: 6px;
+    border: none;
+    padding: 0 12px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Focus state for search input */
+.create-account-page .top-search input:focus {
+    border-color: #6b7676;
+}
+
+
+/* ------Card / Banner Tweaks------ */
+/* Make the shared login-card blue on create account pages */
+.create-account-page .login-card {
+    background-color: #31C3C9;
+}
+
+
+/* ------Layout Fix to keep buttons inside the card------- */
+/* Adjusting the sign up form*/
+.create-account-page .signup-card {
+    min-height: 570px;
+    width: 490px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Slightly smaller banner */
+.create-account-page .welcome-banner {
+    font-size: 35px;
+    width: 550px;
+}
+
+/* ----Main Container (Create Account only)------ */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    padding-bottom: 120px;
+}
+
+
+/* Green buttons for Create Account pages only */
+.create-account-page .login-actions button {
+    background-color: #BAD67F;
+}
+
+/* Button Hover */
+.create-account-page .login-actions button:hover {
+    background-color: #a6c96c;
+}
+
+/* Signup step buttons (back / next) */
+.create-account-page .signup-actions button {
+    background-color: #BAD67F;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.create-account-page .signup-actions button:hover {
+    background-color: #a6c96c;
+}
+
+
+/* Back arrow button positioning */
+.create-account-main {
+    position: relative;
+}
+
+
+/* ---------- Create Account Step 2: Form Labels / Controls ---------- */
+/*  Profile picture text */
+.signup-subtitle {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b3b3d;
+}
+
+/* Labels above fields */
+.field-group {
+    text-align: center;
+}
+
+/* DOB, Address fields */
+.field-label {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0b3b3d;
+}
+
+/* Gender buttons row */
+.radio-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    font-size: 14px;
+    justify-content: center;
+}
+
+
+.radio-row label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.checkbox-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.create-account-page .signup-actions {
+    margin-top: auto;
+}
+
+
+/* Sign-up/back button layout */
+.signup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 170px;
+    margin-top: 15px;
+}
