@@ -386,8 +386,9 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
   flex-wrap: nowrap;
   overflow-x: auto;
   padding: 1rem 0 1.5rem;
-  padding-left: 1.25rem; /* small breathing room on the left so first card isn't cut off */
-  scroll-padding-left: 1.25rem;
+  /* ensure the first card clears the fixed sidebar: add extra left padding */
+  padding-left: calc(var(--sidebar-width,220px) + 0.75rem);
+  scroll-padding-left: calc(var(--sidebar-width,220px) + 0.75rem);
 }
 
 .card-list.carousel .card {
@@ -397,7 +398,12 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
 }
 
 @media (min-width: 900px) {
-  .card-list.carousel { padding-left: 2rem; scroll-padding-left: 2rem; }
+  .card-list.carousel { padding-left: calc(var(--sidebar-width,220px) + 1rem); scroll-padding-left: calc(var(--sidebar-width,220px) + 1rem); }
+}
+
+/* On very small screens (sidebar becomes static) reduce padding */
+@media (max-width: 900px) {
+  .card-list.carousel { padding-left: 1rem; scroll-padding-left: 1rem; }
 }
 
 .card-list.carousel .card img {
