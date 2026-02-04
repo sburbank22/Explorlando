@@ -33,7 +33,7 @@ if (discountsBtn) {
 // Map specific button text to placeholder pages provided by collaborators
 ;(function wireNamedButtons() {
 	const mappings = [
-		{ re: /available discounts/i, href: 'discounts.html' },
+		{ re: /available discounts/i, href: 'availablediscounts.html' },
 		{ re: /open lobby/i, href: 'lobby.html' }
 	];
 
