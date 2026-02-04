@@ -29,3 +29,42 @@ if (discountsBtn) {
 		window.location.href = 'discounts.html';
 	});
 }
+
+// Filters: simple keyword-based client-side filtering for attraction cards
+(function () {
+	const filtersRoot = document.querySelector('.filters-dropdown');
+	if (!filtersRoot) return;
+
+	const cards = Array.from(document.querySelectorAll('.card-list .card'));
+
+	function getCheckedValues(name) {
+		return Array.from(filtersRoot.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value.toLowerCase());
+	}
+
+	function cardMatches(card, types, amusements) {
+		const text = (card.textContent || '').toLowerCase();
+
+		// If no filters selected in a group, treat it as matching
+		const typeOk = types.length === 0 || types.some(t => text.includes(t));
+		const amuseOk = amusements.length === 0 || amusements.some(a => text.includes(a));
+		return typeOk && amuseOk;
+	}
+
+	function applyFilters() {
+		const types = getCheckedValues('type');
+		const amusements = getCheckedValues('amusement');
+
+		cards.forEach(card => {
+			if (cardMatches(card, types, amusements)) {
+				card.style.display = '';
+			} else {
+				card.style.display = 'none';
+			}
+		});
+	}
+
+	// Listen for changes inside the filters dropdown
+	filtersRoot.addEventListener('change', applyFilters);
+	// Also apply filters when the dropdown opens/closes (in case defaults exist)
+	filtersRoot.addEventListener('toggle', applyFilters);
+})();
