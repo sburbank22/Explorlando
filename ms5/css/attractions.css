@@ -386,9 +386,17 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
   flex-wrap: nowrap;
   overflow-x: auto;
   padding: 1rem 0 1.5rem;
-  /* ensure the first card clears the fixed sidebar: add extra left padding */
-  padding-left: calc(var(--sidebar-width,220px) + 0.75rem);
+  /* remove static left padding so scroll range includes spacer pseudo-element */
+  padding-left: 0;
   scroll-padding-left: calc(var(--sidebar-width,220px) + 0.75rem);
+}
+
+/* Spacer element as first flex child so the scroll area includes the sidebar width
+   allowing the user to scroll the carousel fully to reveal the first card. */
+.card-list.carousel::before {
+  content: "";
+  flex: 0 0 calc(var(--sidebar-width,220px) + 0.75rem);
+  width: calc(var(--sidebar-width,220px) + 0.75rem);
 }
 
 .card-list.carousel .card {
@@ -398,12 +406,14 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
 }
 
 @media (min-width: 900px) {
-  .card-list.carousel { padding-left: calc(var(--sidebar-width,220px) + 1rem); scroll-padding-left: calc(var(--sidebar-width,220px) + 1rem); }
+  .card-list.carousel { scroll-padding-left: calc(var(--sidebar-width,220px) + 1rem); }
+  .card-list.carousel::before { flex-basis: calc(var(--sidebar-width,220px) + 1rem); width: calc(var(--sidebar-width,220px) + 1rem); }
 }
 
-/* On very small screens (sidebar becomes static) reduce padding */
+/* On small screens where the sidebar is static, shrink the spacer so cards sit closer to the left edge */
 @media (max-width: 900px) {
-  .card-list.carousel { padding-left: 1rem; scroll-padding-left: 1rem; }
+  .card-list.carousel { scroll-padding-left: 1rem; }
+  .card-list.carousel::before { flex-basis: 1rem; width: 1rem; }
 }
 
 .card-list.carousel .card img {
