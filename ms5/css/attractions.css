@@ -333,6 +333,11 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
   font-size: 1rem;
   border: none;
   cursor: pointer;
+  display: inline-block;
+  text-decoration: none; /* anchors with this class should not be underlined */
+  text-align: center;
+  line-height: 1;
+  font-family: inherit;
 }
 
 
