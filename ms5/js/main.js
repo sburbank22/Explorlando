@@ -20,35 +20,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-// Discounts button placeholder navigation (attractions page)
+// Discounts button: navigate to the featured discounts landing page created by a collaborator
 const discountsBtn = document.getElementById('discounts-btn');
 if (discountsBtn) {
-	discountsBtn.addEventListener('click', (e) => {
-		e.preventDefault();
-		// Placeholder: navigate to discounts.html (teammate will create this page later)
-		window.location.href = 'discounts.html';
-	});
+  discountsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'featureddiscountspage.html';
+  });
 }
 
-// Map specific button text to placeholder pages provided by collaborators
+// Map specific button text to collaborator pages; supports page-specific Available Discounts
 ;(function wireNamedButtons() {
-	const mappings = [
-		{ re: /available discounts/i, href: 'availablediscounts.html' },
-		{ re: /open lobby/i, href: 'lobby.html' }
-	];
+	const path = (window.location.pathname || '');
+	const page = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
 
 	// Find all buttons on the page and attach navigation when text matches
 	const buttons = Array.from(document.querySelectorAll('button'));
 	buttons.forEach(btn => {
 		const txt = (btn.textContent || '').trim();
-		mappings.forEach(m => {
-			if (m.re.test(txt)) {
-				btn.addEventListener('click', (e) => {
-					e.preventDefault();
-					window.location.href = m.href;
-				});
-			}
-		});
+
+		// Available Discounts: map to page-specific collaborator pages when available
+		if (/available discounts/i.test(txt)) {
+			let href = 'availablediscounts.html';
+			if (page === 'alligator-farm.html') href = 'babyjoeysalligatorfarmavailablediscounts.html';
+			else if (page === 'skyline-rooftop.html') href = 'skylinerooftoploungeavailablediscounts.html';
+
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				window.location.href = href;
+			});
+			return;
+		}
+
+		// Open Lobby mapping
+		if (/open lobby/i.test(txt)) {
+			btn.addEventListener('click', (e) => {
+				e.preventDefault();
+				window.location.href = 'lobby.html';
+			});
+			return;
+		}
 	});
 })();
 
