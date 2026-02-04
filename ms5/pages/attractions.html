@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorlando</title>
+  <!--style.css for global style-->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/attractions.css">
+</head>
+<body class="attractions-page">
+
+  <header>
+    <div class="header-inner">
+    <h1><img src="../images/logo.png" alt="Explorlando" class="site-logo" height="36" style="width:auto;"></h1>
+      <div class="account">
+        <div class="avatar" aria-hidden="true"></div>
+        <span>My Account</span>
+      </div>
+    </div>
+  </header>
+  <div class="page">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#" class="selected">Attractions</a></li>
+          <li><a href="#">Open Lobby</a></li>
+          <li><a href="#">Spotlight</a></li>
+          <li><a href="#">For Businesses</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="page-header">
+        <h1>Local Attractions</h1>
+      </div>
+
+      <section class="intro">
+        <h2 class="subheading">Have some fun while you're in Orlando!</h2>
+      </section>
+
+      <section class="search-section">
+        <div class="search-row">
+          <div class="search-bar" role="search">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input type="search" placeholder="search your interest..." aria-label="Search attractions">
+            <details class="filters-dropdown" aria-label="Filters">
+              <summary>Filters</summary>
+              <div class="filter-sections">
+                <details class="filter-group">
+                  <summary>Attraction Type</summary>
+                  <div class="types-list" role="group" aria-label="Attraction types">
+                    <label><input type="checkbox" name="type" value="family"> Family</label>
+                    <label><input type="checkbox" name="type" value="museums"> Museums / Cultural</label>
+                    <label><input type="checkbox" name="type" value="food"> Food / Drink</label>
+                    <label><input type="checkbox" name="type" value="parks"> Parks / Natural</label>
+                    <label><input type="checkbox" name="type" value="shopping"> Shopping</label>
+                    <label><input type="checkbox" name="type" value="outdoors"> Outdoors</label>
+                    <label><input type="checkbox" name="type" value="indoors"> Indoors</label>
+                    <label><input type="checkbox" name="type" value="historic"> Historic</label>
+                    <label><input type="checkbox" name="type" value="arts"> Arts & Performance</label>
+                    <label><input type="checkbox" name="type" value="nightlife"> Nightlife</label>
+                  </div>
+                </details>
+
+                <details class="filter-group">
+                  <summary>Amusement</summary>
+                  <div class="filter-list" role="group" aria-label="Amusement options">
+                    <label><input type="checkbox" name="amusement" value="rides"> Rides</label>
+                    <label><input type="checkbox" name="amusement" value="arcade"> Arcade</label>
+                    <label><input type="checkbox" name="amusement" value="mini-golf"> Mini Golf</label>
+                  </div>
+                </details>
+              </div>
+            </details>
+          </div>
+          <button class="search-btn" aria-label="Search (placeholder)">Search</button>
+        </div>
+      </section>
+
+      <section class="card-list carousel">
+        <a href="alligator-farm.html" class="card">
+          <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
+          <h2>Baby Joey’s Alligator Farm</h2>
+          <p>Family-friendly wildlife experience featuring rescued alligators.</p>
+        </a>
+
+        <a href="skyline-rooftop.html" class="card">
+          <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
+          <h2>Skyline Rooftop Lounge</h2>
+          <p>Rooftop dining and city views in downtown Orlando.</p>
+        </a>
+
+        <a href="orangegroveminigolfpage.html" class="card">
+          <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
+          <h2>Orange Grove Mini Golf</h2>
+          <p>Playful mini-golf course set among orange groves — family fun for all ages.</p>
+        </a>
+
+        <a href="wintertownbotanicalgardenpage.html" class="card">
+          <img src="../images/botanical.jpg" alt="Winter Town Botanical Trails">
+          <h2>Winter Town Botanical Trails</h2>
+          <p>Scenic botanical trails featuring native flora and peaceful walking paths.</p>
+        </a>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <p>© Explorlando</p>
+  </footer>
+
+</main>
+
+  <!-- Discounts button placeholder: fixed bottom-center of the viewport -->
+  <button id="discounts-btn" class="discounts-btn" aria-label="Discounts (placeholder)">Discounts</button>
+
+  <script src="../js/main.js"></script>
+</body>
+
+

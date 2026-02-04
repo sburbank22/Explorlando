@@ -1,0 +1,603 @@
+/* 
+   ATTRACTIONS.CSS
+   Page-specific styles for Attractions, Saved, and Detail
+   Global layout, colors, typography, and navigation
+   are handled by base.css 
+    */
+
+
+/* 
+   GLOBAL VARIABLES — MOVED TO base.css
+ */
+/*
+:root {
+  --blue: #0b86a8;
+  --green: #2f9e44;
+  --grass: #60b86b;
+  --orange: #ff8c42;
+  --bg: #fbfbf9;
+  --card-bg: #ffffff;
+  --text: #12343b;
+  --muted: #6b7280;
+  --shadow: rgba(16,24,40,0.06);
+  --cta-yellow: #ffdba8;
+  --header-height: 72px;
+  --lime: #a8e063;
+  --indigo: #4c51bf;
+  --light-blue: #d9f1ff;
+  --sidebar-width: 220px;
+}
+*/
+
+
+/* 
+   GLOBAL ELEMENT & LAYOUT STYLES — MOVED TO base.css
+ */
+/*
+body { ... }
+header { ... }
+footer { ... }
+main { ... }
+h1 { ... }
+.page { ... }
+.sidebar { ... }
+.header-inner { ... }
+.account { ... }
+.avatar { ... }
+*/
+
+/* ------------------------------------------------------------------
+   Re-introduced layout styles (header, sidebar, account/avatar)
+   These were previously commented out; kept scoped and non-destructive
+------------------------------------------------------------------ */
+
+/* Header / title bar */
+header {
+  background: linear-gradient(90deg, rgba(168,224,99,0.12), rgba(168,224,99,0.06));
+  padding: 0 1.25rem;
+  height: var(--header-height,72px);
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Site title color (ensure visibility on all header backgrounds) */
+.header-inner h1 { color: var(--orange, #ff8c42); }
+
+/* Page layout with fixed sidebar */
+.page {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+:root { --sidebar-width: 220px; }
+
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--lime, #a8e063);
+  color: white;
+  border-radius: 12px;
+  padding: 0.75rem;
+  box-shadow: 0 8px 22px var(--shadow, rgba(16,24,40,0.06));
+  position: fixed;
+  top: var(--header-height,72px);
+  left: 1.25rem;
+  bottom: 0;
+  overflow: auto;
+}
+
+/* shift main content over to the right of the fixed sidebar */
+main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
+
+@media (max-width: 900px) {
+  .page { flex-direction: column; padding: 0 1rem; }
+  .sidebar { position: static; width: 100%; display: flex; gap: 0.5rem; overflow-x: auto; height: auto; }
+  .sidebar nav { display: flex; }
+  .sidebar nav ul { display: flex; gap: 0.5rem; }
+  .sidebar nav li { margin: 0; }
+  main { margin-left: 0; }
+}
+
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text, #12343b);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* blue to green gradient background */
+  background: linear-gradient(135deg, var(--blue, #0b86a8), var(--green, #2f9e44));
+}
+
+.avatar::before {
+  content: "";
+  width: 62%;
+  height: 62%;
+  display: block;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23000000' d='M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.866 0-7 3.134-7 7h2c0-2.761 2.239-5 5-5s5 2.239 5 5h2c0-3.866-3.134-7-7-7z'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Sidebar navigation default styles (desktop) */
+.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
+.sidebar nav li { margin-bottom: 0.6rem; }
+.sidebar a { display: block; color: rgba(255,255,255,0.95); text-decoration: none; padding: 0.6rem 0.8rem; border-radius: 10px; font-weight: 600; }
+.sidebar a:hover { background: rgba(255,255,255,0.08); }
+.sidebar a.selected { background: #ffffff; color: var(--lime, #a8e063); font-weight:700; }
+
+/* Visual grouping for sidebar links into sections */
+.sidebar nav li:nth-child(3) { margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.6rem; }
+.sidebar nav li:nth-child(5) { margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.6rem; }
+
+
+
+/* 
+   ATTRACTIONS-SCOPED HEADER & SIDEBAR OVERRIDES
+ */
+
+.attractions-page header {
+  background: var(--blue, #0b86a8);
+}
+
+.attractions-page .sidebar {
+  background: var(--blue, #0b86a8);
+}
+
+.attractions-page .sidebar a.selected {
+  color: var(--blue, #0b86a8);
+}
+
+.attractions-page .header-inner h1 {
+  color: var(--orange, #ff8c42);
+}
+
+/* Logo sizing used in place of the textual site title */
+.site-logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;     /* standard site logo height */
+  width: auto;
+  max-width: 220px;
+}
+
+@media (max-width: 900px) {
+  .site-logo { height: 36px; }
+}
+
+@media (max-width: 480px) {
+  .site-logo { height: 32px; }
+}
+
+/* Filters dropdown groups */
+.filter-sections { padding-top: 0.5rem; display:flex; flex-direction:column; gap:0.5rem; }
+.filter-group summary { cursor: pointer; font-size: 0.95rem; font-weight:600; padding:0.25rem 0; }
+
+/* Scrollable list for Attraction Type */
+.types-list { display:flex; flex-direction:column; gap:0.4rem; max-height: 140px; overflow-y: auto; padding-right: 0.4rem; }
+.types-list label { font-size: 0.95rem; color: var(--text); }
+
+/* small visual tweak for nested filter lists */
+.filter-list { display:flex; flex-direction:column; gap:0.4rem; }
+.filter-list label { font-size: 0.95rem; color: var(--text); }
+
+/* Filters container visuals (non-destructive, attractions-scoped) */
+.filters-dropdown { border-left: 1px solid rgba(18,52,59,0.06); padding-left: 0.6rem; margin-left: 0.4rem; color: var(--muted); }
+.filters-dropdown summary { list-style: none; }
+.filters-dropdown summary::after { content: '▾'; display: inline-block; margin-left: 0.5rem; font-size: 0.75rem; transform: translateY(1px); transition: transform 120ms ease; }
+.filters-dropdown[open] summary::after { content: '▴'; transform: translateY(0); }
+
+/* Visual for nested group summaries */
+.filter-group { background: transparent; padding: 0.25rem 0; }
+.filter-group summary::marker, .filter-group summary::-webkit-details-marker { display:none; }
+
+/* Scrollbar styling for types list (subtle) */
+.types-list::-webkit-scrollbar { width: 8px; }
+.types-list::-webkit-scrollbar-thumb { background: rgba(18,52,59,0.08); border-radius: 6px; }
+.types-list { -ms-overflow-style: auto; scrollbar-width: thin; }
+
+/* Make labels easier to tap */
+.types-list label, .filter-list label { padding: 0.18rem 0.2rem; display: flex; gap: 0.6rem; align-items: center; }
+
+
+/* 
+   PAGE HEADERS & SECTION TITLES
+ */
+
+.page-header {
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.page-header h1 {
+  display: inline-block;
+  background: var(--lime, #a8e063);
+  color: #000;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.section-title {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green, #2f9e44);
+}
+
+
+/*
+   CARD LAYOUTS (ATTRACTIONS & SAVED)
+ */
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 14px;
+  padding: 0.75rem;
+  box-shadow: 0 6px 18px var(--shadow, rgba(16,24,40,0.06));
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  width: calc(50% - 1.25rem);
+  max-width: 520px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 40%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: var(--text, #12343b);
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted, #6b7280);
+}
+
+.category {
+  font-size: 0.85rem;
+  color: var(--orange, #ff8c42);
+}
+
+
+/* 
+   BUTTONS (ATTRACTIONS FEATURE)
+*/
+
+/* Save / View Attraction button */
+.primary-btn {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.95rem;
+  background-color: var(--grass, #60b86b);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* When attraction is saved and becomes a link */
+.primary-btn.view {
+  background-color: var(--blue, #0b86a8);
+  text-decoration: none;
+}
+
+/* Larger CTA buttons */
+.btn-cta {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  background-color: var(--cta-yellow, #ffdba8);
+  color: var(--text, #12343b);
+  border-radius: 12px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* 
+   SEARCH & FILTERS (ATTRACTIONS PAGE)
+ */
+
+.search-section {
+  max-width: 1100px;
+  margin: 0 auto 1rem;
+}
+
+.search-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search-bar {
+  background: #eef2f6;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  display: flex;
+  flex: 1;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+}
+
+.search-btn {
+  background: var(--blue, #0b86a8);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* 
+   CAROUSEL (FEATURED ATTRACTIONS)
+ */
+
+.card-list.carousel {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 1rem 0 1.5rem;
+  /* shift the scrollable container left by the sidebar width while keeping
+     an inner left padding so the full first card can be scrolled into view */
+  margin-left: calc(-1 * var(--sidebar-width,220px));
+  padding-left: calc(var(--sidebar-width,220px) + 1rem);
+  scroll-padding-left: calc(var(--sidebar-width,220px) + 1rem);
+}
+
+.card-list.carousel .card {
+  width: 300px;
+  flex: 0 0 auto;
+  flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .card-list.carousel { padding-left: calc(var(--sidebar-width,220px) + 1rem); scroll-padding-left: calc(var(--sidebar-width,220px) + 1rem); }
+}
+
+/* On small screens where the sidebar becomes static, reset the margin and reduce padding */
+@media (max-width: 900px) {
+  .card-list.carousel { margin-left: 0; padding-left: 1rem; scroll-padding-left: 1rem; }
+}
+
+.card-list.carousel .card img {
+  width: 100%;
+  height: 160px;
+}
+
+
+/* 
+   SAVED & FAVORITED ATTRACTIONS PAGE */
+
+.saved-page main {
+  text-align: center;
+}
+
+.saved-page .card {
+  background: var(--light-blue, #d9f1ff);
+  width: calc(50% - 0.625rem);
+  flex-direction: column;
+}
+
+.saved-cards {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* 
+   DETAIL PAGES */
+
+.detail {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 22px var(--shadow, rgba(16,24,40,0.06));
+  display: flex;
+  gap: 1rem;
+}
+
+.detail img {
+  width: 48%;
+  border-radius: 10px;
+}
+
+.detail .detail-content {
+  width: 52%;
+}
+
+
+/* 
+   DISCOUNTS BUTTON (FEATURE-SPECIFIC) */
+
+.discounts-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: var(--blue, #0b86a8);
+  color: #000;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 1200;
+}
+
+.discounts-btn:hover {
+  filter: brightness(0.95);
+}
+
+
+/* 
+   RESPONSIVE */
+
+@media (max-width: 700px) {
+  .card {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .detail {
+    flex-direction: column;
+  }
+
+  .detail img,
+  .detail .detail-content {
+    width: 100%;
+  }
+
+  .search-row {
+    flex-direction: column;
+  }
+}
+/* 
+   SETTINGS PAGE (FEATURE-SPECIFIC) */
+
+.settings-page main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* Main gray card */
+.settings-card {
+  background: #e0e0e0;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+}
+
+/* Page title */
+.settings-card h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* Section blocks */
+.settings-section {
+  border-top: 2px solid #000;
+  padding: 1.25rem 0;
+}
+
+.settings-section:first-of-type {
+  border-top: none;
+}
+
+/* Section headers */
+.settings-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Individual rows */
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Help link */
+.help-link {
+  color: #0000ee;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+/* TOGGLE SWITCH
+    */
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #999;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.25s;
+}
+
+.toggle input:checked + .slider {
+  background-color: #7b7bff;
+}
+
+.toggle input:checked + .slider::before {
+  transform: translateX(22px);
+}
