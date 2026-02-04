@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-// once everything is uploaded, link discounts page 
 // Discounts button placeholder navigation (attractions page)
 const discountsBtn = document.getElementById('discounts-btn');
 if (discountsBtn) {
