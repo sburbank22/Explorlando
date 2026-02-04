@@ -138,6 +138,17 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
   background-position: center;
 }
 
+/* Sidebar navigation default styles (desktop) */
+.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
+.sidebar nav li { margin-bottom: 0.6rem; }
+.sidebar a { display: block; color: rgba(255,255,255,0.95); text-decoration: none; padding: 0.6rem 0.8rem; border-radius: 10px; font-weight: 600; }
+.sidebar a:hover { background: rgba(255,255,255,0.08); }
+.sidebar a.selected { background: #ffffff; color: var(--lime, #a8e063); font-weight:700; }
+
+/* Visual grouping for sidebar links into sections */
+.sidebar nav li:nth-child(3) { margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.6rem; }
+.sidebar nav li:nth-child(5) { margin-top: 0.6rem; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.6rem; }
+
 
 
 /* 
@@ -375,12 +386,18 @@ main { margin-left: calc(var(--sidebar-width) + 2.25rem); }
   flex-wrap: nowrap;
   overflow-x: auto;
   padding: 1rem 0 1.5rem;
+  padding-left: 1.25rem; /* small breathing room on the left so first card isn't cut off */
+  scroll-padding-left: 1.25rem;
 }
 
 .card-list.carousel .card {
   width: 300px;
   flex: 0 0 auto;
   flex-direction: column;
+}
+
+@media (min-width: 900px) {
+  .card-list.carousel { padding-left: 2rem; scroll-padding-left: 2rem; }
 }
 
 .card-list.carousel .card img {
