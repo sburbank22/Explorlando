@@ -30,6 +30,28 @@ if (discountsBtn) {
 	});
 }
 
+// Map specific button text to placeholder pages provided by collaborators
+;(function wireNamedButtons() {
+	const mappings = [
+		{ re: /available discounts/i, href: 'discounts.html' },
+		{ re: /open lobby/i, href: 'lobby.html' }
+	];
+
+	// Find all buttons on the page and attach navigation when text matches
+	const buttons = Array.from(document.querySelectorAll('button'));
+	buttons.forEach(btn => {
+		const txt = (btn.textContent || '').trim();
+		mappings.forEach(m => {
+			if (m.re.test(txt)) {
+				btn.addEventListener('click', (e) => {
+					e.preventDefault();
+					window.location.href = m.href;
+				});
+			}
+		});
+	});
+})();
+
 // Filters: simple keyword-based client-side filtering for attraction cards
 (function () {
 	const filtersRoot = document.querySelector('.filters-dropdown');
