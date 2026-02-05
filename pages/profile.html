@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body class="profile-page">
+
+    <header class="top-bar">
+        <a class="logo" href="login.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <a href="profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item" href="login.html">Login</a>
+            <a class="nav-item active" href="profile.html">Profile</a>
+            <a class="nav-item" href="#">About Us</a>
+            <a class="nav-item" href="#">Attractions</a>
+            <a class="nav-item" href="#">Open Lobby</a>
+            <a class="nav-item" href="#">Explorlando Spotlight</a>
+            <a class="nav-item" href="#">For Businesses</a>
+            <a class="nav-item" href="#">Settings</a>
+        </nav>
+
+        <main class="profile-main">
+
+            <button class="back-btn" type="button" onclick="goToLogin()" aria-label="Back">
+                &#8592;
+            </button>
+
+            <!-- Welcome banner -->
+            <div class="welcome-banner profile-welcome">
+                Hello, welcome Sarah
+            </div>
+            <!-- Sarah message will be dynamic later -->
+
+
+            <!-- Personal Information -->
+            <section class="profile-card">
+                <h3 class="card-title">Personal Information</h3>
+
+                <div class="profile-row">
+                    <div class="photo-circle">
+                        <button type="button" class="photo-btn">
+                            Upload an Image<br>+
+                        </button>
+                    </div>
+
+                    <div class="profile-fields">
+                        <label>Display Name:</label>
+                        <input type="text" name="displayName" placeholder="Sarah S">
+
+                        <label>Email:</label>
+                        <input type="email" name="email" placeholder="sarahsmith@email.com">
+
+                        <label>Date of Birth:</label>
+                        <input type="date" name="dob" placeholder="MM/DD/YYYY">
+
+                        <label>Phone Number:</label>
+                        <input type="text" name="phone" placeholder="(000) 000-0000">
+                    </div>
+                </div>
+            </section>
+
+            <!-- More Information -->
+            <section class="profile-card">
+                <h3 class="card-title">More Information</h3>
+
+                <label>Change Username:</label>
+                <input type="text" name="username">
+
+                <label>Change Password:</label>
+                <input type="password" name="password">
+            </section>
+
+            <!-- Bio / Pronouns / Interests -->
+            <section class="profile-card">
+                <label>Bio:</label>
+                <textarea name="bio" placeholder="Tell us about yourself..."></textarea>
+
+                <label>Pronouns:</label>
+                <input type="text" name="pronouns" placeholder="she/her">
+
+                <label>Interests:</label>
+                <textarea name="interests" placeholder="What are you interested in?..."></textarea>
+
+                <button type="button" class="profile-btn-secondary">
+                    View saved &amp; favorite attractions
+                </button>
+            </section>
+
+            <!-- Edit button -->
+            <button type="button" class="profile-btn-primary" onclick="goToEditProfile()">
+                Edit Info
+            </button>
+
+        </main>
+
+    </div>
+</body>
+
+</html>
