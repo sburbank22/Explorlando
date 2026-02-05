@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title> Explorlando About Us Page</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Logo and profile icon css */
+    .top-bar {
+        height: 60px;
+        background: #b7d87a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #ff8c2b;
+    }
+
+    .account {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .account img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Sidebar section */
+    .sidebar {
+        width: 220px;
+        background: #c3df8b;
+        padding-top: 20px;
+    }
+
+    .sidebar a {
+        display: block;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar a.active {
+        background: white;
+        border-radius: 20px 0 0 20px;
+    }
+
+    /* Layout, main content, body section */
+    .container {
+        display: flex;
+        height: calc(100vh - 60px);
+    }
+
+    body {
+        margin: 0;
+        background: #f5f5f5;
+
+    }
+
+    .content {
+        flex: 1;
+        background: white;
+        padding: 30px;
+        position: relative;
+        overflow-y: auto;
+    }
+
+
+    .pill {
+        background: #b7d87a;
+        border-radius: 40px;
+        padding: 20px 40px;
+        display: block;
+        font-size: 36px;
+        margin: 0 auto 20px;
+        text-align: center;
+        width: fit-content;
+
+    }
+
+    .story-box {
+        background: #b7d87a;
+        border-radius: 40px;
+        padding: 30px;
+        max-width: 700px;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        margin: 0 auto;
+
+    }
+
+    .team {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .groupteam {
+        width: 100px;
+        height: auto;
+    }
+
+    .contact {
+        background: #38c4c6;
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 25px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- Top Bar Section -->
+    <div class="top-bar">
+        <div class="logo">
+            <img src="img/ExplorlandoLogo.png" alt="logo" width="200" height="100">
+        </div>
+        <div class="account">
+            <img src="img/ProfileIconImage.png" alt="profile icon">
+        </div>
+    </div>
+    <!-- Main Layout -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="https://www.apple.com" target="_blank">Profile</a>
+            <a href="https://www.apple.com" target="_blank" class="active">About Us</a>
+            <a href="https://www.apple.com" target="_blank">Attractions</a>
+            <a href="https://www.apple.com" target="_blank">Open Lobby</a>
+            <a href="https://www.apple.com" target="_blank">Local Spotlight</a>
+            <a href="https://www.apple.com" target="_blank">For Businesses</a>
+            <a href="https://www.apple.com" target="_blank">Settings</a>
+        </div>
+
+
+        <!-- Content -->
+        <div class="content">
+
+            <div class="pill">About Explorlando</div>
+
+            <div class="story-box">
+                Explorlando is a community based platform designed for students, visitors, local
+                residents/organizations, and anyone located in Central Florida. Explorlando was designed with the goal
+                to make everyday needs easily accessible, such as finding nearby events, planning date nights,food
+                spots, other attractions to plan your weekend trips! The purpose is to create a more connected
+                experience for the Central Florida community!
+            </div>
+
+            <div class="team">
+                <h3>MEET THE TEAM:</h3>
+                <img src="img/TeamImage.png" alt="team description" width="800" height="400">
+            </div>
+
+            <div class="contact">
+                CONTACT US!<br>
+                407-555-5555<br>
+                Explorlando@email.com
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

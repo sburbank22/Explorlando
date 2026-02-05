@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Explorlando Orange Grove Mini Golf</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #eaeaea;
+        }
+
+        /* Top window bar */
+        .top-bar {
+            height: 60px;
+            background: #b7d87a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .red {
+            background: #ff5f56;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #27c93f;
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            height: calc(100vh - 50px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background: #c3df8b;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a.active {
+            background: white;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .logo {
+            background: white;
+            border-radius: 18px;
+            padding: 10px 16px;
+            font-size: 26px;
+            font-weight: bold;
+            color: orange;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            font-size: 20px;
+            margin: 18px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid black;
+            width: fit-content;
+        }
+
+        .menu-item.active {
+            background: white;
+            border-radius: 20px;
+            padding: 8px 20px;
+            border: none;
+        }
+
+        /* Main content */
+        .content {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: #f9b45c;
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        .c1 {
+            width: 260px;
+            height: 260px;
+            top: 80px;
+            left: 140px;
+        }
+
+        .c2 {
+            width: 140px;
+            height: 140px;
+            top: 40px;
+            left: 360px;
+        }
+
+        .c3 {
+            width: 110px;
+            height: 110px;
+            top: 220px;
+            left: 430px;
+        }
+
+        .c4 {
+            width: 90px;
+            height: 90px;
+            bottom: 120px;
+            left: 220px;
+        }
+
+        /* Title pill */
+        .title-pill {
+            background: #ffd55f;
+            padding: 30px 50px;
+            border-radius: 60px;
+            font-size: 32px;
+
+            width: fit-content;
+            margin-left: 420px;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Description box */
+        .desc-box {
+            background: #2ec4c6;
+            color: black;
+            padding: 40px;
+            border-radius: 40px;
+            width: 520px;
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 50px;
+            margin-left: 420px;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .golf {
+            width: 260px;
+            height: 260px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 200px;
+            left: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .golf img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+
+        }
+
+
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px auto 0;
+            width: 100%;
+            position: absolute;
+            left: 220px;
+        }
+
+        .btn {
+            background: #ffd55f;
+            padding: 25px 40px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+
+
+        /* Account icon */
+
+        .account {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(#63d8c6, #f7e36b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .account img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="logo">
+            <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
+        </div>
+        <div class="account">
+            <img src="img/ProfileIconImage.png" alt="profile icon">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <a href="https://www.apple.com" target="_blank">Profile</a>
+            <a href="https://www.apple.com" target="_blank" class="active">About Us</a>
+            <a href="https://www.apple.com" target="_blank">Attractions</a>
+            <a href="https://www.apple.com" target="_blank">Open Lobby</a>
+            <a href="https://www.apple.com" target="_blank">Local Spotlight</a>
+            <a href="https://www.apple.com" target="_blank">For Businesses</a>
+            <a href="https://www.apple.com" target="_blank">Settings</a>
+        </div>
+
+        <div class="content">
+            <!-- Decorative circles -->
+            <div class="circle c1"></div>
+            <div class="circle c2"></div>
+            <div class="circle c3"></div>
+            <div class="circle c4"></div>
+
+            <div class="title-pill">Winter Town Botanical Trails</div>
+
+            <div class="desc-box">
+                A peaceful botanical garden filled with seasonal blooms and cozy winter charm. Perfect for slow walks,
+                quiet moments, and nature lovers of all ages.
+
+            </div>
+
+            <div class="golf">
+                <img src="img/WinterTownBotanicalTrails.png" alt="golf">
+            </div>
+
+            <div class="buttons">
+                <a href="https://www.apple.com" target="_blank" class="btn">
+                    Purchase Tickets
+                </a>
+                <a href="https://www.apple.com" target="_blank" class="btn">
+                    Open Lobby
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
