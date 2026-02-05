@@ -17,7 +17,6 @@
         }
 
         /*  Top Bar , menu, account section */
-
         .top-bar {
             display: flex;
             align-items: center;
@@ -75,7 +74,6 @@
             height: 100vh;
         }
 
-
         .sidebar {
             width: 220px;
             background: #36c3c7;
@@ -103,7 +101,7 @@
             position: relative;
         }
 
-        /* button sections */
+        /* Button sections */
         .menu a {
             display: block;
             padding: 12px;
@@ -232,8 +230,7 @@
             font-size: 36px;
         }
 
-
-        /* coupon/discounts sections */
+        /* Coupon/discounts sections */
         .discount-card {
             background: #cfcfcf;
             border-radius: 50px;
@@ -246,7 +243,6 @@
             font-size: 48px;
             margin-bottom: 30px;
         }
-
 
         .coupon {
             display: flex;
@@ -284,21 +280,20 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="top-barone">
+        <div class="top-barone">
         <div class="logo">
             <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
         </div>
         <div class="account">
             <a href="profile.html">
             <img src="img/ProfileIconImage.png" alt="profile icon">
-             </a>
+            </a>
         </div>
-    </div>
+        </div>
 
-    <div class="wrapper">
+        <div class="wrapper">
         <!-- Sidebar -->
               <div class="sidebar">
                <a href="profile.html">Profile</a>
@@ -308,88 +303,76 @@
                <a href="spotlight.html">Local Spotlight</a>
                <a href="for_business.html">For Businesses</a>
                <a href="settings.html">Settings</a>
-              </div>
-
-
-
+         </div>
+            
         <div class="main">
+        <div class="circle small"></div>
 
-            <div class="circle small"></div>
-
-            <!-- Top bar section -->
-
-            <div class="top-bar">
-
-                <div class="search-box">
-
-                    <input type="text" placeholder="Search Discounts">
-                </div>
-
-                <div class="filter">
-                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
-                    <div class="filter-menu" id="filterMenu">
-                        <div>Attraction Type</div>
-                        <div>Price Range</div>
-                    </div>
-                </div>
-
-                <button class="search-btn">Search</button>
-            </div>
-
-            <!-- Header -->
-            <div class="header">
-                <span>Available Discounts</span>
-            </div>
-            <br>
-            <br>
-            <!-- Discount section -->
-            <div class="discount-card">
-                <h1>Baby Joeys Alligator Farm</h1>
-
-                <div class="coupon">
-                    <div class="coupon-left">
-                        <div class="green-dot"></div>
-                        <div class="coupon-text">15% off Ticket Prices</div>
-                    </div>
-
-                    <div class="coupon-middle">
-                        Apply code <strong>GATOR</strong> to checkout to receive discount!
-                    </div>
-
-                    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-
-                </div>
-
-                <div class="buttons">
-                    <a href="alligator-farm.html" class="btn">
-                        View Attraction Details
-                    </a>
-                    <a href="https://www.wildfloridairboats.com/book-gator-park-tickets" class="btn">
-                        Checkout
-                    </a>
-                </div>
-
-
-            </div>
-
+        <!-- Top bar section -->
+        <div class="top-bar">
+        <div class="search-box">
+             <input type="text" placeholder="Search Discounts">
         </div>
-    </div>
+               
+        <div class="filter">
+        <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+        <div class="filter-menu" id="filterMenu">
+              <div>Attraction Type</div>
+              <div>Price Range</div>
+        </div>
+        </div>
 
-    </div>
-    </div>
- <!-- javascript section -->
-    <script>
-        function copyCode() {
-            navigator.clipboard.writeText("GATOR");
-            alert("Code copied: GATOR");
+         <button class="search-btn">Search</button>
+         </div>
+            
+         <!-- Header -->
+        <div class="header">
+            <span>Available Discounts</span>
+        </div>
+        <br>
+        <br>
+            
+         <!-- Discount section -->
+         <div class="discount-card">
+             <h1>Baby Joeys Alligator Farm</h1>
+
+          <div class="coupon">
+          <div class="coupon-left">
+          <div class="green-dot"></div>
+          <div class="coupon-text">15% off Ticket Prices</div>
+          </div>
+
+         <div class="coupon-middle">
+              Apply code <strong>GATOR</strong> to checkout to receive discount!
+         </div>
+
+         <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+         </div>
+
+         <div class="buttons">
+         <a href="alligator-farm.html" class="btn">
+               View Attraction Details
+         </a>
+         <a href="https://www.wildfloridairboats.com/book-gator-park-tickets" class="btn">
+                        Checkout
+        </a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- javascript section -->
+        <script>
+               function copyCode() {
+                navigator.clipboard.writeText("GATOR");
+                alert("Code copied: GATOR");
         }
 
-        function toggleFilter() {
-            const menu = document.getElementById("filterMenu");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
+              function toggleFilter() {
+              const menu = document.getElementById("filterMenu");
+              menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
     </script>
-
-</body>
-
-</html>
+    </body>
+    </html>
