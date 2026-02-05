@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Explorlando Available Discounts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f3f3;
+        }
+
+        /*  Layout  */
+        .wrapper {
+            display: flex;
+            height: 100vh;
+        }
+
+        /*  Sidebar  */
+        .sidebar {
+            width: 220px;
+            background: #36c3c7;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar a.active {
+            background: white;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .logo {
+            background: white;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: orange;
+            margin-bottom: 30px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            color: black;
+            text-decoration: none;
+            border-bottom: 2px solid black;
+        }
+
+        .menu a.active {
+            background: white;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /*  Main Content */
+        .main {
+            flex: 1;
+            background: white;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        /*  Top Bar  */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-btn {
+            width: 55px;
+            height: 55px;
+            background: #35c6c8;
+            border-radius: 50%;
+            color: white;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .top-barone {
+
+            height: 60px;
+            background: #36c3c7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+
+        .top-bar {
+
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+        }
+
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 10px 20px;
+            flex: 1;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            width: 100%;
+            outline: none;
+        }
+
+        .filter {
+            position: relative;
+        }
+
+        .filter-btn {
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 12px 30px;
+            cursor: pointer;
+        }
+
+        .filter-menu {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+        }
+
+        .filter-menu div {
+            padding: 10px 0;
+            border-bottom: 1px solid #999;
+        }
+
+        .search-btn {
+            background: #ffb655;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        /*  Header  */
+        .header {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .header span {
+            background: #8fd39a;
+            padding: 12px 60px;
+            border-radius: 30px;
+            font-size: 36px;
+        }
+
+        /*  Discount Card  */
+        .discount-card {
+            background: #cfcfcf;
+            border-radius: 50px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .discount-card h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        /*  Coupon Bar  */
+        .coupon {
+            display: flex;
+            align-items: center;
+            background: #e6e6e6;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .coupon-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .green-dot {
+            width: 30px;
+            height: 30px;
+            background: #45d14a;
+            border-radius: 50%;
+        }
+
+        .coupon-text {
+            font-size: 22px;
+        }
+
+        .coupon-middle {
+            border-left: 3px solid black;
+            padding: 20px;
+            font-size: 22px;
+            flex: 2;
+        }
+
+        .copy-btn {
+            background: #8fd39a;
+            border: none;
+            font-size: 24px;
+            padding: 20px 30px;
+            cursor: pointer;
+        }
+
+        /*  button section  */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .btn {
+            background: #8fd39a;
+            padding: 25px 40px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+        /* Decorative Circles*/
+        .circle {
+            position: absolute;
+            background: rgba(255, 180, 90, 0.8);
+            border-radius: 50%;
+        }
+
+        .circle.big {
+            width: 140px;
+            height: 140px;
+            top: 20px;
+            right: 80px;
+        }
+
+        .circle.small {
+            width: 80px;
+            height: 80px;
+            top: 110px;
+            right: 30px;
+
+        }
+
+        /* profile icon */
+        .account {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(#63d8c6, #f7e36b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .account img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+         <div class="top-barone">
+         <div class="logo">
+            <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
+         </div>
+         <div class="account">
+            <a href="profile.html">
+            <img src="img/ProfileIconImage.png" alt="profile icon">
+            </a>
+        </div>
+        </div>
+
+         <div class="wrapper">
+        <!-- Sidebar -->
+            <div class="sidebar">
+               <a href="profile.html">Profile</a>
+               <a href="aboutus.html">About Us</a>
+               <a href="attractions.html" class="active">Attractions</a>
+               <a href="open-lobby.html">Open Lobby</a>
+               <a href="spotlight.html">Local Spotlight</a>
+               <a href="for_business.html">For Businesses</a>
+               <a href="settings.html">Settings</a>
+          </div>
+
+        <!-- Main -->
+        <div class="main">
+        <div class="circle small"></div>
+            
+        <!-- Top bar -->
+        <div class="top-bar">
+            
+        <div class="search-box"> 
+             <input type="text" placeholder="Search Discounts">
+        </div>
+
+        <div class="filter">
+        <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+        <div class="filter-menu" id="filterMenu">
+            <div>Attraction Type</div>
+            <div>Price Range</div>
+        </div>
+        </div>
+
+         <button class="search-btn">Search</button>
+         </div>
+
+            <!-- Header -->
+        <div class="header">
+            <span>Available Discounts</span>
+        </div>
+            <br>
+            <br>
+            <!-- Discount Card -->
+         <div class="discount-card">
+            <h1>Orange Grove Mini Golf</h1>
+         <div class="coupon">
+         <div class="coupon-left">
+         <div class="green-dot"></div>
+         <div class="coupon-text">10 off of admission</div>
+         </div>
+
+        <div class="coupon-middle">
+                        Apply code <strong>10OFF</strong> to checkout to receive discount!
+        </div>
+
+             <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+        </div>
+        <div class="buttons">
+            <a href="orangegroveminigolfpage.html" class="btn">
+                        View Attraction Details
+            </a>
+            <a href="https://popstroke.com" class="btn">
+                        Checkout
+            </a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    <script>
+        function copyCode() {
+        navigator.clipboard.writeText("10off");
+        alert("Code copied: 10off");
+        }
+
+        function toggleFilter() {
+        const menu = document.getElementById("filterMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
