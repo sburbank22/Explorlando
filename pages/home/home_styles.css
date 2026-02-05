@@ -41,6 +41,14 @@ header {
     padding: 15px 25px;
     border-radius: 20px;
     box-shadow: 0 2px 8px var(--shadow);
+    overflow: hidden;
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin: -10px 0;
 }
 
 /* text for the logo*/
@@ -149,6 +157,7 @@ header {
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 /*hover for extra coolness, i think this is working right */

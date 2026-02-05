@@ -36,6 +36,16 @@ header {
     padding: 15px 25px;
     border-radius: 20px;
     box-shadow: 0 2px 8px var(--shadow);
+    text-decoration: none;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin: -10px 0;
 }
 
 .logo-text {
@@ -235,10 +245,7 @@ nav a.active {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card-badge::before {
-    content: '📍';
-    font-size: 20px;
-}
+
 
 .card-image {
     width: 100%;
