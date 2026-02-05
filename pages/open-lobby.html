@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Explorlando | Open Lobby</title>
+  <link rel="stylesheet" href="../css/global.css" />
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="open-lobby.html" class="logo">
+      <img src="../images/explorlando.png" alt="Explorlando Logo">
+    </a>
+
+    <a href="account.html" class="account-btn">
+      <div class="avatar"></div>
+      <span>My Account</span>
+    </a>
+
+  </header>
+
+  <aside class="sidebar">
+    <a href="profile.html" class="nav-btn">Profile</a>
+    <a href="about.html" class="nav-btn">About Us</a>
+    <a href="attractions.html" class="nav-btn">Attractions</a>
+    <a href="open-lobby.html" class="nav-btn active">Open Lobby</a>
+    <a href="spotlight.html" class="nav-btn">Explorlando Spotlight</a>
+    <a href="businesses.html" class="nav-btn">For Businesses</a>
+    <a href="settings.html" class="nav-btn">Settings</a>
+  </aside>
+
+
+  <main class="content">
+
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+
+    <div class="title">Open Lobby</div>
+
+    <div class="description">
+      <h3>What is Open Lobby?</h3>
+      <p>
+        Open Lobby allows you to join parties with groups of other Explorlando users.
+        Think of it as a way to participate in a shared experience — share costs,
+        share rides, and share memories with new friends!
+      </p>
+    </div>
+
+    <div class="search-row">
+      <input type="text" placeholder="Match with a Group..." />
+
+      <button class="filter-btn" id="filterToggle">
+        Filter ▼
+      </button>
+
+      <a href="search.html" class="search-btn">Search</a>
+
+      <div class="dropdown" id="filterMenu">
+        <div>Amusement</div>
+        <div>Family</div>
+        <div>Museums / Cultural</div>
+        <div>Food / Drink</div>
+      </div>
+    </div>
+
+    <a href="open-lobby-available-groups.html" class="action-btn available">
+      Available Groups
+    </a>
+
+    <a href="open-lobby-joined-groups.html" class="action-btn joined">
+      Joined Groups
+    </a>
+
+  </main>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
