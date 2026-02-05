@@ -313,21 +313,20 @@
         }
     </style>
 </head>
-
 <body>
 
-    <div class="top-barone">
-        <div class="logo">
+         <div class="top-barone">
+         <div class="logo">
             <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
-        </div>
-        <div class="account">
+         </div>
+         <div class="account">
             <a href="profile.html">
             <img src="img/ProfileIconImage.png" alt="profile icon">
             </a>
         </div>
-    </div>
+        </div>
 
-    <div class="wrapper">
+         <div class="wrapper">
         <!-- Sidebar -->
             <div class="sidebar">
                <a href="profile.html">Profile</a>
@@ -341,87 +340,70 @@
 
         <!-- Main -->
         <div class="main">
+        <div class="circle small"></div>
+            
+        <!-- Top bar -->
+        <div class="top-bar">
+            
+        <div class="search-box"> 
+             <input type="text" placeholder="Search Discounts">
+        </div>
 
+        <div class="filter">
+        <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+        <div class="filter-menu" id="filterMenu">
+            <div>Attraction Type</div>
+            <div>Price Range</div>
+        </div>
+        </div>
 
-            <div class="circle small"></div>
-
-            <!-- Top bar -->
-
-            <div class="top-bar">
-
-               
-
-                <div class="search-box">
-                   
-                    <input type="text" placeholder="Search Discounts">
-                </div>
-
-                <div class="filter">
-                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
-                    <div class="filter-menu" id="filterMenu">
-                        <div>Attraction Type</div>
-                        <div>Price Range</div>
-                    </div>
-                </div>
-
-                <button class="search-btn">Search</button>
-            </div>
+         <button class="search-btn">Search</button>
+         </div>
 
             <!-- Header -->
-            <div class="header">
-                <span>Available Discounts</span>
-            </div>
+        <div class="header">
+            <span>Available Discounts</span>
+        </div>
             <br>
             <br>
             <!-- Discount Card -->
-            <div class="discount-card">
-                <h1>Orange Grove Mini Golf</h1>
+         <div class="discount-card">
+            <h1>Orange Grove Mini Golf</h1>
+         <div class="coupon">
+         <div class="coupon-left">
+         <div class="green-dot"></div>
+         <div class="coupon-text">10 off of admission</div>
+         </div>
 
-                <div class="coupon">
-                    <div class="coupon-left">
-                        <div class="green-dot"></div>
-                        <div class="coupon-text">10 off of admission</div>
-                    </div>
-
-                    <div class="coupon-middle">
+        <div class="coupon-middle">
                         Apply code <strong>10OFF</strong> to checkout to receive discount!
-                    </div>
-
-                    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-
-
-                </div>
-
-                <div class="buttons">
-                    <a href="orangegroveminigolfpage.html" class="btn">
-                        View Attraction Details
-                    </a>
-                    <a href="https://popstroke.com" class="btn">
-                        Checkout
-                    </a>
-                </div>
-
-
-            </div>
-
         </div>
-    </div>
 
-    </div>
-    </div>
-
+             <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+        </div>
+        <div class="buttons">
+            <a href="orangegroveminigolfpage.html" class="btn">
+                        View Attraction Details
+            </a>
+            <a href="https://popstroke.com" class="btn">
+                        Checkout
+            </a>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
     <script>
         function copyCode() {
-            navigator.clipboard.writeText("10off");
-            alert("Code copied: 10off");
+        navigator.clipboard.writeText("10off");
+        alert("Code copied: 10off");
         }
 
         function toggleFilter() {
-            const menu = document.getElementById("filterMenu");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        const menu = document.getElementById("filterMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
     </script>
-
 </body>
-
 </html>
