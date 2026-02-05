@@ -44,16 +44,14 @@
             font-family: Arial, sans-serif;
 
         }
-
-
-
+        
         /*  Layout  */
         .container {
             display: flex;
             height: 100vh;
         }
 
-        /* ===== Sidebar ===== */
+        /*  Sidebar  */
         .sidebar {
             width: 220px;
             background: #36c3c7;
@@ -100,7 +98,7 @@
             font-weight: bold;
         }
 
-        /* ===== Main ===== */
+        /*  Main  */
         .main {
             flex: 1;
             padding: 20px 40px;
@@ -108,7 +106,7 @@
             position: relative;
         }
 
-        /* ===== Top Bar ===== */
+        /*  Top Bar  */
         .top-barone {
 
             height: 60px;
@@ -120,12 +118,9 @@
         }
 
         .top-bar {
-
-
             display: flex;
             align-items: center;
             gap: 20px;
-
         }
 
 
@@ -242,25 +237,24 @@
             height: 100%;
             object-fit: cover;
         }
-    </style>
-</head>
+      </style>
+    </head>
+   <body>
 
-<body>
-
-    <div class="top-barone">
+        <div class="top-barone">
         <div class="logo">
             <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
         </div>
         <div class="account">
             <a href="profile.html">
             <img src="img/ProfileIconImage.png" alt="profile icon">
-             </a>
+         </a>
         </div>
-    </div>
+        </div>
 
-    <div class="container">
+        <div class="container">
         <!-- Sidebar -->
-          <div class="sidebar">
+        <div class="sidebar">
                <a href="profile.html">Profile</a>
                <a href="aboutus.html">About Us</a>
                <a href="attractions.html" class="active">Attractions</a>
@@ -269,92 +263,73 @@
                <a href="for_business.html">For Businesses</a>
                <a href="settings.html">Settings</a>
           </div>
-
-
-        <!-- Main -->
+        <!-- Main section -->
         <div class="main">
+        <div class="top-bar">
+        <div class="search-box">
+             <input type="text" placeholder="Search Discounts">
+         </div>
+            
+         <div class="filter">
+         <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+         <div class="filter-menu" id="filterMenu">
+              <div>Attraction Type</div>
+              <div>Price Range</div>
+         </div>
+         </div>
 
+         <button class="search-btn">Search</button>
+         </div>
 
+        <!-- Featured section -->
+         <div class="featured">
+             <span>Featured Deals</span>
+             <h2>Save On Local Attractions</h2>
+         </div>
 
-            <div class="top-bar">
-
-                <div class="search-box">
-                    <input type="text" placeholder="Search Discounts">
-                </div>
-
-                <div class="filter">
-                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
-                    <div class="filter-menu" id="filterMenu">
-                        <div>Attraction Type</div>
-                        <div>Price Range</div>
-                    </div>
-                </div>
-
-                <button class="search-btn">Search</button>
-            </div>
-
-
-
-
-            <!-- Featured -->
-            <div class="featured">
-                <span>Featured Deals</span>
-                <h2>Save On Local Attractions</h2>
-            </div>
-
-            <!-- Cards -->
-            <div class="cards">
-                <div class="card">
-                    <h3>Baby Joeys Alligator Farm</h3>
-                    <img src="img/Alligatorimage.jpg" alt="">
-
-                    <a href="babyjoeysalligatorfarmavailablediscounts.html" class="btn">
+         <!-- Cards section -->
+         <div class="cards">
+         <div class="card">
+            <h3>Baby Joeys Alligator Farm</h3>
+            <img src="img/Alligatorimage.jpg" alt="">
+            <a href="babyjoeysalligatorfarmavailablediscounts.html" class="btn">
                         15% off Ticket
-                    </a>
+         </a>
+         </div>
 
-
-                </div>
-
-                <div class="card">
-                    <h3>Orange Grove Mini Golf</h3>
-                    <img src="img/GolfImage.jpeg" alt="">
-
-                    <a href="orangegroveminigolfavailablediscounts.html" class="btn">
+        <div class="card">
+             <h3>Orange Grove Mini Golf</h3>
+             <img src="img/GolfImage.jpeg" alt="">
+             <a href="orangegroveminigolfavailablediscounts.html" class="btn">
                         $10 off Admission
-                    </a>
-
-
-                </div>
-
-                <div class="card">
-                    <h3>Skyline Rooftop Lounge</h3>
-                    <img src="img/RooftopImage.jpeg" alt="">
-                    <a href="skylinerooftoploungeavailablediscounts.html" class="btn">
-                        30% off Food
-                    </a>
-
-
-                </div>
-
-                <div class="card">
-                    <h3>Winter Town Botanical Trails</h3>
-                    <img src="img/WinterTownBotanicalTrails.png" alt="">
-                    <a href="wintertownbotanicaltrailsavailablediscounts.html" class="btn">
-                        BOGO Ticket
-                    </a>
-                </div>
-            </div>
-
+        </a>
         </div>
-    </div>
+             
+        <div class="card">
+            <h3>Skyline Rooftop Lounge</h3>
+            <img src="img/RooftopImage.jpeg" alt="">
+            <a href="skylinerooftoploungeavailablediscounts.html" class="btn">
+                        30% off Food
+        </a>
+        </div>
 
-    <script>
-        function toggleFilter() {
+         <div class="card">
+             <h3>Winter Town Botanical Trails</h3>
+             <img src="img/WinterTownBotanicalTrails.png" alt="">
+             <a href="wintertownbotanicaltrailsavailablediscounts.html" class="btn">
+                        BOGO Ticket
+             </a>
+        </div>
+        </div>
+        </div>
+        </div>
+       
+      <script>
+            function toggleFilter() {
             const menu = document.getElementById("filterMenu");
             menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
-    </script>
+       </script>
 
-</body>
-
-</html>
+       </body>
+       </html>
