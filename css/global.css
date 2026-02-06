@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+.top-bar {
+  height: 80px;
+  background: #f9b158;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.logo {
+  display: inline-block;
+  margin: 15px 5px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.account-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #6ed1c6;
+  margin: 0 auto 4px;
+}
+
+.account-btn span {
+  font-size: 12px;
+}
+
+.nav-btn,
+.account-btn {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 230px;
+  height: calc(100vh - 80px);
+  background: #f9b158;
+  padding-top: 30px;
+}
+
+.nav-btn {
+  width: 100%;
+  padding: 14px 30px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  background: #fff;
+  border-radius: 30px 0 0 30px;
+}
+
+.content {
+  margin-left: 230px;
+  padding: 40px;
+  position: relative;
+  min-height: calc(100vh - 80px);
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(249, 177, 88, 0.6);
+  z-index: 0;
+}
+
+.c1 {
+  width: 200px;
+  height: 200px;
+  top: 90px;
+  right: 200px;
+}
+
+.c2 {
+  width: 140px;
+  height: 140px;
+  bottom: 160px;
+  left: 150px;
+}
+
+.c3 {
+  width: 260px;
+  height: 260px;
+  bottom: 100px;
+  right: 120px;
+}
+
+.title {
+  background: #ffd966;
+  padding: 20px 50px;
+  border-radius: 45px;
+  font-size: 42px;
+  font-weight: 600;
+  width: fit-content;
+  margin: 0 auto 25px;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.description {
+  background: #ffd966;
+  padding: 30px 45px;
+  border-radius: 40px;
+  width: 75%;
+  margin: 0 auto 50px;
+  text-align: center;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+.search-row {
+  width: 80%;
+  margin: 0 auto 60px;
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 16px 22px;
+  font-size: 18px;
+  border-radius: 30px 0 0 30px;
+  border: none;
+  background: #e0e0e0;
+  outline: none;
+}
+
+.filter-btn {
+  padding: 16px 20px;
+  background: #e0e0e0;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.search-btn {
+  padding: 16px 28px;
+  background: #f9b158;
+  color: white;
+  font-size: 22px;
+  border-radius: 0 30px 30px 0;
+  text-decoration: none;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 65px;
+  right: 110px;
+  width: 230px;
+  background: #d9d9d9;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.dropdown div {
+  padding: 12px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #aaa;
+}
+
+.dropdown div:last-child {
+  border-bottom: none;
+}
+
+.action-btn {
+  display: block;
+  margin: 35px auto;
+  padding: 22px 60px;
+  font-size: 36px;
+  border-radius: 55px;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 1;
+  width: 60%;
+}
+
+.available {
+  background: #b9d987;
+}
+
+.joined {
+  background: #8fd3a5;
+}
+
+.back-btn {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 45px;
+  height: 45px;
+  background: #4fc3c7;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  line-height: 45px;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 5;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.back-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.sub-title {
+  background: #b9d987;
+  padding: 18px 50px;
+  border-radius: 45px;
+  font-size: 36px;
+  font-weight: 600;
+  width: fit-content;
+  margin: 30px auto 40px;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}

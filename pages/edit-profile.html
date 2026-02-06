@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/edit-profile.css">
+
+</head>
+
+<body class="profile-page edit-profile-page">
+
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <a href="profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item active" href="login.html">Login</a>
+            <a class="nav-item" href="profile.html">Profile</a>
+            <a class="nav-item" href="../aboutus.html">About Us</a>
+            <a class="nav-item" href="../ms5/pages/attractions.html">Attractions</a>
+            <a class="nav-item" href="../pages/open-lobby.html">Open Lobby</a>
+            <a class="nav-item" href="../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../pages/for_business/for_business.html">For Businesses</a>
+            <a class="nav-item" href="../ms5/pages/settings.html">Settings</a>
+        </nav>
+
+        <main class="profile-main">
+
+            <!-- Header row (back + banner) -->
+            <div class="edit-header">
+                <button class="back-btn" type="button" onclick="goToProfile()" aria-label="Back">
+                    &#8592;
+                </button>
+
+
+                <div class="welcome-banner profile-welcome">
+                    Hello, welcome Sarah
+                </div>
+            </div>
+
+
+            <!-- Personal Information -->
+            <section class="profile-card">
+                <h3 class="card-title">Personal Information</h3>
+
+                <div class="profile-row">
+                    <div class="photo-circle">
+                        <button type="button" class="photo-btn">
+                            Upload an Image<br>+
+                        </button>
+                    </div>
+
+                    <div class="profile-fields">
+                        <label>Display Name:</label>
+                        <input type="text" value="Sarah">
+
+                        <label>Email:</label>
+                        <input type="email" value="sarah@email.com">
+
+                        <label>Date of Birth:</label>
+                        <input type="text" value="MM/DD/YYYY">
+
+                        <label>Phone Number:</label>
+                        <input type="text" value="(000) 000-0000">
+                    </div>
+                </div>
+            </section>
+
+            <!-- More Information -->
+            <section class="profile-card">
+                <h3 class="card-title">More Information</h3>
+
+                <label>Change Username:</label>
+                <input type="text" placeholder="New username">
+
+                <label>Change Password:</label>
+                <input type="password" placeholder="New password">
+            </section>
+
+            <!-- Bio / Pronouns / Interests -->
+            <section class="profile-card">
+                <label>Bio:</label>
+                <textarea placeholder="Tell us about yourself..."></textarea>
+
+                <label>Pronouns:</label>
+                <input type="text" placeholder="she/her">
+
+                <label>Interests:</label>
+                <textarea placeholder="What are you interested in?..."></textarea>
+            </section>
+
+            <!-- Save button -->
+            <button class="profile-btn-primary" type="button" onclick="goToProfile()">
+                Save Changes
+            </button>
+
+        </main>
+
+    </div>
+
+    <script>
+        function goToProfile() {
+            window.location.href = "profile.html";
+        }
+    </script>
+</body>
+
+</html>

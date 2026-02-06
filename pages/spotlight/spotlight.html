@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorlando Spotlight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="spotlight_styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="../home/home.html" class="logo">
+            <img src="images/design_1.png" alt="Explorlando Logo" class="logo-img">
+        </a>
+        <div class="profile-section">
+            <div class="profile-btn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+            </div>
+            <span class="profile-label">My account</span>
+        </div>
+    </header>
+
+    <div class="layout">
+        <nav>
+            <li><a href="../login.html">Login</a></li>
+            <li><a href="../profile.html">Profile</a></li>
+            <li><a href="../../aboutus.html">About Us</a></li>
+            <li><a href="../../ms5/pages/attractions.html">Attractions</a></li>
+            <li><a href="../open-lobby.html">Open Lobby</a></li>
+            <li><a href="spotlight.html" class="active">Explorlando Spotlight</a></li>
+            <li><a href="../../pages/for_business/for_business.html">For Businesses</a></li>
+            <li><a href="../../ms5/pages/settings.html">Settings</a></li>
+        </nav>
+
+        <main class="main-content">
+            <section class="hero">
+                <h1>Explorlando Spotlight</h1>
+                <div class="hero-content">
+                    <h2>What is Explorlando Spotlight?</h2>
+                    <p>Explorlando Spotlight is a unique offering that highlights the hidden gems of the Central Florida
+                        area in a weekly rotation. Discover something new each week!</p>
+                </div>
+            </section>
+
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2>Featured Attractions</h2>
+                </div>
+
+                <div class="attractions-grid">
+                    <div class="attraction-card" data-attraction="baby-joey">
+                        <div class="card-content">
+                            <h3>Baby Joey's<br>Alligator Farm</h3>
+                            <div class="card-badge"></div>
+                        </div>
+                        <div class="card-image">
+                            <img src="images/gators.jpg" alt="Baby Joey's Alligator Farm">
+                        </div>
+                    </div>
+
+                    <div class="attraction-card" data-attraction="skyline">
+                        <div class="card-content">
+                            <h3>Skyline Rooftop<br>Lounge</h3>
+                            <div class="card-badge"></div>
+                        </div>
+                        <div class="card-image">
+                            <img src="images/roof.jpg" alt="Skyline Rooftop Lounge">
+                        </div>
+                    </div>
+
+                    <div class="attraction-card" data-attraction="winter-town">
+                        <div class="card-content">
+                            <h3>Winter Town<br>Botanical Trails</h3>
+                            <div class="card-badge"></div>
+                        </div>
+                        <div class="card-image">
+                            <img src="images/botanical.jpg" alt="Winter Town Botanical Trails">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <h3>Have an attraction that you'd like to market?</h3>
+                <p>Apply for Explorlando Spotlight today!</p>
+                <a href="../for_business/for_business.html" class="cta-button">Spotlight YOUR Attraction!</a>
+            </section>
+        </main>
+    </div>
+
+
+</body>
+
+</html>

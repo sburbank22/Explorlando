@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*colors*/
+:root {
+    --sunshine: #FFD97A;
+    --tangerine: #FFB366;
+    --mint: #8BD88B;
+    --seafoam: #6BC9A8;
+    --ocean: #4DB8B8;
+    --slate: #333;
+    --cream: #F5F0E8;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/*fonts*/
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/*yellow header bar*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    background: var(--sunshine);
+}
+
+/*logo space*/
+.logo {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px var(--shadow);
+    overflow: hidden;
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin: -10px 0;
+}
+
+/* text for the logo*/
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--tangerine);
+}
+
+/* profile area*/
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+/* profile button */
+.profile-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--ocean);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px solid #FFD700;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+/*profile image */
+.profile-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: var(--slate);
+}
+
+/*profile text */
+.profile-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--slate);
+}
+
+/*background image */
+.home-main {
+    flex: 1;
+    background-image: url('images/orlando.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+}
+
+/*background settings */
+.home-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+/*logo container */
+.logo-container {
+    background: white;
+    padding: 50px 80px;
+    border-radius: 60px;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/*logo stats */
+.main-logo {
+    max-width: 600px;
+    height: auto;
+    display: block;
+}
+
+/*menu spacing */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+/*individual menu icons spacing*/
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+/*hover for extra coolness, i think this is working right */
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+/*indivdiual icons for menu */
+.menu-item img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*menu item text */
+.menu-item p {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/*slogan/tagline spacing */
+.tagline {
+    background: var(--mint);
+    padding: 25px 60px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/*slogan text */
+.tagline p {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--slate);
+    text-align: center;
+    margin: 0;
+}

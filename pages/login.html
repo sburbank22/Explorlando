@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando | Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body class="login-page">
+
+    <!-- Header bar -->
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <!-- My account button -->
+        <a href="profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <main class="login-container">
+
+        <div class="welcome-banner">
+            Welcome to Explorlando
+        </div>
+
+        <form class="login-card">
+
+            <div class="login-title">
+                <span class="login-badge">Login</span>
+            </div>
+
+            <input type="text" name="username" placeholder="Username / Email" autocomplete="username">
+            <input type="password" name="password" placeholder="Password" autocomplete="current-password">
+
+            <a href="#" class="forgot">Forgot Password?</a>
+
+            <!-- Forgot Password flow will be implemented in backend phase -->
+
+            <div class="login-actions">
+                <button type="button" onclick="goToCreateAccount1()">Create Account</button>
+                <button type="button" onclick="goToProfile()">Log In</button>
+            </div>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

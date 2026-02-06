@@ -1,0 +1,59 @@
+.groups-container {
+  width: 85%;
+  margin: 0 auto;
+  background: #c9c9c9;
+  border-radius: 30px;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.group-card {
+  background: #e0e0e0;
+  border-radius: 40px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.group-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 260px;
+}
+
+.status-dot {
+  width: 26px;
+  height: 26px;
+  background: #4cd964;
+  border-radius: 50%;
+}
+
+.spots-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.divider {
+  width: 2px;
+  height: 40px;
+  background: #000;
+}
+
+.group-name {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.group-details-btn {
+  background: #8fd3a5;
+  padding: 14px 26px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+}

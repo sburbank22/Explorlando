@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando | Create Account - Step 1</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/create-account.css">
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body class="create-account-page">
+
+
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left nav bar -->
+        <nav class="side-nav">
+            <a class="nav-item active" href="login.html">Login</a>
+            <a class="nav-item" href="profile.html">Profile</a>
+            <a class="nav-item" href="../aboutus.html">About Us</a>
+            <a class="nav-item" href="../ms5/pages/attractions.html">Attractions</a>
+            <a class="nav-item" href="../pages/open-lobby.html">Open Lobby</a>
+            <a class="nav-item" href="../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../pages/for_business/for_business.html">For Businesses</a>
+            <a class="nav-item" href="../ms5/pages/settings.html">Settings</a>
+        </nav>
+
+
+        <main class="auth-container create-account-main">
+
+            <button class="back-btn" type="button" onclick="goToLogin()" aria-label="Back to Login">
+                &#8592;
+            </button>
+
+            <div class="welcome-banner">
+                Join the Fun!
+            </div>
+
+            <form class="login-card">
+
+                <div class="login-title">
+                    <span class="login-badge">Sign Up:</span>
+                </div>
+
+                <input type="text" name="firstName" placeholder="First Name" autocomplete="given-name">
+                <input type="text" name="lastName" placeholder="Last Name" autocomplete="family-name">
+                <input type="email" name="email" placeholder="Email" autocomplete="email">
+                <input type="password" name="password" placeholder="Password" autocomplete="new-password">
+                <input type="password" name="confirmPassword" placeholder="Confirm Password"
+                    autocomplete="new-password">
+
+                <div class="login-actions">
+                    <button type="button" onclick="goToLogin()">Back</button>
+                    <button type="button" onclick="goToCreateAccount2()">Next</button>
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
