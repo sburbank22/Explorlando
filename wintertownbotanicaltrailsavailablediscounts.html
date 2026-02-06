@@ -105,7 +105,7 @@
             justify-content: space-between;
             padding: 0 20px;
         }
-        
+
         .top-bar {
             display: flex;
             align-items: center;
@@ -289,7 +289,7 @@
 
         }
 
-          /*  Profile icon */
+        /*  Profile icon */
         .account {
             width: 40px;
             height: 40px;
@@ -308,97 +308,100 @@
         }
     </style>
 </head>
+
 <body>
 
-        <div class="top-barone">
+    <div class="top-barone">
         <div class="logo">
             <img src="img/ExplorlandoLogo.png" alt="logo" width="168" height="220">
         </div>
         <div class="account">
             <a href="profile.html">
-            <img src="img/ProfileIconImage.png" alt="profile icon">
+                <img src="img/ProfileIconImage.png" alt="profile icon">
             </a>
         </div>
-        </div>
+    </div>
 
-        <div class="wrapper">
+    <div class="wrapper">
         <!-- Sidebar -->
-         <div class="sidebar">
-               <a href="profile.html">Profile</a>
-               <a href="aboutus.html">About Us</a>
-               <a href="attractions.html" class="active">Attractions</a>
-               <a href="open-lobby.html">Open Lobby</a>
-               <a href="spotlight.html">Local Spotlight</a>
-               <a href="for_business.html">For Businesses</a>
-               <a href="settings.html">Settings</a>
-          </div>
+        <div class="sidebar">
+            <a href="../Explorlando/pages/login.html">Login</a>
+            <a href="../Explorlando/pages/profile.html">Profile</a>
+            <a href="../Explorlando/aboutus.html">About Us</a>
+            <a href="../Explorlando/ms5/pages/attractions.html" class="active">Attractions</a>
+            <a href="../Explorlando/pages/open-lobby.html">Open Lobby</a>
+            <a href="../Explorlando/pages/spotlight/spotlight.html">Local Spotlight</a>
+            <a href="../Explorlando/pages/for_business/for_business.html">For Businesses</a>
+            <a href="../Explorlando/ms5/pages/settings.html">Settings</a>
+        </div>
 
         <!-- Main -->
         <div class="main">
-        <div class="circle small"></div>
+            <div class="circle small"></div>
             <!-- Top bar -->
-         <div class="top-bar">
-         <div class="search-box">
-             <input type="text" placeholder="Search Discounts">
-         </div>
-             
-         <div class="filter">
-         <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
-         <div class="filter-menu" id="filterMenu">
-               <div>Attraction Type</div>
-               <div>Price Range</div>
-         </div>
-         </div>
-               <button class="search-btn">Search</button>
-         </div>
+            <div class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search Discounts">
+                </div>
+
+                <div class="filter">
+                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+                    <div class="filter-menu" id="filterMenu">
+                        <div>Attraction Type</div>
+                        <div>Price Range</div>
+                    </div>
+                </div>
+                <button class="search-btn">Search</button>
+            </div>
 
             <!-- Header -->
-         <div class="header">
+            <div class="header">
                 <span>Available Discounts</span>
-         </div>
-               <br>
-               <br>
+            </div>
+            <br>
+            <br>
             <!-- Discount Card -->
-        <div class="discount-card">
-             <h1>Winter Town Botanical Trails</h1>
+            <div class="discount-card">
+                <h1>Winter Town Botanical Trails</h1>
 
-        <div class="coupon">
-        <div class="coupon-left">
-        <div class="green-dot"></div>
-             <div class="coupon-text">Buy One, Get One Free </div>
-        </div>
+                <div class="coupon">
+                    <div class="coupon-left">
+                        <div class="green-dot"></div>
+                        <div class="coupon-text">Buy One, Get One Free </div>
+                    </div>
 
-        <div class="coupon-middle">
+                    <div class="coupon-middle">
                         Apply code <strong>BOGO</strong> to checkout to receive discount!
-        </div>
-             <button class="copy-btn" onclick="copyCode()">Copy Code</button>
-         </div>
-            
-        <div class="buttons">
-            <a href="wintertownbotanicalgardenpage.html" class="btn">
+                    </div>
+                    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+                </div>
+
+                <div class="buttons">
+                    <a href="wintertownbotanicalgardenpage.html" class="btn">
                         View Attraction Details
-            </a>
-            <a href="https://meadgarden.org" class="btn">
+                    </a>
+                    <a href="https://meadgarden.org" class="btn">
                         Checkout
-            </a>
+                    </a>
+                </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 
     <script>
-            function copyCode() {
+        function copyCode() {
             navigator.clipboard.writeText("BOGO");
             alert("Code copied: BOGO");
         }
 
-            function toggleFilter() {
+        function toggleFilter() {
             const menu = document.getElementById("filterMenu");
             menu.style.display = menu.style.display === "block" ? "none" : "block";
         }
     </script>
 
 </body>
+
 </html>

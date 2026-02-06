@@ -114,3 +114,17 @@
     display: block;
     margin: 20px auto 0;
 }
+
+.profile-page .profile-btn-secondary {
+    display: inline-block;
+    background-color: #ffd966;
+    ;
+    color: #000000;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 20px auto 0;
+    cursor: pointer;
+}
