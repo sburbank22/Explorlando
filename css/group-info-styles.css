@@ -14,7 +14,7 @@
   padding: 25px 40px;
   text-align: center;
   margin-bottom: 40px;
-  box-shadow: 0 5px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.15);
 }
 
 .details-header h2 {
@@ -44,7 +44,7 @@
   border-radius: 45px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
   text-align: center;
   text-decoration: none;
   display: block;
@@ -63,10 +63,10 @@
 
 .details-btn:hover {
   transform: translateY(3px);
-  box-shadow: 0 3px 0 rgba(0,0,0,0.25);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 .details-btn:active {
   transform: translateY(6px);
-  box-shadow: 0 0 0 rgba(0,0,0,0.25);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
 }

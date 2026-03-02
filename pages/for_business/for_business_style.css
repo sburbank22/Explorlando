@@ -25,87 +25,9 @@ body {
     overflow-x: hidden;
 }
 
-/*yellow header bar*/
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    background: var(--sunshine);
-}
-
-/*logo space*/
-.logo {
-    background: white;
-    padding: 15px 25px;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px var(--shadow);
-    text-decoration: none;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.logo-img {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin: -10px 0;
-}
-
-/*logo font*/
-.logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--tangerine);
-}
-
-/*profile align*/
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-/*profile button*/
-.profile-btn {
-    width: 50px;
-    height: 50px;
-    background: var(--ocean);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 3px solid #FFD700;
-    box-shadow: 0 2px 8px var(--shadow);
-}
-
-/*profile button image*/
-.profile-btn svg {
-    width: 26px;
-    height: 26px;
-    fill: var(--slate);
-}
-
-.profile-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--slate);
-}
-
 .layout {
     display: flex;
     min-height: calc(100vh - 110px);
-}
-
-/*navigation bar*/
-nav {
-    width: 220px;
-    background: var(--sunshine);
-    padding: 0;
-    flex-shrink: 0;
 }
 
 /*navigation bar list spacing*/
@@ -116,26 +38,6 @@ nav ul {
     gap: 0;
 }
 
-/*bottom border spacing*/
-nav li {
-    border-bottom: 2px solid var(--slate);
-}
-
-/*nav bar text*/
-nav a {
-    display: block;
-    padding: 20px 30px;
-    text-decoration: none;
-    color: var(--slate);
-    font-weight: 500;
-    font-size: 18px;
-}
-
-/*nav bar white on selected*/
-nav a.active {
-    background: white;
-    font-weight: 600;
-}
 
 /*background*/
 .main-content {

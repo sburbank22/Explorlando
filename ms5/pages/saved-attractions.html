@@ -3,90 +3,84 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorlando</title>
-  <!--style.css for global style-->
-  <link rel="stylesheet" href="../css/style.css">
+  <title>Explorlando | Saved Attractions</title>
+
+  <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../css/attractions.css">
 </head>
 
 <body class="saved-page">
 
-  <header>
-    <div class="header-inner">
-      <h1> <a href="../../pages/home/home.html"> <img src="../images/logo.png" alt="Explorlando" class="site-logo"
-            height="36" style="width:auto;"> </a> </h1>
-      <div class="account">
-        <div class="avatar" aria-hidden="true"></div>
-        <span>My Account</span>
-      </div>
-    </div>
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
+
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../../pages/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
   </header>
-  <div class="page">
-    <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><a href="../../../Explorlando/pages/Login.html">Login</a></li>
-          <li><a href="../../../Explorlando/pages/profile.html">Profile</a></li>
-          <li><a href="../../aboutus.html">About Us</a></li>
-          <li><a href="../pages/attractions.html" class="selected">Attractions</a></li>
-          <li><a href="../../pages/open-lobby.html">Open Lobby</a></li>
-          <li><a href="../../pages/spotlight/spotlight.html">Spotlight</a></li>
-          <li><a href="../../pages/for_business/for_business.html">For Businesses</a></li>
-          <li><a href="../pages/settings.html">Settings</a></li>
-        </ul>
-      </nav>
-    </aside>
 
-    <main>
-      <h1>Your Attractions</h1>
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../../pages/login.html">Login</a>
+      <a class="nav-item active" href="../../pages/profile.html">Profile</a>
+      <a class="nav-item" href="../../aboutus.html">About Us</a>
+      <a class="nav-item" href="../pages/attractions.html">Attractions</a>
+      <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+      <a class="nav-item" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+      <a class="nav-item" href="../pages/settings.html">Settings</a>
+    </nav>
 
-      <section>
-        <div class="card-list saved-cards">
-          <div class="card saved-card">
-            <div class="card-inner">
-              <h3 class="card-inner-title">Saved Attractions</h3>
-              <div class="saved-item">
-                <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
-                <div class="saved-info">
-                  <h3>Skyline Rooftop Lounge</h3>
-                  <p class="category">Dining & Nightlife</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <main class="main">
 
-          <div class="card fav-combined">
-            <div class="card-inner">
-              <h3 class="card-inner-title">Favorited Attractions</h3>
-              <div class="fav-items">
-                <div class="fav-item">
-                  <img src="../images/alligator.jpg" alt="Baby Joey’s Alligator Farm">
-                  <div class="fav-info">
-                    <h3>Baby Joey’s Alligator Farm</h3>
-                    <p class="category">Wildlife & Education</p>
-                  </div>
-                </div>
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
 
-                <div class="fav-item">
-                  <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
-                  <div class="fav-info">
-                    <h3>Orange Grove Mini Golf</h3>
-                    <p class="category">Family Entertainment</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="saved-wrapper">
+
+        <div class="saved-title">
+          Your Attractions
         </div>
-      </section>
+
+        <div class="saved-sections">
+
+          <div class="saved-panel">
+            <h3>Saved Attractions:</h3>
+
+            <a href="skyline-rooftop.html" class="mini-card">
+              <img src="../images/rooftop.jpg" alt="">
+              <p>Skyline Rooftop Lounge</p>
+            </a>
+          </div>
+          <div class="saved-panel">
+            <h3>Favorite Attractions:</h3>
+
+            <a href="alligator-farm.html" class="mini-card">
+              <img src="../images/alligator.jpg" alt="">
+              <p>Baby Joey’s Alligator Farm</p>
+            </a>
+
+            <a href="../../orangegroveminigolfpage.html" class="mini-card">
+              <img src="../images/golf.jpg" alt="">
+              <p>Orange Grove Mini Golf</p>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </main>
   </div>
-
-  <footer>
-    <p>© Explorlando</p>
-  </footer>
 
   <script src="../js/main.js"></script>
 </body>

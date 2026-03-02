@@ -9,36 +9,6 @@
     min-height: 100vh;
 }
 
-/* Search bar in top header (Create Account pages only) */
-/* Adds spacing between logo / search / account button */
-.create-account-page .top-bar {
-    gap: 16px;
-}
-
-/* Top search bar */
-.create-account-page .top-search {
-    flex: 1;
-    display: flex;
-    justify-content: left;
-}
-
-.create-account-page .top-search input {
-    width: 100%;
-    max-width: 520px;
-    height: 38px;
-    border-radius: 6px;
-    border: none;
-    padding: 0 12px;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* Focus state for search input */
-.create-account-page .top-search input:focus {
-    border-color: #6b7676;
-}
-
-
 /* ------Card / Banner Tweaks------ */
 /* Make the shared login-card blue on create account pages */
 .create-account-page .login-card {

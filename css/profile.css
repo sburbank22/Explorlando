@@ -85,24 +85,6 @@
 }
 
 
-/* Inputs + textareas inside profile cards */
-.profile-page .profile-card input,
-.profile-page .profile-card textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: none;
-    font-size: 14px;
-}
-
-
-/*Textarea resize */
-.profile-page .profile-card textarea {
-    min-height: 90px;
-    resize: none;
-}
-
 /* Back button position for Profile page */
 .profile-page .back-btn {
     top: 40px;
@@ -127,4 +109,53 @@
     text-decoration: none;
     margin: 20px auto 0;
     cursor: pointer;
+}
+
+/* View-mode info rows */
+.profile-page .info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.profile-page .info-row:last-child {
+    border-bottom: none;
+}
+
+.profile-page .info-label {
+    font-weight: 700;
+    color: #000;
+}
+
+.profile-page .info-value {
+    color: #222;
+    text-align: right;
+}
+
+/* Bigger text blocks (bio/interests) */
+.profile-page .info-block {
+    margin: 14px 0;
+}
+
+.profile-page .info-block .info-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.profile-page .info-block .info-value {
+    background: rgba(255, 255, 255, 0.35);
+    padding: 12px 14px;
+    border-radius: 10px;
+    line-height: 1.4;
+}
+
+/* Profile photo inside the existing circle */
+.profile-page .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }

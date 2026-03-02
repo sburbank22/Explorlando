@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title> Baby Joeys Alligator Farm</title>
+  <link rel="stylesheet" href="../../css/style.css">
 
   <style>
     * {
@@ -14,16 +15,6 @@
     body {
       margin: 0;
       background: #eaeaea;
-    }
-
-    /* Top bar */
-    .top-bar {
-      height: 60px;
-      background: #b7d87a;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
     }
 
     .dot {
@@ -45,43 +36,6 @@
       background: #27c93f;
     }
 
-    /* Layout */
-    .container {
-      display: flex;
-      height: calc(100vh - 50px);
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
-      background: #c3df8b;
-      padding-top: 20px;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar a.active {
-      background: white;
-      border-radius: 20px 0 0 20px;
-    }
-
-    .logo {
-      background: white;
-      border-radius: 18px;
-      padding: 10px 16px;
-      font-size: 26px;
-      font-weight: bold;
-      color: orange;
-      display: inline-block;
-      margin-bottom: 30px;
-    }
 
     .menu-item {
       font-size: 20px;
@@ -105,6 +59,7 @@
       padding: 40px;
       position: relative;
       overflow: hidden;
+      z-index: 1;
     }
 
     /* Decorative circles */
@@ -175,12 +130,13 @@
     }
 
     /* image and golf section */
-    .golf {
+    .alligator {
       width: 260px;
       height: 260px;
       background: white;
       border-radius: 50%;
       position: absolute;
+      overflow: hidden;
       top: 200px;
       left: 170px;
       display: flex;
@@ -190,13 +146,11 @@
       box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
     }
 
-    .golf img {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
+    .alligator img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
-
 
     /* Buttons */
     .buttons {
@@ -206,8 +160,10 @@
       gap: 30px;
       margin: 40px auto 0;
       width: 100%;
-      position: absolute;
-      left: 50px;
+      position: relative;
+      left: 0;
+      z-index: 2;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -224,56 +180,49 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
     }
 
-    /* Account icon */
-    .account {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(#63d8c6, #f7e36b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+    /* Baby Joey's Alligator Farm page nav override */
+    .top-bar {
+      background-color: #36c3c7;
     }
 
-    .account img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .side-nav {
+      background-color: #36c3c7;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top-bar">
-    <div class="logo">
-      <img src="../images/logo.png" alt="logo" width="168" height="220">
-    </div>
-    <div class="account">
-      <a href="profile.html">
-        <img src="img/ProfileIconImage.png" alt="profile icon">
-      </a>
-    </div>
-  </div>
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
 
-  <div class="container">
-    <div class="sidebar">
-      <a href="../../../Explorlando/pages/Login.html">Login</a>
-      <a href="../../../Explorlando/pages/profile.html">Profile</a>
-      <a href="../../aboutus.html">About Us</a>
-      <a href="../pages/attractions.html" class="active">Attractions</a>
-      <a href="../../pages/open-lobby.html">Open Lobby</a>
-      <a href="../../pages/spotlight/spotlight.html">Local Spotlight</a>
-      <a href="../../pages/for_business/for_business.html">For Businesses</a>
-      <a href="../pages/settings.html">Settings</a>
-    </div>
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
 
+    <a href="../../pages/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
 
-    <div class="content">
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../../pages/login.html">Login</a>
+      <a class="nav-item" href="../../pages/profile.html">Profile</a>
+      <a class="nav-item" href="../../aboutus.html">About Us</a>
+      <a class="nav-item active" href="attractions.html">Attractions</a>
+      <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+      <a class="nav-item" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+      <a class="nav-item" href="settings.html">Settings</a>
+    </nav>
+
+    <main class="content">
       <!-- Decorative circles -->
       <div class="circle c1"></div>
       <div class="circle c2"></div>
@@ -287,26 +236,26 @@
         Enjoy live gators, train rides, an assortment of food and drink, educational shows, and
         more!
       </div>
-      <div class="golf">
-        <img src="../images/alligator.jpg" alt="golf">
+
+      <div class="alligator">
+        <img src="../images/alligator.jpg" alt="alligator">
       </div>
 
       <div class="buttons">
-        <a href="https://www.wildfloridairboats.com/book-gator-park-tickets" class="btn">
+        <a href="https://www.wildfloridairboats.com/book-gator-park-tickets" target="_blank" class="btn">
           Purchase Tickets
         </a>
-        <a href="open-lobby.html" class="btn">
+        <a href="../../pages/open-lobby.html" class="btn">
           Open Lobby
         </a>
-
         <a href="saved-attractions.html" class="btn">
           Save Attraction
         </a>
-        <a href="babyjoeysalligatorfarmavailablediscounts.html" target="_blank" class="btn">
+        <a href="../../babyjoeysalligatorfarmavailablediscounts.html" class="btn">
           Available Discounts
         </a>
       </div>
-    </div>
+    </main>
   </div>
 
 </body>

@@ -8,10 +8,10 @@
 :root {
     --sunshine: #FFD97A;
     --tangerine: #FFB366;
-    --mint: #8BD88B;
+    --mint: #BAD67F;
     --seafoam: #6BC9A8;
     --ocean: #4DB8B8;
-    --slate: #333;
+    --slate: #000000;
     --cream: #F5F0E8;
     --shadow: rgba(0, 0, 0, 0.1);
 }
@@ -24,75 +24,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-/*yellow header bar*/
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    background: var(--sunshine);
-}
-
-/*logo space*/
-.logo {
-    background: white;
-    padding: 15px 25px;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px var(--shadow);
-    overflow: hidden;
-}
-
-.logo-img {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin: -10px 0;
-}
-
-/* text for the logo*/
-.logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--tangerine);
-}
-
-/* profile area*/
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-/* profile button */
-.profile-btn {
-    width: 50px;
-    height: 50px;
-    background: var(--ocean);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 3px solid #FFD700;
-    box-shadow: 0 2px 8px var(--shadow);
-}
-
-/*profile image */
-.profile-btn svg {
-    width: 26px;
-    height: 26px;
-    fill: var(--slate);
-}
-
-/*profile text */
-.profile-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--slate);
 }
 
 /*background image */

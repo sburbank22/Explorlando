@@ -29,7 +29,7 @@ button {
     justify-content: space-between;
     align-items: center;
     background-color: #BAD67F;
-    padding: 25px 40px;
+    padding: 10px 30px;
 }
 
 .logo {
@@ -210,7 +210,6 @@ button {
     background-color: #28aeb3;
 }
 
-
 /* ---Shared card styling for profile/edit profile--- */
 .profile-card {
     background-color: #31C3C9;
@@ -290,4 +289,30 @@ button {
     padding: 8px 10px;
     font-size: 12px;
     cursor: pointer;
+}
+
+/* Search bar stuff */
+/* Top header search bar (shared) */
+.top-bar {
+    gap: 16px;
+}
+
+.top-search {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+}
+
+.top-search input {
+    width: 100%;
+    max-width: 520px;
+    height: 38px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 12px;
+    outline: none;
+}
+
+.top-search input:focus {
+    border-color: #6b7676;
 }
