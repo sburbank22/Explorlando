@@ -5,37 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorlando Spotlight</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="spotlight_styles.css">
     <script src="script.js"></script>
 </head>
 
 <body>
-    <header>
-        <a href="../home/home.html" class="logo">
-            <img src="images/design_1.png" alt="Explorlando Logo" class="logo-img">
+    <header class="top-bar">
+        <a class="logo" href="../../pages/home/home.html">
+            <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
         </a>
-        <div class="profile-section">
-            <div class="profile-btn">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-            </div>
-            <span class="profile-label">My account</span>
-        </div>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="../../pages/profile.html" class="account-btn">
+            <img src="../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
     </header>
 
-    <div class="layout">
-        <nav>
-            <li><a href="../login.html">Login</a></li>
-            <li><a href="../profile.html">Profile</a></li>
-            <li><a href="../../aboutus.html">About Us</a></li>
-            <li><a href="../../ms5/pages/attractions.html">Attractions</a></li>
-            <li><a href="../open-lobby.html">Open Lobby</a></li>
-            <li><a href="spotlight.html" class="active">Explorlando Spotlight</a></li>
-            <li><a href="../../pages/for_business/for_business.html">For Businesses</a></li>
-            <li><a href="../../ms5/pages/settings.html">Settings</a></li>
+    <div class="app-layout">
+        <nav class="side-nav">
+            <a class="nav-item" href="../../pages/login.html">Login</a>
+            <a class="nav-item" href="../../pages/profile.html">Profile</a>
+            <a class="nav-item" href="../../aboutus.html">About Us</a>
+            <a class="nav-item" href="attractions.html">Attractions</a>
+            <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+            <a class="nav-item active" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+            <a class="nav-item" href="settings.html">Settings</a>
         </nav>
 
         <main class="main-content">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="attractions-grid">
-                    <div class="attraction-card" data-attraction="baby-joey">
+                    <a href="../../ms5/pages/alligator-farm.html" class="attraction-card">
                         <div class="card-content">
                             <h3>Baby Joey's<br>Alligator Farm</h3>
                             <div class="card-badge"></div>
@@ -62,9 +62,9 @@
                         <div class="card-image">
                             <img src="images/gators.jpg" alt="Baby Joey's Alligator Farm">
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="attraction-card" data-attraction="skyline">
+                    <a href="../../ms5/pages/skyline-rooftop.html" class="attraction-card">
                         <div class="card-content">
                             <h3>Skyline Rooftop<br>Lounge</h3>
                             <div class="card-badge"></div>
@@ -72,9 +72,9 @@
                         <div class="card-image">
                             <img src="images/roof.jpg" alt="Skyline Rooftop Lounge">
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="attraction-card" data-attraction="winter-town">
+                    <a href="../../wintertownbotanicalgardenpage.html" class="attraction-card">
                         <div class="card-content">
                             <h3>Winter Town<br>Botanical Trails</h3>
                             <div class="card-badge"></div>
@@ -82,7 +82,7 @@
                         <div class="card-image">
                             <img src="images/botanical.jpg" alt="Winter Town Botanical Trails">
                         </div>
-                    </div>
+                    </a>
                 </div>
             </section>
 

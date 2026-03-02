@@ -1,89 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  margin: 0;
-  background: #ffffff;
-}
-
-.top-bar {
-  height: 80px;
-  background: #f9b158;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
-}
-
-.logo {
-  display: inline-block;
-  margin: 15px 5px;
-}
-
-.logo img {
-  height: 60px;
-  width: auto;
-  display: block;
-}
-
-.account-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-}
-
-.avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #6ed1c6;
-  margin: 0 auto 4px;
-}
-
-.account-btn span {
-  font-size: 12px;
-}
-
-.nav-btn,
-.account-btn {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.sidebar {
-  position: fixed;
-  top: 80px;
-  left: 0;
-  width: 230px;
-  height: calc(100vh - 80px);
-  background: #f9b158;
-  padding-top: 30px;
-}
-
-.nav-btn {
-  width: 100%;
-  padding: 14px 30px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.nav-btn.active {
-  background: #fff;
-  border-radius: 30px 0 0 30px;
+  font-family: Arial, sans-serif;
 }
 
 .content {
-  margin-left: 230px;
-  padding: 40px;
   position: relative;
-  min-height: calc(100vh - 80px);
+  padding: 40px;
 }
 
 .circle {

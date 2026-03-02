@@ -4,71 +4,77 @@
 <head>
   <meta charset="UTF-8" />
   <title>Explorlando | Available Groups</title>
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/available-groups-styles.css" />
 </head>
 
-<body>
+<body class="open-lobby-page">
 
   <header class="top-bar">
-    <a href="open-lobby.html" class="logo">
-      <img src="../images/explorlando.png" alt="Explorlando Logo">
+    <a class="logo" href="../pages/home/home.html">
+      <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
     </a>
 
-    <a href="account.html" class="account-btn">
-      <div class="avatar"></div>
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../pages/profile.html" class="account-btn">
+      <img src="../images/user-1.png" alt="Account icon">
       <span>My Account</span>
     </a>
-
   </header>
 
-  <aside class="sidebar">
-    <a href="../pages/login.html" class="nav-btn">Login</a>
-    <a href="../pages/profile.html" class="nav-btn">Profile</a>
-    <a href="../aboutus.html" class="nav-btn">About Us</a>
-    <a href="../ms5/pages/attractions.html" class="nav-btn">Attractions</a>
-    <a href="open-lobby.html" class="nav-btn active">Open Lobby</a>
-    <a href="../pages/spotlight/spotlight.html" class="nav-btn">Explorlando Spotlight</a>
-    <a href="../pages/for_business/for_business.html" class="nav-btn">For Businesses</a>
-    <a href="../ms5/pages/settings.html" class="nav-btn">Settings</a>
-  </aside>
-  <main class="content">
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a href="../pages/login.html" class="nav-item">Login</a>
+      <a href="../pages/profile.html" class="nav-item">Profile</a>
+      <a href="../aboutus.html" class="nav-item">About Us</a>
+      <a href="../ms5/pages/attractions.html" class="nav-item">Attractions</a>
+      <a href="open-lobby.html" class="nav-item active">Open Lobby</a>
+      <a href="../pages/spotlight/spotlight.html" class="nav-item">Explorlando Spotlight</a>
+      <a href="../pages/for_business/for_business.html" class="nav-item">For Businesses</a>
+      <a href="../ms5/pages/settings.html" class="nav-item">Settings</a>
+    </nav>
 
-    <div class="circle c1"></div>
-    <div class="circle c2"></div>
-    <div class="circle c3"></div>
+    <main class="content">
 
-    <a href="open-lobby.html" class="back-btn">‹</a>
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
 
-    <div class="title">Open Lobby</div>
+      <a href="open-lobby.html" class="back-btn">‹</a>
 
-    <div class="sub-title available-title">
-      Available Groups
-    </div>
+      <div class="title">Open Lobby</div>
 
-    <div class="groups-container">
-
-      <div class="group-card">
-        <div class="group-left">
-          <span class="status-dot"></span>
-          <span class="spots-text">3/4 Available Spots</span>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="group-name">
-          Baby Joey’s Alligator Farm
-        </div>
-
-        <a href="../pages/open-lobby-group-info.html" class="group-details-btn">
-          Group Details
-        </a>
+      <div class="sub-title available-title">
+        Available Groups
       </div>
 
-    </div>
+      <div class="groups-container">
 
-  </main>
+        <div class="group-card">
+          <div class="group-left">
+            <span class="status-dot"></span>
+            <span class="spots-text">3/4 Available Spots</span>
+          </div>
 
+          <div class="divider"></div>
+
+          <div class="group-name">
+            Baby Joey’s Alligator Farm
+          </div>
+
+          <a href="../pages/open-lobby-group-info.html" class="group-details-btn">
+            Group Details
+          </a>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
   <script src="../js/script.js"></script>
 </body>
 

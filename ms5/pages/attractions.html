@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title> Local Attractions </title>
+  <link rel="stylesheet" href="../../css/style.css">
 
   <style>
     * {
@@ -14,17 +15,6 @@
     body {
       margin: 0;
       background: #f2f2f2;
-    }
-
-    .logo {
-      background: white;
-      border-radius: 18px;
-      padding: 10px 16px;
-      font-size: 26px;
-      font-weight: bold;
-      color: orange;
-      display: inline-block;
-      margin-bottom: 30px;
     }
 
     /*  Buttons  */
@@ -44,44 +34,6 @@
       justify-content: center;
       font-family: Arial, sans-serif;
 
-    }
-
-    /*  Layout  */
-    .container {
-      display: flex;
-      height: 100vh;
-    }
-
-    /*  Sidebar  */
-    .sidebar {
-      width: 220px;
-      background: #36c3c7;
-      padding-top: 20px;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar a.active {
-      background: white;
-      border-radius: 20px 0 0 20px;
-    }
-
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: orange;
-      background: white;
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 30px;
     }
 
     .nav a {
@@ -107,18 +59,7 @@
       position: relative;
     }
 
-    /*  Top Bar  */
-    .top-barone {
-
-      height: 60px;
-      background: #36c3c7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .top-bar {
+    .attractions-bar {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -221,60 +162,58 @@
       font-size: 14px;
     }
 
-    /* Profile Icon section */
-    .account {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(#63d8c6, #f7e36b);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
+
+    /* Attractions page nav override */
+    .top-bar {
+      background-color: #36c3c7;
+      /* blue */
     }
 
-    .account img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .side-nav {
+      background-color: #36c3c7;
+      /* blue */
     }
   </style>
 </head>
 
 <body>
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
 
-  <div class="top-barone">
-    <div class="logo">
-      <img src="../images/logo.png" alt="logo" width="168" height="220">
-    </div>
-    <div class="account">
-      <a href="profile.html">
-        <img src="img/ProfileIconImage.png" alt="profile icon">
-      </a>
-    </div>
-  </div>
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
 
-  <div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <a href="../../../Explorlando/pages/Login.html">Login</a>
-      <a href="../../../Explorlando/pages/profile.html">Profile</a>
-      <a href="../../aboutus.html">About Us</a>
-      <a href="../pages/attractions.html" class="active">Attractions</a>
-      <a href="../../pages/open-lobby.html">Open Lobby</a>
-      <a href="../../pages/spotlight/spotlight.html">Local Spotlight</a>
-      <a href="../../pages/for_business/for_business.html">For Businesses</a>
-      <a href="../pages/settings.html">Settings</a>
-    </div>
-    <!-- Main section -->
-    <div class="main">
-      <div class="top-bar">
+    <a href="../../pages/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../../pages/login.html">Login</a>
+      <a class="nav-item" href="../../pages/profile.html">Profile</a>
+      <a class="nav-item" href="../../aboutus.html">About Us</a>
+      <a class="nav-item active" href="attractions.html">Attractions</a>
+      <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+      <a class="nav-item" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+      <a class="nav-item" href="settings.html">Settings</a>
+    </nav>
+
+    <main class="main">
+      <!-- keep your existing Attractions page content here -->
+
+      <div class="attractions-bar">
         <div class="search-box">
           <input type="text" placeholder="Search Discounts">
         </div>
 
         <div class="filter">
-          <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+          <div class="filter-btn" onclick="toggleFilter()">Filters &gt;</div>
           <div class="filter-menu" id="filterMenu">
             <div>Attraction Type</div>
             <div>Price Range</div>
@@ -284,14 +223,12 @@
         <button class="search-btn">Search</button>
       </div>
 
-      <!-- Featured section -->
       <div class="featured">
         <span>Local Attractions</span>
         <h2>Have some fun while you're in Orlando!</h2>
         <h2>Some featured attractions</h2>
       </div>
 
-      <!-- Cards section -->
       <div class="cards">
         <div class="card">
           <h3>Baby Joeys Alligator Farm</h3>
@@ -302,10 +239,11 @@
 
         <div class="card">
           <h3>Orange Grove Mini Golf</h3>
-          <a href="orangegroveminigolfpage.html">
+          <a href="../../orangegroveminigolfpage.html">
             <img src="../images/golf.jpg" alt="">
           </a>
         </div>
+
         <div class="card">
           <h3>Skyline Rooftop Lounge</h3>
           <a href="skyline-rooftop.html">
@@ -315,14 +253,13 @@
 
         <div class="card">
           <h3>Winter Town Botanical Trails</h3>
-          <a href="wintertownbotanicalgardenpage.html">
+          <a href="../../wintertownbotanicalgardenpage.html">
             <img src="../images/botanical.jpg" alt="">
           </a>
         </div>
-
       </div>
-    </div>
-  </div>
+
+    </main>
   </div>
 
   <script>
@@ -331,7 +268,6 @@
       menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
   </script>
-
 </body>
 
 </html>

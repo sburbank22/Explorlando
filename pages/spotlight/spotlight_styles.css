@@ -1,6 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
+.main-content * {
     box-sizing: border-box;
 }
 
@@ -20,108 +18,6 @@ body {
     font-family: 'Inter', sans-serif;
     background: var(--cream);
     min-height: 100vh;
-    overflow-x: hidden;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    background: var(--sunshine);
-}
-
-.logo {
-    background: white;
-    padding: 15px 25px;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px var(--shadow);
-    text-decoration: none;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.logo-img {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin: -10px 0;
-}
-
-.logo-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--tangerine);
-}
-
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
-
-.profile-btn {
-    width: 50px;
-    height: 50px;
-    background: var(--ocean);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 3px solid #FFD700;
-    box-shadow: 0 2px 8px var(--shadow);
-}
-
-.profile-btn svg {
-    width: 26px;
-    height: 26px;
-    fill: var(--slate);
-}
-
-.profile-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--slate);
-}
-
-.layout {
-    display: flex;
-    min-height: calc(100vh - 110px);
-}
-
-nav {
-    width: 220px;
-    background: var(--sunshine);
-    padding: 0;
-    flex-shrink: 0;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-nav li {
-    border-bottom: 2px solid var(--slate);
-}
-
-nav a {
-    display: block;
-    padding: 20px 30px;
-    text-decoration: none;
-    color: var(--slate);
-    font-weight: 500;
-    font-size: 18px;
-}
-
-nav a.active {
-    background: white;
-    font-weight: 600;
 }
 
 .main-content {
@@ -210,6 +106,9 @@ nav a.active {
     box-shadow: 0 4px 15px var(--shadow);
     cursor: pointer;
     padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .attraction-card:hover {
@@ -296,19 +195,6 @@ nav a.active {
 }
 
 @media (max-width: 968px) {
-    .layout {
-        flex-direction: column;
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
     .hero {
         padding: 50px 30px;
     }

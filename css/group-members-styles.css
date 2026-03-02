@@ -57,3 +57,10 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* Keep member content above decorative circles */
+.groups-container,
+.member-card {
+  position: relative;
+  z-index: 2;
+}
