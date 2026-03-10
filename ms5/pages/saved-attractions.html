@@ -2,159 +2,87 @@
 <html lang="en">
 
 <head>
-   <!-- Feature-specific styles -->
+  <meta charset="UTF-8">
+  <title>Explorlando | Saved Attractions</title>
+
+  <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../css/attractions.css">
-    <meta charset="UTF-8">
-    <title> Featured Discounts</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-          body { margin: 0; background: #f2f2f2; }
-
-          .logo { background: white; border-radius: 18px; padding: 10px 16px; font-size: 26px; font-weight: bold; color: orange; display: inline-block; margin-bottom: 30px; }
-
-          /*  Buttons  */
-          .btn { background: #ff9f1c; padding: 5px 40px; border-radius: 40px; font-size: 22px; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25); cursor: pointer; text-align: center; text-decoration: none; color: black; display: inline-flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; }
-
-          /*  Layout  */
-          .container { display: flex; height: 100vh; }
-
-          /*  Sidebar  */
-          .sidebar { width: 220px; background: #b7d87a; padding-top: 20px; }
-
-          .sidebar a { display: block; padding: 12px 20px; text-decoration: none; color: black; font-weight: bold; border-bottom: 2px solid rgba(0, 0, 0, 0.1); }
-
-          .sidebar a.active { background: white; border-radius: 20px 0 0 20px; }
-
-          .logo { font-size: 32px; font-weight: bold; color: orange; background: white; display: inline-block; padding: 6px 14px; border-radius: 20px; margin-bottom: 30px; }
-
-          .nav a { display: block; padding: 12px; margin: 10px 0; text-decoration: none; color: black; border-bottom: 2px solid black; }
-
-          .nav a.active { background: white; border-radius: 20px; font-weight: bold; }
-
-          /*  Main  */
-          .main { flex: 1; padding: 20px 40px; background: white; position: relative; }
-
-          /*  Top Bar  */
-          .top-barone { height: 60px; background: #b7d87a; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
-
-          .top-bar { display: flex; align-items: center; gap: 20px; }
-
-          .search-box { display: flex; align-items: center; background: #e0e0e0; border-radius: 30px; padding: 10px 20px; flex: 1; }
-
-          .search-box input { border: none; background: transparent; font-size: 18px; width: 100%; outline: none; }
-
-          .filter { position: relative; }
-
-          .filter-btn { background: #e0e0e0; border-radius: 30px; padding: 12px 30px; cursor: pointer; }
-
-          .filter-menu { display: none; position: absolute; top: 55px; left: 0; background: #e0e0e0; padding: 20px; border-radius: 10px; width: 220px; }
-
-          .filter-menu div { padding: 10px 0; border-bottom: 1px solid #999; }
-
-          .search-btn { background: #ffb655; border: none; border-radius: 30px; padding: 12px 30px; font-size: 20px; cursor: pointer; }
-
-          /* Featured section */
-          .featured { text-align: center; margin: 30px 0; }
-
-          .featured span { background:  #2ec4c6; padding: 10px 50px; border-radius: 30px; font-size: 32px; }
-
-          /*  Cards section */
-          .cards { display: flex; gap: 30px; justify-content: center; }
-
-          .card { background: #e0e0e0; border-radius: 30px; width: 230px; padding: 15px; text-align: center; }
-
-          .card img { width: 100%; border-radius: 20px; height: 160px; object-fit: cover; }
-
-          .card h3 { margin: 10px 0 5px; }
-
-          .card p { font-size: 14px; }
-
-          /* Profile Icon section */
-          .account { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(#63d8c6, #f7e36b); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-
-          .account img { width: 100%; height: 100%; object-fit: cover; }
-    </style>
 </head>
 
-<body>
+<body class="saved-page">
 
-    <div class="top-barone">
-        <div class="logo">
-            <img src="../images/logo.png" alt="logo" width="168" height="220">
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
+
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../../pages/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../../pages/login.html">Login</a>
+      <a class="nav-item active" href="../../pages/profile.html">Profile</a>
+      <a class="nav-item" href="../../aboutus.html">About Us</a>
+      <a class="nav-item" href="../pages/attractions.html">Attractions</a>
+      <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+      <a class="nav-item" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+      <a class="nav-item" href="../pages/settings.html">Settings</a>
+    </nav>
+
+    <main class="main">
+
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+
+      <div class="saved-wrapper">
+
+        <div class="saved-title">
+          Your Attractions
         </div>
-        <div class="account">
-            <a href="profile.html">
-                <img src="img/ProfileIconImage.png" alt="profile icon">
+
+        <div class="saved-sections">
+
+          <div class="saved-panel">
+            <h3>Saved Attractions:</h3>
+
+            <a href="skyline-rooftop.html" class="mini-card">
+              <img src="../images/rooftop.jpg" alt="">
+              <p>Skyline Rooftop Lounge</p>
             </a>
-        </div>
-    </div>
+          </div>
+          <div class="saved-panel">
+            <h3>Favorite Attractions:</h3>
 
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <a href="../Explorlando/pages/login.html">Login</a>
-            <a href="../Explorlando/pages/profile.html">Profile</a>
-            <a href="../Explorlando/aboutus.html">About Us</a>
-            <a href="../Explorlando/ms5/pages/attractions.html" class="active">Attractions</a>
-            <a href="../Explorlando/pages/open-lobby.html">Open Lobby</a>
-            <a href="../Explorlando/pages/spotlight/spotlight.html">Local Spotlight</a>
-            <a href="../Explorlando/pages/for_business/for_business.html">For Businesses</a>
-            <a href="../Explorlando/ms5/pages/settings.html">Settings</a>
-        </div>
-        <!-- Main section -->
-        <div class="main">
-
-            <!-- Your attractions  section -->
-            <div class="featured">
-                <span>Your Attractions </span>
-              
-            </div>
-<div class="attractions-wrapper">
-
-    <!-- Saved Attractions -->
-    <div class="attraction-panel">
-        <h2>Saved Attractions:</h2>
-
-        <div class="attraction-item">
-            <a href="skyline-rooftop.html">
-                <h4>Skyline Rooftop Lounge</h4>
-                <img src="../images/rooftop.jpg" alt="Skyline Rooftop Lounge">
-                <p><p>Category: Nightlife & Dining</p>
-</p>
+            <a href="alligator-farm.html" class="mini-card">
+              <img src="../images/alligator.jpg" alt="">
+              <p>Baby Joey’s Alligator Farm</p>
             </a>
-        </div>
-    </div>
 
-    <!-- Favorite Attractions -->
-    <div class="attraction-panel">
-        <h2>Favorite Attractions:</h2>
-
-        <div class="attraction-item">
-            <a href="orangegroveminigolfpage.html">
-                <h4>Orange Grove Mini Golf</h4>
-                <img src="../images/golf.jpg" alt="Orange Grove Mini Golf">
-                <p><p>Category: Family Entertainment</p>
-</p>
+            <a href="../../orangegroveminigolfpage.html" class="mini-card">
+              <img src="../images/golf.jpg" alt="">
+              <p>Orange Grove Mini Golf</p>
             </a>
+
+          </div>
+
         </div>
 
-        <div class="attraction-item">
-            <a href="alligator-farm.html">
-                <h4>Baby Joey’s Alligator Farm</h4>
-                <img src="../images/alligator.jpg" alt="Alligator Farm">
-                <p><p>Category: Outdoor Adventure</p>
-</p>
-            </a>
-        </div>
-    </div>
+      </div>
 
-</div>
+    </main>
+  </div>
 
-            
-
+  <script src="../js/main.js"></script>
 </body>
+
+</html>

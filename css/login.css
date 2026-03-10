@@ -1,0 +1,74 @@
+/* LOGIN PAGE ONLY (login.html)
+   This file styles only the login page.
+   Shared components (top-bar, login-card, buttons) are in style.css*/
+
+
+/* -------Page Background----- */
+/* Full-page background image + dark overlay */
+.login-page {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Explorlando-login-page.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+}
+
+/* ------Page Layout------- */
+/* This centers the main login content area */
+.login-page main {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 0;
+    background: transparent;
+}
+
+
+/* Wrapper for the login content (banner + card) */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+/* Login Only */
+/* Extra spacing */
+.login-page .login-card input {
+    margin-top: 25px;
+}
+
+/* Forgot password link styling */
+.forgot {
+    font-size: 13px;
+    text-decoration: underline;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.forgot:hover {
+    color: #1b8e92;
+}
+
+
+/* Login page buttons*/
+/* Pushes buttons lower on the login page */
+.login-page .login-actions {
+    margin-top: 50px;
+}
+
+
+/* ----Title / Badge---- */
+/* Title above login badge */
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Orange "login" badge */
+.login-badge {
+    background-color: #f4b942;
+    padding: 10px 26px;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 27px;
+    color: #000;
+    display: inline-block;
+}
