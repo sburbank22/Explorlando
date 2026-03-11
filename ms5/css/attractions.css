@@ -89,6 +89,41 @@
   box-shadow: 0 10px 0 rgba(0, 0, 0, 0.15);
 }
 
+.mini-card-wrap {
+  position: relative;
+  width: 170px;
+  margin: 0 auto 25px;
+}
+
+.mini-card-wrap .mini-card {
+  width: 100%;
+  margin: 0;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.remove-btn:hover {
+  background: rgba(210, 30, 30, 0.85);
+}
+
 /* Orange background circles */
 
 .circle {
