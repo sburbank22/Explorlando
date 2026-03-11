@@ -1,26 +1,28 @@
 <?php
 /*
-API Endpoint: /api/attractions/getAttractions.php
+  Attractions API endpoint for our group project backend.
+  Returns all attractions from the database as JSON.
 
-Query parameters:
-?featured=true      Returns rotating featured attractions
-?category=VALUE     Filters attractions by category
+  Optional query parameters:
+    ?featured=true      returns two featured attractions based on current quarter
+    ?category=VALUE     filters results by category (ex: Outdoors, Dining)
 
-Example:
-api/attractions/getAttractions.php?featured=true
-api/attractions/getAttractions.php?category=Outdoors
+  Example usage:
+    api/attractions/getAttractions.php
+    api/attractions/getAttractions.php?featured=true
+    api/attractions/getAttractions.php?category=Outdoors
 */
 
 header("Content-Type: application/json");
 
-/* Buffer db.php output: it echoes its own JSON on connection failure and then
-// falls through, which would produce a double-JSON response. Suppressing it
- here ensures only our structured error JSON is ever sent to the client. */
+// db.php doesn't stop the script if the connection fails, it just prints an error.
+// ob_start lets us catch that output and throw it away so we don't get
+// two JSON responses mixed together if something goes wrong.
 ob_start();
 require_once "../db.php";
 ob_end_clean();
 
-// Guard against a failed DB connection (db.php doesn't exit on failure)
+// Check that the database connection actually worked before trying to use it
 if (!isset($conn)) {
     echo json_encode([
         "status" => "error",
@@ -29,12 +31,11 @@ if (!isset($conn)) {
     exit;
 }
 
-// Parameter validation
-
+// Read in the optional query parameters from the URL
 $featured = isset($_GET['featured']) ? $_GET['featured'] : null;
 $category = isset($_GET['category']) ? trim($_GET['category']) : null;
 
-// 'featured' only accepts the string "true"
+// The only valid value for featured is the string "true", reject anything else
 if ($featured !== null && $featured !== 'true') {
     echo json_encode([
         "status" => "error",
@@ -43,7 +44,7 @@ if ($featured !== null && $featured !== 'true') {
     exit;
 }
 
-// 'category' must be non-empty and contain only safe characters
+// Make sure category isn't empty and doesn't have any weird characters that could cause issues
 if ($category !== null && (strlen($category) === 0 || !preg_match('/^[a-zA-Z0-9 \-]+$/', $category))) {
     echo json_encode([
         "status" => "error",
@@ -52,9 +53,8 @@ if ($category !== null && (strlen($category) === 0 || !preg_match('/^[a-zA-Z0-9 
     exit;
 }
 
-// Hardcoded category map (keyed by attraction id)
-// Update this map whenever attractions are added or renamed in the database.
-// This avoids requiring a schema change while still supporting category filtering.
+// Temporary category mapping since the database schema does not currently include categories.
+// Each attraction ID maps to a category. Update this if new attractions are added.
 $categoryMap = [
     1 => "Wildlife",
     2 => "Dining",
@@ -62,7 +62,7 @@ $categoryMap = [
     4 => "Outdoors"
 ];
 
-// Fetch all attractions using a prepared statement
+// Pull all attractions from the database using a prepared statement
 try {
     $stmt = $conn->prepare(
         "SELECT id, name, description, location, image_url FROM attractions"
@@ -77,19 +77,19 @@ try {
     exit;
 }
 
-// Attach the category to every row from the lookup map
+// Add the category field to each attraction row using the map above
 foreach ($attractions as &$row) {
     $row['category'] = isset($categoryMap[$row['id']]) ? $categoryMap[$row['id']] : null;
 }
-unset($row); // break reference
+unset($row); // need to unset the reference after a foreach by reference
 
-// Filter: ?featured=true
-// "Featured" rotates every calendar quarter so that two attractions are
-// highlighted per three-month period without any schema changes.
-//   Q1 (Jan–Mar) → ids at index 0, 1
-//   Q2 (Apr–Jun) → ids at index 1, 2
-//   Q3 (Jul–Sep) → ids at index 2, 3
-//   Q4 (Oct–Dec) → ids at index 3, 0
+// If featured=true was passed in, filter down to just the two featured attractions.
+// Since we don't have a featured column in the database, we rotate which two attractions
+// are featured based on the current quarter of the year so it changes over time.
+//   Q1 (Jan-Mar) -> attractions at index 0 and 1
+//   Q2 (Apr-Jun) -> attractions at index 1 and 2
+//   Q3 (Jul-Sep) -> attractions at index 2 and 3
+//   Q4 (Oct-Dec) -> attractions at index 3 and 0
 if ($featured === 'true') {
     $total = count($attractions);
 
@@ -98,7 +98,7 @@ if ($featured === 'true') {
         exit;
     }
 
-    $quarter  = (int)(((int)date('n') - 1) / 3); // 0–3
+    $quarter  = (int)(((int)date('n') - 1) / 3); // gives us 0, 1, 2, or 3
     $idxA     = $quarter % $total;
     $idxB     = ($quarter + 1) % $total;
 
@@ -114,7 +114,7 @@ if ($featured === 'true') {
     );
 }
 
-// Filter: ?category=VALUE
+// If a category was passed in, filter results down to only that category
 if ($category !== null) {
     $categoryLower = strtolower($category);
     $attractions   = array_values(
@@ -124,7 +124,7 @@ if ($category !== null) {
     );
 }
 
-// Response
+// Send back the results as JSON
 echo json_encode([
     "status" => "success",
     "data"   => $attractions
