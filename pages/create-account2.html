@@ -6,7 +6,6 @@
     <title>Explorlando | Create Account - Step 2</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/create-account.css">
-    <script src="../js/script.js" defer></script>
 </head>
 
 <body class="create-account-page">
@@ -50,7 +49,6 @@
                 Join the Fun!
             </div>
 
-
             <form class="login-card signup-card">
 
                 <div class="login-title">
@@ -60,7 +58,14 @@
                 <p class="signup-subtitle">Add Profile Picture (optional):</p>
 
                 <div class="photo-circle">
-                    <button type="button" class="photo-btn">Add Photo +</button>
+                    <img id="profilePreview" src="../images/user-1.png" alt="Profile picture preview"
+                        style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+                </div>
+
+                <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+                <div style="margin-top: 12px;">
+                    <button type="button" class="photo-btn" id="uploadImageBtn">Add Photo +</button>
                 </div>
 
                 <div class="field-group">
@@ -90,10 +95,12 @@
                     <label><input type="checkbox" name="terms"> Terms &amp; Conditions</label>
                 </div>
 
+                <p id="message" style="margin-top: 12px;"></p>
+
                 <!-- Buttons -->
                 <div class="signup-actions">
                     <button type="button" onclick="goToCreateAccount1()">Back</button>
-                    <button type="button" onclick="goToProfile()">Sign Up</button>
+                    <button type="button" onclick="submitSignup()">Sign Up</button>
                 </div>
 
             </form>
@@ -101,6 +108,105 @@
         </main>
 
     </div>
+
+    <script>
+        const uploadImageBtn = document.getElementById("uploadImageBtn");
+        const profilePictureInput = document.getElementById("profilePictureInput");
+        const profilePreview = document.getElementById("profilePreview");
+        const message = document.getElementById("message");
+
+        let selectedProfilePicture = null;
+
+        uploadImageBtn.addEventListener("click", () => {
+            profilePictureInput.click();
+        });
+
+        profilePictureInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            selectedProfilePicture = file;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profilePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        async function submitSignup() {
+            const termsChecked = document.querySelector('input[name="terms"]').checked;
+
+            if (!termsChecked) {
+                alert("Please accept the Terms & Conditions.");
+                return;
+            }
+
+            const firstName = localStorage.getItem("signup_firstName") || "";
+            const lastName = localStorage.getItem("signup_lastName") || "";
+            const username = localStorage.getItem("signup_username");
+            const email = localStorage.getItem("signup_email");
+            const password = localStorage.getItem("signup_password");
+
+            const name = `${firstName} ${lastName}`.trim();
+
+            if (!username || !email || !password) {
+                alert("Missing signup info. Please go back to Step 1 and try again.");
+                return;
+            }
+
+            try {
+                const res = await fetch("/api/auth/register.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify({ name, username, email, password })
+                });
+
+                const data = await res.json().catch(() => ({}));
+
+                if (!res.ok) {
+                    alert(data.message || "Sign up failed.");
+                    return;
+                }
+
+                // Try to upload profile picture after account creation
+                if (selectedProfilePicture) {
+                    const formData = new FormData();
+                    formData.append("profile_picture", selectedProfilePicture);
+
+                    try {
+                        const uploadRes = await fetch("/api/auth/uploadProfilePicture.php", {
+                            method: "POST",
+                            body: formData,
+                            credentials: "include"
+                        });
+
+                        const uploadData = await uploadRes.json().catch(() => ({}));
+
+                        if (!uploadRes.ok || !uploadData.success) {
+                            console.warn("Profile picture upload failed:", uploadData);
+                        }
+                    } catch (uploadErr) {
+                        console.error("Profile picture upload error:", uploadErr);
+                    }
+                }
+
+                localStorage.removeItem("signup_firstName");
+                localStorage.removeItem("signup_lastName");
+                localStorage.removeItem("signup_username");
+                localStorage.removeItem("signup_email");
+                localStorage.removeItem("signup_password");
+
+                alert("Account created successfully!");
+                window.location.href = "login.html";
+
+            } catch (err) {
+                console.error(err);
+                alert("Network error signing up.");
+            }
+        }
+    </script>
 
 </body>
 
