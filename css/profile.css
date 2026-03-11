@@ -159,3 +159,12 @@
     object-fit: cover;
     display: block;
 }
+
+.profile-btn .profile-btn-secondary:hover {
+    background-color: rgb(255, 221, 0);
+}
+
+.profile-btn .profile-btn-secondary {
+    display: block;
+    margin: 10px auto 0;
+}

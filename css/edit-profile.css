@@ -10,6 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 
@@ -49,7 +52,7 @@
 .edit-profile-page .profile-card {
     width: 620px;
     max-width: 100%;
-    margin-bottom: 26px;
+    margin: 0 auto 26px auto;
 }
 
 
@@ -74,15 +77,12 @@
 /* ----Picture component tweaks------- */
 /* Avatar circle */
 .edit-profile-page .photo-circle {
-    width: 110px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     overflow: hidden;
-
-
     background: rgba(255, 255, 255, 0.35);
     margin: 0 auto 15px auto;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,4 +134,12 @@
 .edit-profile-page .profile-btn-primary {
     display: block;
     margin: 10px auto 0;
+}
+
+#profilePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
