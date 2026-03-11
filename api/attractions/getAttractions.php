@@ -1,5 +1,5 @@
 <?php
-// Attractions API - returns attractions as JSON
+// Attractions API returns as JSON
 // Optional params: ?featured=true, ?category=Outdoors
 
 header("Content-Type: application/json");
