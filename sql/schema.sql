@@ -5,3 +5,15 @@ CREATE TABLE IF NOT EXISTS attractions (
   location VARCHAR(120),
   image_url VARCHAR(255)
 );
+
+-- form submission php
+CREATE TABLE IF NOT EXISTS submissions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  business_name VARCHAR(120) NOT NULL,
+  attraction_name VARCHAR(120) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(30) NOT NULL,
+  budget VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

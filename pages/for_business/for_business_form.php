@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['budget'])) { setcookie("budget", $_POST['budget'], time() + 30); }
 
     if ($something_missing == 0) {
-        require_once "../db.php";
+        require_once "../../api/db.php";
 
         $stmt = $conn->prepare("INSERT INTO submissions (name, business_name, attraction_name, email, phone, budget) VALUES (:name, :businessName, :attractionName, :email, :phone, :budget)");
         $stmt->execute([
