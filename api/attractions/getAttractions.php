@@ -32,7 +32,7 @@ if (!isset($conn)) {
 // Parameter validation
 
 $featured = isset($_GET['featured']) ? $_GET['featured'] : null;
-$category = isset($_GET['category']) ? trim($_GET['category'])  : null;
+$category = isset($_GET['category']) ? trim($_GET['category']) : null;
 
 // 'featured' only accepts the string "true"
 if ($featured !== null && $featured !== 'true') {
