@@ -240,7 +240,7 @@ echo "Order placed successfully!";
             let discount = 0;
             let code = document.getElementById("discount").value.toLowerCase();
 
-            if (code == "fun") {
+            if (code == "gator") {
                 discount = subtotal * 0.15;
             }
 
@@ -355,7 +355,7 @@ echo "Order placed successfully!";
                 <input type="text" id="discount" onkeyup="updateTotal()" placeholder="Enter code"><br><br>
 
                 Available Codes:<br>
-                fun (15% off)<br>
+                gator (15% off)<br>
                 10off ($10 off)<br>
                 welcome (30% off)<br>
                 bogo (Buy One Get One)<br><br>
