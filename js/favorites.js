@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const favoriteList = document.getElementById('favorite-list');
 
     try {
-        const res = await fetch('../api/favorites/getFavorites.php?user_id=' + userId);
+        const res = await fetch('/api/favorites/getFavorites.php?user_id=' + userId);
         const items = await res.json();
 
         if (!Array.isArray(items)) {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             removeBtn.className = 'remove-btn';
             removeBtn.textContent = '\u00D7';
             removeBtn.addEventListener('click', async function () {
-                const r = await fetch('../api/favorites/removeFavorite.php', {
+                const r = await fetch('/api/favorites/removeFavorite.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ user_id: userId, id: parseInt(item.id) })

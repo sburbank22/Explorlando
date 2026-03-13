@@ -14,35 +14,32 @@
 
 <body class="settings-page">
 
-  <!--GLOBAL HEADER — done in style.css -->
-  <!--
-  <header>
-    <div class="header-inner">
-      <div class="logo"><img src="../images/logo.png" alt="Explorlando" class="site-logo" height="36" style="width:auto;"></div>
-      <div class="account">
-        <div class="avatar"></div>
-        <span>My Account</span>
-      </div>
-    </div>
-  </header>
-  -->
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
 
-  <!--GLOBAL SIDEBAR — done in style.css -->
-  <!--
-  <aside class="sidebar">
-    <nav>
-      <ul>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="attractions.html">Attractions</a></li>
-        <li><a href="#">Open Lobby</a></li>
-        <li><a href="#">Explorlando Spotlight</a></li>
-        <li><a href="#">For Businesses</a></li>
-        <li><a class="selected" href="settings.html">Settings</a></li>
-      </ul>
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../../pages/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../../pages/login.html">Login</a>
+      <a class="nav-item" href="../../pages/profile.html">Profile</a>
+      <a class="nav-item" href="../../aboutus.html">About Us</a>
+      <a class="nav-item" href="attractions.html">Attractions</a>
+      <a class="nav-item" href="../../pages/open-lobby.html">Open Lobby</a>
+      <a class="nav-item" href="../../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../../pages/for_business/for_business.html">For Businesses</a>
+      <a class="nav-item active" href="settings.html">Settings</a>
     </nav>
-  </aside>
-  -->
 
   <!--SETTINGS CONTENT -->
   <main>
@@ -95,6 +92,8 @@
     </section>
 
   </main>
+
+  </div>
 
 </body>
 </html>

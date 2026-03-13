@@ -47,6 +47,17 @@ CREATE TABLE IF NOT EXISTS submissions (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS favorites (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  attraction_id INT NOT NULL,
+  type ENUM('favorite', 'saved') NOT NULL DEFAULT 'favorite',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY unique_user_attraction (user_id, attraction_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (attraction_id) REFERENCES attractions(id) ON DELETE CASCADE
+);
+
 -- discount checkout php
 CREATE DATABASE ticket_store;
 USE ticket_store;
