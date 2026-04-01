@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando Profile</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/profile.css">
+</head>
+
+<body class="profile-page">
+
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="profile.html" class="account-btn">
+            <img src="../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item" href="../auth/login.html">Login</a>
+            <a class="nav-item active" href="profile.html">Profile</a>
+            <a class="nav-item" href="../about.html">About Us</a>
+            <a class="nav-item" href="../attractions/index.html">Attractions</a>
+            <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="settings.html">Settings</a>
+        </nav>
+
+        <main class="profile-main">
+
+            <button class="back-btn" type="button" onclick="goToLogin()" aria-label="Back">
+                &#8592;
+            </button>
+
+            <!-- Welcome banner -->
+            <div class="welcome-banner profile-welcome" id="welcomeMessage">
+                Hello, welcome User
+            </div>
+
+            <!-- Personal Information -->
+            <section class="profile-card">
+                <h3 class="card-title">Personal Information</h3>
+
+                <div class="profile-row">
+                    <div class="photo-circle">
+                        <img id="profileImage" src="../../images/user-1.png" alt="Profile photo" class="profile-photo">
+                    </div>
+
+                    <div class="profile-fields">
+                        <div class="info-row">
+                            <span class="info-label">Display Name:</span>
+                            <span class="info-value" id="profileName">Loading...</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            <span class="info-value" id="profileEmail">Loading...</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">Date of Birth:</span>
+                            <span class="info-value" id="profileDob">Loading...</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">Phone Number:</span>
+                            <span class="info-value" id="profilePhone">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- More Information -->
+            <section class="profile-card">
+                <h3 class="card-title">Account</h3>
+
+                <div class="info-row">
+                    <span class="info-label">Username:</span>
+                    <span class="info-value" id="profileUsername">Loading...</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Password:</span>
+                    <span class="info-value">••••••••</span>
+                </div>
+            </section>
+
+            <!-- Bio / Pronouns / Interests -->
+            <section class="profile-card">
+                <div class="info-block">
+                    <div class="info-label">Bio:</div>
+                    <div class="info-value" id="profileBio">Loading...</div>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">Pronouns:</span>
+                    <span class="info-value" id="profilePronouns">Loading...</span>
+                </div>
+
+                <div class="info-block">
+                    <div class="info-label">Interests:</div>
+                    <div class="info-value" id="profileInterests">Loading...</div>
+                </div>
+
+                <!-- Saved Attractions Button-->
+                <div class="profile-btn">
+                    <button type="button" class="profile-btn-secondary"
+                        onclick="window.location.href='saved-attractions.html'">
+                        View saved &amp; favorite attractions
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- Buttons -->
+            <div class="profile-actions">
+                <button type="button" class="profile-btn-primary" onclick="goToEditProfile()">
+                    Edit Info
+                </button>
+
+                <button type="button" class="profile-btn-primary" id="logoutBtn">
+                    Logout
+                </button>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        function goToLogin() {
+            window.location.href = "../auth/login.html";
+        }
+
+        function goToEditProfile() {
+            window.location.href = "edit-profile.html";
+        }
+
+        async function loadUserProfile() {
+            try {
+                const response = await fetch("/api/auth/me.php", {
+                    method: "GET",
+                    credentials: "include"
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || !data.loggedIn) {
+                    window.location.href = "../auth/login.html";
+                    return;
+                }
+
+                const user = data.user;
+
+                const name = user.username || user.name || "User";
+                document.getElementById("welcomeMessage").textContent = `Hello, welcome ${name}`;
+
+                document.getElementById("profileName").textContent = user.name || "";
+                document.getElementById("profileEmail").textContent = user.email || "";
+                document.getElementById("profileUsername").textContent = user.username || "";
+                document.getElementById("profileDob").textContent = user.date_of_birth || "";
+                document.getElementById("profilePhone").textContent = user.phone || "";
+                document.getElementById("profileBio").textContent = user.bio || "";
+                document.getElementById("profilePronouns").textContent = user.pronouns || "";
+                document.getElementById("profileInterests").textContent = user.interests || "";
+
+                if (user.profile_picture) {
+                    document.getElementById("profileImage").src = user.profile_picture;
+                }
+
+            } catch (error) {
+                console.error("Error loading profile:", error);
+            }
+        }
+
+        document.getElementById("logoutBtn").addEventListener("click", async function () {
+            try {
+                const response = await fetch("/api/auth/logout.php", {
+                    method: "POST",
+                    credentials: "include"
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = "../auth/login.html";
+                } else {
+                    alert(data.message || "Logout failed.");
+                }
+            } catch (error) {
+                console.error("Error logging out:", error);
+                alert("Something went wrong during logout.");
+            }
+        });
+
+        loadUserProfile();
+    </script>
+</body>
+
+</html>

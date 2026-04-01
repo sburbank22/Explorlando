@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando | Login</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/login.css">
+</head>
+
+<body class="login-page">
+
+    <!-- Header bar -->
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <!-- My account button -->
+        <a href="../profile/profile.html" class="account-btn">
+            <img src="../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <main class="login-container">
+
+        <div class="welcome-banner">
+            Welcome to Explorlando
+        </div>
+
+        <form class="login-card">
+
+            <div class="login-title">
+                <span class="login-badge">Login</span>
+            </div>
+
+            <input type="text" name="username" placeholder="Username / Email" autocomplete="username">
+
+            <div class="password-wrap" style="width: 100%; text-align: left;">
+                <input type="password" id="loginPassword" name="password" placeholder="Password"
+                    autocomplete="current-password" style="width: 100%; box-sizing: border-box; display: block;">
+
+                <div style="margin-top: 8px; display: block;">
+                    <label for="showLoginPassword" style="font-size: 14px;">
+                        <input type="checkbox" id="showLoginPassword" style="width: auto; margin-right: 6px;">
+                        Show Password
+                    </label>
+                </div>
+            </div>
+
+            <a href="forgot-password.html" class="forgot">Forgot Password?</a>
+
+            <!-- Forgot Password flow will be implemented in backend phase -->
+
+            <div class="login-actions">
+                <button type="button" onclick="goToCreateAccount1()">Create Account</button>
+                <button type="button" onclick="submitLogin()">Log In</button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <script>
+
+        function goToCreateAccount1() {
+            window.location.href = "create-account1.html";
+        }
+
+        async function submitLogin() {
+            const email = document.querySelector('input[name="username"]').value.trim();
+            const password = document.querySelector('input[name="password"]').value;
+
+            if (!email || !password) {
+                alert("Please enter your email and password.");
+                return;
+            }
+
+            try {
+                const res = await fetch("/api/auth/login.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+
+                const data = await res.json().catch(() => ({}));
+
+                if (!res.ok) {
+                    alert(data.message || "Login failed.");
+                    return;
+                }
+
+                window.location.href = "../profile/profile.html";
+            } catch (err) {
+                console.error(err);
+                alert("Network error logging in.");
+            }
+        }
+
+        const loginPassword = document.getElementById("loginPassword");
+        const showLoginPassword = document.getElementById("showLoginPassword");
+
+        if (loginPassword && showLoginPassword) {
+            showLoginPassword.addEventListener("change", () => {
+                loginPassword.type = showLoginPassword.checked ? "text" : "password";
+            });
+        }
+    </script>
+
+</body>
+
+</html>

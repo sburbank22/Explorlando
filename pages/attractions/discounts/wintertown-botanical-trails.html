@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando Available Discounts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f3f3;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #36c3c7;
+            padding: 10px 30px;
+            gap: 16px;
+        }
+
+        .logo {
+            margin-left: -19px;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .account-btn {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            background-color: #f4b942;
+            padding: 0 20px;
+            height: 40px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .account-btn img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            transform: translateX(-6px);
+        }
+
+        .account-btn span {
+            margin-left: -25px;
+        }
+
+        .account-btn:hover {
+            background-color: #cfa13f;
+        }
+
+        .app-layout {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+
+        .side-nav {
+            width: 200px;
+            background-color: #36c3c7;
+            padding: 24px 12px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 10px;
+            border-radius: 14px;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.26);
+            font-weight: 700;
+        }
+
+        .top-search {
+            flex: 1;
+            display: flex;
+            justify-content: left;
+        }
+
+        .top-search input {
+            width: 100%;
+            max-width: 520px;
+            height: 38px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 0 12px;
+            outline: none;
+        }
+
+        .top-search input:focus {
+            border-color: #6b7676;
+        }
+
+        .main {
+            flex: 1;
+            background: white;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 10px 20px;
+            flex: 1;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            width: 100%;
+            outline: none;
+        }
+
+        .filter {
+            position: relative;
+        }
+
+        .filter-btn {
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 12px 30px;
+            cursor: pointer;
+        }
+
+        .filter-menu {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+        }
+
+        .filter-menu div {
+            padding: 10px 0;
+            border-bottom: 1px solid #999;
+        }
+
+        .search-btn {
+            background: #ffb655;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .header {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .header span {
+            background: #8fd39a;
+            padding: 12px 60px;
+            border-radius: 30px;
+            font-size: 36px;
+        }
+
+        .discount-card {
+            background: #cfcfcf;
+            border-radius: 50px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .discount-card h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        .coupon {
+            display: flex;
+            align-items: center;
+            background: #e6e6e6;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .coupon-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .green-dot {
+            width: 30px;
+            height: 30px;
+            background: #45d14a;
+            border-radius: 50%;
+        }
+
+        .coupon-text {
+            font-size: 22px;
+        }
+
+        .coupon-middle {
+            border-left: 3px solid black;
+            padding: 20px;
+            font-size: 22px;
+            flex: 2;
+        }
+
+        .copy-btn {
+            background: #8fd39a;
+            border: none;
+            font-size: 24px;
+            padding: 20px 30px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .btn {
+            background: #8fd39a;
+            padding: 25px 40px;
+            border-radius: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <a class="logo" href="../../home/home.html">
+            <img src="../../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="../../profile/profile.html" class="account-btn">
+            <img src="../../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <nav class="side-nav">
+            <a class="nav-item" href="../../auth/login.html">Login</a>
+            <a class="nav-item" href="../../profile/profile.html">Profile</a>
+            <a class="nav-item" href="../../about.html">About Us</a>
+            <a class="nav-item active" href="../../attractions/index.html">Attractions</a>
+            <a class="nav-item" href="../../open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="../../spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../../for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="../../profile/settings.html">Settings</a>
+        </nav>
+
+        <div class="main">
+            <div class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search Discounts">
+                </div>
+
+                <div class="filter">
+                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+                    <div class="filter-menu" id="filterMenu">
+                        <div>Attraction Type</div>
+                        <div>Price Range</div>
+                    </div>
+                </div>
+
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="header">
+                <span>Available Discounts</span>
+            </div>
+            <br>
+            <br>
+
+            <div class="discount-card">
+                <h1>Winter Town Botanical Trails</h1>
+
+                <div class="coupon">
+                    <div class="coupon-left">
+                        <div class="green-dot"></div>
+                        <div class="coupon-text">Buy One, Get One Free</div>
+                    </div>
+
+                    <div class="coupon-middle">
+                        Apply code <strong>bogo</strong> to checkout to receive discount!
+                    </div>
+
+                    <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+                </div>
+
+                <div class="buttons">
+                    <a href="../wintertown-botanical-garden.html" class="btn">
+                        View Attraction Details
+                    </a>
+                    <a href="/api/discounts/getDiscounts.php" class="btn">
+                        Checkout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCode() {
+            navigator.clipboard.writeText("bogo");
+            alert("Code copied: bogo");
+        }
+
+        function toggleFilter() {
+            const menu = document.getElementById("filterMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+
+</html>

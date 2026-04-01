@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/edit-profile.css" />
+</head>
+
+<body class="profile-page edit-profile-page">
+
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="profile.html" class="account-btn">
+            <img src="../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item" href="../auth/login.html">Login</a>
+            <a class="nav-item active" href="profile.html">Profile</a>
+            <a class="nav-item" href="../about.html">About Us</a>
+            <a class="nav-item" href="../attractions/index.html">Attractions</a>
+            <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="settings.html">Settings</a>
+        </nav>
+
+        <main class="profile-main">
+
+            <!-- Header row (back + banner) -->
+            <div class="edit-header">
+                <button class="back-btn" type="button" onclick="goToProfile()" aria-label="Back">
+                    &#8592;
+                </button>
+
+                <div class="welcome-banner profile-welcome" id="welcomeBanner">
+                    Hello, welcome User
+                </div>
+            </div>
+
+            <form id="editProfileForm">
+                <!-- Personal Information -->
+                <section class="profile-card">
+                    <h3 class="card-title">Personal Information</h3>
+
+                    <div class="profile-row">
+                        <div class="photo-circle">
+                            <img id="profilePreview" src="../../images/user-1.png" alt="Profile picture preview">
+                        </div>
+
+                        <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+                        <button type="button" class="photo-btn" id="uploadImageBtn">
+                            Upload an Image<br>+
+                        </button>
+                    </div>
+
+                    <div class="profile-fields">
+                        <label for="displayName">Display Name:</label>
+                        <input type="text" id="displayName" name="display_name">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" name="date_of_birth">
+
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" id="phoneNumber" name="phone">
+                    </div>
+    </div>
+    </section>
+
+    <!-- More Information -->
+    <section class="profile-card">
+        <h3 class="card-title">More Information</h3>
+
+        <label for="username">Change Username:</label>
+        <input type="text" id="username" name="username" placeholder="New username">
+
+        <label for="password">Change Password:</label>
+        <input type="password" id="password" name="password" placeholder="New password">
+
+        <label class="show-password">
+            <input type="checkbox" onclick="togglePassword()"> Show Password
+        </label>
+    </section>
+
+    <!-- Bio / Pronouns / Interests -->
+    <section class="profile-card">
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" placeholder="Tell us about yourself..."></textarea>
+
+        <label for="pronouns">Pronouns:</label>
+        <input type="text" id="pronouns" name="pronouns" placeholder="she/her">
+
+        <label for="interests">Interests:</label>
+        <textarea id="interests" name="interests" placeholder="What are you interested in?..."></textarea>
+    </section>
+
+    <p id="message"></p>
+
+    <!-- Save button -->
+    <button class="profile-btn-primary" type="submit">
+        Save Changes
+    </button>
+    </form>
+
+    </main>
+
+    </div>
+
+    <script>
+        function goToProfile() {
+            window.location.href = "profile.html";
+        }
+
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+
+
+        const uploadImageBtn = document.getElementById("uploadImageBtn");
+        const profilePictureInput = document.getElementById("profilePictureInput");
+        const profilePreview = document.getElementById("profilePreview");
+        const message = document.getElementById("message");
+
+        uploadImageBtn.addEventListener("click", () => {
+            profilePictureInput.click();
+        });
+
+        profilePictureInput.addEventListener("change", async function () {
+            const file = this.files[0];
+
+            if (!file) return;
+
+            /* instant picture preview */
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("profilePreview").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+
+            const formData = new FormData();
+            formData.append("profile_picture", file);
+
+            try {
+                const response = await fetch("/api/auth/uploadProfilePicture.php", {
+                    method: "POST",
+                    body: formData,
+                    credentials: "include"
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    profilePreview.src = data.profile_picture;
+                    alert("Profile picture uploaded successfully!");
+                } else {
+                    alert(data.message || "Failed to upload profile picture.");
+                }
+            } catch (error) {
+                console.error("Error uploading profile picture:", error);
+                message.textContent = "Something went wrong while uploading your picture.";
+            }
+        });
+
+        async function loadUserInfo() {
+            try {
+                const response = await fetch("/api/auth/me.php", {
+                    method: "GET",
+                    credentials: "include"
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || !data.loggedIn) {
+                    window.location.href = "../auth/login.html";
+                    return;
+                }
+
+                const user = data.user;
+
+                document.getElementById("welcomeBanner").textContent =
+                    `Hello, welcome ${user.username || user.name || "User"}`;
+
+                document.getElementById("displayName").value = user.name || "";
+                document.getElementById("email").value = user.email || "";
+                document.getElementById("dateOfBirth").value = user.date_of_birth || "";
+                document.getElementById("phoneNumber").value = user.phone || "";
+                document.getElementById("username").value = user.username || "";
+                document.getElementById("bio").value = user.bio || "";
+                document.getElementById("pronouns").value = user.pronouns || "";
+                document.getElementById("interests").value = user.interests || "";
+
+                if (user.profile_picture) {
+                    document.getElementById("profilePreview").src = user.profile_picture;
+                }
+
+            } catch (error) {
+                console.error("Error loading user info:", error);
+                document.getElementById("message").textContent = "Could not load profile info.";
+            }
+        }
+
+        document.getElementById("editProfileForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const message = document.getElementById("message");
+            message.textContent = "";
+            const formData = {
+
+                name: document.getElementById("displayName").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                username: document.getElementById("username").value.trim(),
+                date_of_birth: document.getElementById("dateOfBirth").value,
+                phone: document.getElementById("phoneNumber").value.trim(),
+                bio: document.getElementById("bio").value.trim(),
+                pronouns: document.getElementById("pronouns").value.trim(),
+                interests: document.getElementById("interests").value.trim(),
+                password: document.getElementById("password").value.trim()
+            };
+
+            try {
+                const response = await fetch("/api/auth/updateProfile.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Profile updated successfully!");
+                    window.location.href = "profile.html";
+                } else {
+                    console.log(data);
+                    alert(data.message || "Failed to update profile.");
+                }
+
+            } catch (error) {
+                console.error("Error updating profile:", error);
+                message.textContent = "Something went wrong while updating your profile.";
+            }
+        });
+
+        loadUserInfo();
+    </script>
+</body>
+
+</html>

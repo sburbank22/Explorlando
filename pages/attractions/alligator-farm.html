@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Baby Joeys Alligator Farm</title>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #eaeaea;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .red {
+      background: #ff5f56;
+    }
+
+    .yellow {
+      background: #ffbd2e;
+    }
+
+    .green {
+      background: #27c93f;
+    }
+
+
+    .menu-item {
+      font-size: 20px;
+      margin: 18px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid black;
+      width: fit-content;
+    }
+
+    .menu-item.active {
+      background: white;
+      border-radius: 20px;
+      padding: 8px 20px;
+      border: none;
+    }
+
+    /* Main content */
+    .content {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    /* Decorative circles */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: #f9b45c;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    .c1 {
+      width: 260px;
+      height: 260px;
+      top: 80px;
+      left: 100px;
+    }
+
+    .c2 {
+      width: 140px;
+      height: 140px;
+      top: 40px;
+      left: 320px;
+    }
+
+    .c3 {
+      width: 110px;
+      height: 110px;
+      top: 220px;
+      left: 380px;
+    }
+
+    .c4 {
+      width: 90px;
+      height: 90px;
+      bottom: 120px;
+      left: 180px;
+    }
+
+    /* Title pill */
+    .title-pill {
+      background: #ffd55f;
+      padding: 30px 50px;
+      border-radius: 60px;
+      font-size: 32px;
+      font-weight: bold;
+      width: fit-content;
+      margin-left: 420px;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Description box */
+    .desc-box {
+      background: #2ec4c6;
+      color: black;
+      padding: 28px 36px;
+      border-radius: 40px;
+      width: 520px;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-top: 20px;
+      margin-left: 420px;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .desc-box p {
+      margin: 0 0 10px 0;
+    }
+
+    .desc-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* image and golf section */
+    .alligator {
+      width: 260px;
+      height: 260px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      overflow: hidden;
+      top: 110px;
+      left: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .alligator img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 40px auto 0;
+      width: 100%;
+      position: relative;
+      left: 0;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #ffd55f;
+      padding: 25px 40px;
+      border-radius: 40px;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Baby Joey's Alligator Farm page nav override */
+    .top-bar {
+      background-color: #36c3c7;
+    }
+
+    .side-nav {
+      background-color: #36c3c7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <a class="logo" href="../home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
+
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../profile/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../auth/login.html">Login</a>
+      <a class="nav-item" href="../profile/profile.html">Profile</a>
+      <a class="nav-item" href="../about.html">About Us</a>
+      <a class="nav-item active" href="index.html">Attractions</a>
+      <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+      <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+      <a class="nav-item" href="../profile/settings.html">Settings</a>
+    </nav>
+
+    <main class="content">
+      <!-- Decorative circles -->
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+      <div class="circle c4"></div>
+
+      <div class="title-pill">Baby Joey’s Alligator Farm</div>
+
+      <div class="desc-box">
+        <p style="margin: 0 0 16px 0;">Enjoy good, old-fashioned family fun at a family-owned, all-natural alligator sanctuary! Enjoy live gators, train rides, an assortment of food and drink, educational shows, and more!</p>
+
+        <p style="margin: 0 0 16px 0;">
+          <strong>Hours:</strong> Sun-Sat 9AM - 8PM<br>
+          <strong>Uncle Roger’s Gator Train Ride Hours:</strong><br>
+          Sun-Sat 9AM - 5PM<br>
+          <em>All hours are weather permitting</em>
+        </p>
+
+        <p style="margin: 0 0 16px 0;">
+          <strong>Admission Pricing:</strong><br>
+          Adults $20<br>
+          Kids (4-12) $16<br>
+          Kids Under 4 FREE
+        </p>
+
+        <p style="margin: 0;">
+          <strong>Address:</strong><br>
+          1234 Baby Joey Avenue, Sanford, FL, 36767
+        </p>
+      </div>
+
+      <div class="alligator">
+        <img src="../../images/alligator.jpg" alt="alligator">
+      </div>
+
+      <div class="buttons">
+        <a href="https://www.wildfloridairboats.com/book-gator-park-tickets" target="_blank" class="btn">
+          Purchase Tickets
+        </a>
+        <a href="../open-lobby/index.html" class="btn">
+          Open Lobby
+        </a>
+        <a href="../profile/saved-attractions.html" class="btn">
+          Save Attraction
+        </a>
+        <a href="discounts/alligator-farm.html" class="btn">
+          Available Discounts
+        </a>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html

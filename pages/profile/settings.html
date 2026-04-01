@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | Explorlando</title>
+
+ <!--style.css for global style-->
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Feature-specific styles -->
+  <link rel="stylesheet" href="../../css/attractions.css">
+</head>
+
+<body class="settings-page">
+
+  <header class="top-bar">
+    <a class="logo" href="../../pages/home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
+
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../auth/login.html">Login</a>
+      <a class="nav-item" href="profile.html">Profile</a>
+      <a class="nav-item" href="../about.html">About Us</a>
+      <a class="nav-item" href="../attractions/index.html">Attractions</a>
+      <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+      <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+      <a class="nav-item active" href="settings.html">Settings</a>
+    </nav>
+
+  <!--SETTINGS CONTENT -->
+  <main>
+
+    <section class="settings-card">
+      <h1>Settings</h1>
+
+      <!-- Themes -->
+      <div class="settings-section">
+        <h2>Themes</h2>
+        <div class="setting-row">
+          <span>Toggle Dark Mode</span>
+          <label class="toggle">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Privacy -->
+      <div class="settings-section">
+        <h2>Privacy and Security</h2>
+        <div class="setting-row">
+          <span>Allow cookies</span>
+          <label class="toggle">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="settings-section">
+        <h2>Notifications</h2>
+        <div class="setting-row">
+          <span>Push notifications to account email</span>
+          <label class="toggle">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Help -->
+      <div class="settings-section">
+        <h2>Help</h2>
+        <a href="#" class="help-link">Link to external site with common Q &amp; As</a>
+      </div>
+
+    </section>
+
+  </main>
+
+  </div>
+
+</body>
+</html>
