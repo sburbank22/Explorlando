@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Explorlando | Create Account - Step 2</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/create-account.css">
+</head>
+
+<body class="create-account-page">
+
+    <header class="top-bar">
+        <a class="logo" href="../home/home.html">
+            <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="../profile/profile.html" class="account-btn">
+            <img src="../../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item active" href="login.html">Login</a>
+            <a class="nav-item" href="../profile/profile.html">Profile</a>
+            <a class="nav-item" href="../about.html">About Us</a>
+            <a class="nav-item" href="../attractions/index.html">Attractions</a>
+            <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="../profile/settings.html">Settings</a>
+        </nav>
+
+        <main class="auth-container create-account-main">
+
+            <button class="back-btn" type="button" onclick="goToCreateAccount1()" aria-label="Back to Step 1">
+                &#8592;
+            </button>
+
+            <div class="welcome-banner">
+                Join the Fun!
+            </div>
+
+            <form class="login-card signup-card">
+
+                <div class="login-title">
+                    <span class="login-badge">Sign Up:</span>
+                </div>
+
+                <p class="signup-subtitle">Add Profile Picture (optional):</p>
+
+                <div class="photo-circle">
+                    <img id="profilePreview" src="../../images/user-1.png" alt="Profile picture preview"
+                        style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+                </div>
+
+                <input type="file" id="profilePictureInput" accept="image/*" hidden>
+
+                <div style="margin-top: 12px;">
+                    <button type="button" class="photo-btn" id="uploadImageBtn">Add Photo +</button>
+                </div>
+
+                <div class="field-group">
+                    <p class="field-label">Gender:</p>
+
+                    <div class="radio-row">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="nonbinary"> Non-binary</label>
+                        <label><input type="radio" name="gender" value="na"> Prefer not to say</label>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <p class="field-label">Date of Birth:</p>
+                    <input type="date" name="dob">
+                </div>
+
+                <div class="field-group">
+                    <p class="field-label">Address:</p>
+                    <input type="text" name="address" placeholder="Street Address">
+                </div>
+
+                <div class="checkbox-row">
+                    <label><input type="checkbox" name="locationPermission"> Location Permission</label>
+                    <label><input type="checkbox" name="notifications"> Notifications</label>
+                    <label><input type="checkbox" name="terms"> Terms &amp; Conditions</label>
+                </div>
+
+                <p id="message" style="margin-top: 12px;"></p>
+
+                <!-- Buttons -->
+                <div class="signup-actions">
+                    <button type="button" onclick="goToCreateAccount1()">Back</button>
+                    <button type="button" onclick="submitSignup()">Sign Up</button>
+                </div>
+
+            </form>
+
+        </main>
+
+    </div>
+
+    <script>
+        const uploadImageBtn = document.getElementById("uploadImageBtn");
+        const profilePictureInput = document.getElementById("profilePictureInput");
+        const profilePreview = document.getElementById("profilePreview");
+        const message = document.getElementById("message");
+
+        let selectedProfilePicture = null;
+
+        uploadImageBtn.addEventListener("click", () => {
+            profilePictureInput.click();
+        });
+
+        profilePictureInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            selectedProfilePicture = file;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profilePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        async function submitSignup() {
+            const termsChecked = document.querySelector('input[name="terms"]').checked;
+
+            if (!termsChecked) {
+                alert("Please accept the Terms & Conditions.");
+                return;
+            }
+
+            const firstName = localStorage.getItem("signup_firstName") || "";
+            const lastName = localStorage.getItem("signup_lastName") || "";
+            const username = localStorage.getItem("signup_username");
+            const email = localStorage.getItem("signup_email");
+            const password = localStorage.getItem("signup_password");
+
+            const name = `${firstName} ${lastName}`.trim();
+
+            if (!username || !email || !password) {
+                alert("Missing signup info. Please go back to Step 1 and try again.");
+                return;
+            }
+
+            try {
+                const res = await fetch("/api/auth/register.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    credentials: "include",
+                    body: JSON.stringify({ name, username, email, password })
+                });
+
+                const data = await res.json().catch(() => ({}));
+
+                if (!res.ok) {
+                    alert(data.message || "Sign up failed.");
+                    return;
+                }
+
+                // Try to upload profile picture after account creation
+                if (selectedProfilePicture) {
+                    const formData = new FormData();
+                    formData.append("profile_picture", selectedProfilePicture);
+
+                    try {
+                        const uploadRes = await fetch("/api/auth/uploadProfilePicture.php", {
+                            method: "POST",
+                            body: formData,
+                            credentials: "include"
+                        });
+
+                        const uploadData = await uploadRes.json().catch(() => ({}));
+
+                        if (!uploadRes.ok || !uploadData.success) {
+                            console.warn("Profile picture upload failed:", uploadData);
+                        }
+                    } catch (uploadErr) {
+                        console.error("Profile picture upload error:", uploadErr);
+                    }
+                }
+
+                localStorage.removeItem("signup_firstName");
+                localStorage.removeItem("signup_lastName");
+                localStorage.removeItem("signup_username");
+                localStorage.removeItem("signup_email");
+                localStorage.removeItem("signup_password");
+
+                alert("Account created successfully!");
+                window.location.href = "login.html";
+
+            } catch (err) {
+                console.error(err);
+                alert("Network error signing up.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

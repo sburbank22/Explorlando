@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Explorlando | Open Lobby</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/global.css" />
+</head>
+
+<body class="open-lobby-page">
+
+  <header class="top-bar">
+    <a class="logo" href="../home/home.html">
+      <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
+
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../profile/profile.html" class="account-btn">
+      <img src="../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a href="../auth/login.html" class="nav-item">Login</a>
+      <a href="../profile/profile.html" class="nav-item">Profile</a>
+      <a href="../about.html" class="nav-item">About Us</a>
+      <a href="../attractions/index.html" class="nav-item">Attractions</a>
+      <a href="index.html" class="nav-item active">Open Lobby</a>
+      <a href="../spotlight/spotlight.html" class="nav-item">Explorlando Spotlight</a>
+      <a href="../for-business/index.html" class="nav-item">For Businesses</a>
+      <a href="../profile/settings.html" class="nav-item">Settings</a>
+    </nav>
+
+    <main class="content">
+
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+
+      <div class="title">Open Lobby</div>
+
+      <div class="description">
+        <h3>What is Open Lobby?</h3>
+        <p>
+          Open Lobby allows you to join parties with groups of other Explorlando users.
+          Think of it as a way to participate in a shared experience — share costs,
+          share rides, and share memories with new friends!
+        </p>
+      </div>
+
+      <div class="search-row">
+        <input type="text" placeholder="Match with a Group..." />
+
+        <button class="filter-btn" id="filterToggle">
+          Filter ▼
+        </button>
+
+        <a href="search.html" class="search-btn">Search</a>
+
+        <div class="dropdown" id="filterMenu">
+          <div>Amusement</div>
+          <div>Family</div>
+          <div>Museums / Cultural</div>
+          <div>Food / Drink</div>
+        </div>
+      </div>
+
+      <a href="available-groups.html" class="action-btn available">
+        Available Groups
+      </a>
+
+      <a href="joined-groups.html" class="action-btn joined">
+        Joined Groups
+      </a>
+
+    </main>
+  </div>
+  <script src="../../js/script.js"></script>
+</body>
+
+</html>

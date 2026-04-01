@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title> Explorlando About Us Page</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Layout, main content, body section */
+
+        .pill {
+            background: #BAD67F;
+            border-radius: 40px;
+            padding: 20px 40px;
+            display: block;
+            font-size: 36px;
+            margin: 0 auto 20px;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .story-box {
+            background: #b7d87a;
+            border-radius: 40px;
+            padding: 30px;
+            max-width: 700px;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+            margin: 0 auto;
+
+        }
+
+        .team {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .groupteam {
+            width: 100px;
+            height: auto;
+        }
+
+        .contact {
+            background: #31C3C9;
+            width: 300px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .us-main {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-bar">
+        <a class="logo" href="home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="profile/profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <!-- Main Layout -->
+    <!-- Sidebar -->
+    <div class="app-layout">
+        <nav class="side-nav">
+            <a class="nav-item" href="auth/login.html">Login</a>
+            <a class="nav-item" href="profile/profile.html">Profile</a>
+            <a class="nav-item active " href="about.html">About Us</a>
+            <a class="nav-item" href="attractions/index.html">Attractions</a>
+            <a class="nav-item" href="open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="profile/settings.html">Settings</a>
+        </nav>
+
+        <!-- Content -->
+        <main class="us-main">
+
+            <div class="pill">About Explorlando</div>
+
+            <div class="story-box">
+                Explorlando is a community based platform designed for students, visitors, local
+                residents/organizations, and anyone located in Central Florida. Explorlando was designed with the
+                goal
+                to make everyday needs easily accessible, such as finding nearby events, planning date nights,food
+                spots, other attractions to plan your weekend trips! The purpose is to create a more connected
+                experience for the Central Florida community!
+            </div>
+
+            <div class="team">
+                <h3>MEET THE TEAM:</h3>
+                <img src="../images/TeamImage.png" alt="team description" width="800" height="400">
+            </div>
+
+            <div class="contact">
+                CONTACT US!<br>
+                407-555-5555<br>
+                Explorlando@email.com
+
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Featured Discounts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        .logo {
+            background: white;
+            border-radius: 18px;
+            padding: 10px 16px;
+            font-size: 26px;
+            font-weight: bold;
+            color: orange;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        /*  Buttons  */
+        .btn {
+            background: #ff9f1c;
+            padding: 5px 40px;
+            border-radius: 40px;
+            font-size: 22px;
+
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+
+        }
+
+        /*  Layout  */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+
+        /*  Main  */
+        .main {
+            flex: 1;
+            padding: 20px 40px;
+            background: white;
+            position: relative;
+        }
+
+
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 10px 20px;
+            flex: 1;
+        }
+
+        .search-box input {
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            width: 100%;
+            outline: none;
+        }
+
+        .filter {
+            position: relative;
+        }
+
+        .filter-btn {
+            background: #e0e0e0;
+            border-radius: 30px;
+            padding: 12px 30px;
+            cursor: pointer;
+        }
+
+        .filter-menu {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: #e0e0e0;
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+        }
+
+        .filter-menu div {
+            padding: 10px 0;
+            border-bottom: 1px solid #999;
+        }
+
+        .search-btn {
+            background: #ffb655;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Featured section */
+        .featured {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .featured span {
+            background: #8fd39a;
+            padding: 10px 50px;
+            border-radius: 30px;
+            font-size: 32px;
+        }
+
+        /*  Cards section */
+        .cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #e0e0e0;
+            border-radius: 30px;
+            width: 230px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 20px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+
+        /* ---The top Navigation Bar----- */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #36c3c7;
+            ;
+            padding: 10px 30px;
+        }
+
+        .logo {
+            margin-left: -19px;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* -----My Account Button----- */
+        .account-btn {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            background-color: #f4b942;
+            padding: 0 20px;
+            height: 40px;
+            border-radius: 999px;
+
+            text-decoration: none;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        /* ---My Account button Icon---- */
+        .account-btn img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            transform: translateX(-6px);
+        }
+
+        .account-btn span {
+            margin-left: -25px;
+        }
+
+        .account-btn:hover {
+            background-color: #cfa13f;
+        }
+
+        /* ----App Layout wrapper for pages with a sidebar----- */
+        .app-layout {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* ---Left sidebar navigation--- */
+        .side-nav {
+            width: 200px;
+            background-color: #36c3c7;
+            ;
+            padding: 24px 12px;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* ---Nav sidebar links--- */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            text-decoration: none;
+            color: #000000;
+            font-weight: 600;
+            font-size: 14px;
+
+            padding: 10px 10px;
+            border-radius: 14px;
+            white-space: nowrap;
+        }
+
+
+        /* ---Nav Sidebar hover + active state--- */
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.26);
+            font-weight: 700;
+        }
+
+
+        /* ---Main content area next to sidebar--- */
+        .app-layout>main {
+            flex: 1;
+        }
+
+        /* Search bar stuff */
+        /* Top header search bar (shared) */
+        .top-bar {
+            gap: 16px;
+        }
+
+        .top-search {
+            flex: 1;
+            display: flex;
+            justify-content: left;
+        }
+
+        .top-search input {
+            width: 100%;
+            max-width: 520px;
+            height: 38px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 0 12px;
+            outline: none;
+        }
+
+        .top-search input:focus {
+            border-color: #6b7676;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <a class="logo" href="home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        </a>
+
+        <form class="top-search" role="search">
+            <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+        </form>
+
+        <a href="profile/profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
+            <span>My Account</span>
+        </a>
+    </header>
+
+    <div class="app-layout">
+
+        <!-- Left Sidebar Nav -->
+        <nav class="side-nav">
+            <a class="nav-item" href="auth/login.html">Login</a>
+            <a class="nav-item" href="profile/profile.html">Profile</a>
+            <a class="nav-item" href="about.html">About Us</a>
+            <a class="nav-item" href="attractions/index.html">Attractions</a>
+            <a class="nav-item" href="open-lobby/index.html">Open Lobby</a>
+            <a class="nav-item" href="spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="for-business/index.html">For Businesses</a>
+            <a class="nav-item" href="profile/settings.html">Settings</a>
+        </nav>
+
+
+        <!-- Main section -->
+        <div class="main">
+            <div class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="Search Discounts">
+                </div>
+
+                <div class="filter">
+                    <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+                    <div class="filter-menu" id="filterMenu">
+                        <div>Attraction Type</div>
+                        <div>Price Range</div>
+                    </div>
+                </div>
+
+                <button class="search-btn">Search</button>
+            </div>
+
+            <!-- Featured section -->
+            <div class="featured">
+                <span>Featured Deals</span>
+                <h2>Save On Local Attractions</h2>
+            </div>
+
+            <!-- Cards section -->
+            <div class="cards">
+                <div class="card">
+                    <h3>Baby Joeys Alligator Farm</h3>
+                    <img src="../images/Alligatorimage.jpg" alt="">
+                    <a href="attractions/discounts/alligator-farm.html" class="btn">
+                        15% off Ticket
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Orange Grove Mini Golf</h3>
+                    <img src="../images/GolfImage.jpeg" alt="">
+                    <a href="attractions/discounts/orange-grove-mini-golf.html" class="btn">
+                        $10 off Admission
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Skyline Rooftop Lounge</h3>
+                    <img src="../images/RooftopImage.jpeg" alt="">
+                    <a href="attractions/discounts/skyline-rooftop.html" class="btn">
+                        30% off Food
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Winter Town Botanical Trails</h3>
+                    <img src="../images/WinterTownBotanicalTrails.png" alt="">
+                    <a href="attractions/discounts/wintertown-botanical-trails.html" class="btn">
+                        BOGO Ticket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFilter() {
+            const menu = document.getElementById("filterMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+
+</html>
