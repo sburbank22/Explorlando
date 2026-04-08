@@ -1,5 +1,4 @@
 <?php
-$conn = new mysqli("localhost","root","","ticket_store");
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
