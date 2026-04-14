@@ -1,28 +1,85 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+$host = "db";
+$dbname = "explorlando";
+$username = "explorlando_user";
+$password = "password";
 
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$zipcode = $_POST['zipcode'];
-$qty = $_POST['quantity'];
-$total = $_POST['total_price'];
-$card = $_POST['card_number'];
-$expiry = $_POST['expiry'];
-$cvv = $_POST['cvv'];
+try {
+    $conn = new PDO(
+        "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
+        $username,
+        $password,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]
+    );
+} catch (PDOException $e) {
+    die("Database connection failed");
+}
 
-$sql = "INSERT INTO orders
-(last_name,email,phone,address,city,state,zipcode,ticket_qty,total_price,card_number,expiry,cvv)
-VALUES
-('$last_name','$email','$phone','$address','$city','$state','$zipcode','$qty','$total','$card','$expiry','$cvv')";
 
-$conn->query($sql);
+$success = "";
+$error = "";
 
-echo "Order placed successfully!";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $last_name = trim($_POST['last_name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $address = trim($_POST['address'] ?? '');
+    $city = trim($_POST['city'] ?? '');
+    $state = trim($_POST['state'] ?? '');
+    $zipcode = trim($_POST['zipcode'] ?? '');
+    $qty = (int)($_POST['quantity'] ?? 0);
+    $total = (float)($_POST['total_price'] ?? 0);
+
+    // Payment (ONLY for validation)
+    $card = preg_replace('/\s+/', '', $_POST['card_number'] ?? '');
+    $expiry = trim($_POST['expiry'] ?? '');
+    $cvv = trim($_POST['cvv'] ?? '');
+
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Invalid email format.";
+    } elseif (!preg_match('/^\d{13,19}$/', $card)) {
+        $error = "Invalid card number.";
+    } elseif (!preg_match('/^\d{3,4}$/', $cvv)) {
+        $error = "Invalid CVV.";
+    } elseif (!preg_match('/^(0[1-9]|1[0-2])\/\d{2}$/', $expiry)) {
+        $error = "Invalid expiry (MM/YY).";
+    } elseif ($qty < 1) {
+        $error = "Invalid ticket quantity.";
+    }
+
+
+    if (empty($error)) {
+        try {
+            $sql = "INSERT INTO orders
+            (last_name,email,phone,address,city,state,zipcode,ticket_qty,total_price)
+            VALUES
+            (:last_name,:email,:phone,:address,:city,:state,:zipcode,:qty,:total)";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->execute([
+                ':last_name' => $last_name,
+                ':email' => $email,
+                ':phone' => $phone,
+                ':address' => $address,
+                ':city' => $city,
+                ':state' => $state,
+                ':zipcode' => $zipcode,
+                ':qty' => $qty,
+                ':total' => $total
+            ]);
+
+            $success = "Order placed successfully!";
+        } catch (PDOException $e) {
+            $error = "Error placing order.";
+        }
+    }
 }
 ?>
 
