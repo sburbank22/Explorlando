@@ -310,6 +310,17 @@
             <a class="nav-item" href="../../for-business/index.html">For Businesses</a>
             <a class="nav-item" href="../../profile/settings.html">Settings</a>
         </nav>
+         <script>
+        function copyCode() {
+            navigator.clipboard.writeText("30OFF");
+            alert("Code copied: 30OFF");
+        }
+
+        function toggleFilter() {
+            const menu = document.getElementById("filterMenu");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    </script>
 
         <div class="main">
             <div class="top-bar">
@@ -354,7 +365,7 @@
                     <a href="../skyline-rooftop.html" class="btn">
                         View Attraction Details
                     </a>
-                    <a href="../pages/attractions/discounts/checkout/checkout.html" class="btn">
+                    <a href="checkout/checkout.html" class="btn">
                         Checkout
                     </a>
                 </div>
@@ -362,17 +373,7 @@
         </div>
     </div>
 
-    <script>
-        function copyCode() {
-            navigator.clipboard.writeText("30OFF");
-            alert("Code copied: 30OFF");
-        }
-
-        function toggleFilter() {
-            const menu = document.getElementById("filterMenu");
-            menu.style.display = menu.style.display === "block" ? "none" : "block";
-        }
-    </script>
+   
 </body>
 
 </html>
