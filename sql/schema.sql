@@ -57,10 +57,23 @@ CREATE TABLE IF NOT EXISTS favorites (
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (attraction_id) REFERENCES attractions(id) ON DELETE CASCADE
 );
-INSERT INTO attractions (name, description, location, image_url) VALUES
-  ('Baby Joeys Alligator Farm', 'Enjoy good, old-fashioned family fun at a family-owned, all-natural alligator sanctuary! Enjoy live gators, train rides, an assortment of food and drink, educational shows, and more!', '1234 Baby Joey Avenue, Sanford, FL 36767', '/images/alligator.jpg'),
-  ('Orange Grove Mini Golf', 'A citrus-themed mini golf course tucked inside sunny orange groves. Fun, simple, and perfect for families or anyone wanting a sweet little adventure.', 'Orlando, FL', '/images/golf.jpg'),
-  ('Skyline Rooftop Lounge', 'An upscale rooftop escape offering breathtaking panoramic views of the city skyline. Enjoy handcrafted cocktails, ambient lighting, and live music under the stars.', '100 Skyline Avenue, Orlando, FL 32801', '/images/rooftop.jpg'),
-  ('Winter Town Botanical Trails', 'A peaceful botanical garden filled with seasonal blooms and cozy winter charm. Perfect for slow walks, quiet moments, and nature lovers of all ages.', 'Orlando, FL', '/images/botanical.jpg');
 
-
+-- discount checkout php
+CREATE DATABASE ticket_store;
+USE ticket_store;
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    last_name VARCHAR(100),
+    email VARCHAR(150),
+    phone VARCHAR(20),
+    address VARCHAR(200),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    zipcode VARCHAR(10),
+    ticket_qty INT,
+    total_price DECIMAL(10,2),
+    card_number VARCHAR(20),
+    expiry VARCHAR(10),
+    cvv VARCHAR(5),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

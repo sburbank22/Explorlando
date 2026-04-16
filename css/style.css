@@ -131,6 +131,10 @@ button {
     background-color: #28aeb3;
 }
 
+.password-field input {
+    width: 100%;
+    box-sizing: border-box;
+}
 
 /* ----App Layout wrapper for pages with a sidebar----- */
 .app-layout {
@@ -373,4 +377,661 @@ button {
 
 #message a:hover {
     text-decoration: underline;
+}
+
+/* Dark Mode css */
+body.dark-mode {
+    background-color: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .top-bar {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .side-nav {
+    background-color: #242424;
+}
+
+body.dark-mode .nav-item {
+    color: #f5f5f5;
+}
+
+body.dark-mode .nav-item.active {
+    background-color: #BAD67F;
+    color: #1b1b1b;
+}
+
+body.dark-mode .settings-card {
+    background-color: #2f2f2f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .settings-section {
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode .help-link {
+    color: #BAD67F;
+}
+
+body.dark-mode .top-search input {
+    background-color: #3a3a3a;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode .top-search input::placeholder {
+    color: #ccc;
+}
+
+body.dark-mode .account-btn {
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+/* More Dark Mode Css styling */
+
+/* About page dark mode */
+body.dark-mode .us-main {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .pill {
+    background: #8fb85f;
+    color: #111;
+}
+
+body.dark-mode .story-box {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .contact {
+    background: #1f8f94;
+    color: #ffffff;
+}
+
+
+/* Spotlight page dark mode */
+body.dark-mode .main-content {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .hero {
+    background: #2f2f2f;
+}
+
+body.dark-mode .hero h1 {
+    color: #f5f5f5;
+}
+
+body.dark-mode .hero-content {
+    background: #3a3a3a;
+}
+
+body.dark-mode .hero-content h2,
+body.dark-mode .hero-content p {
+    color: #f5f5f5;
+}
+
+body.dark-mode .section-header {
+    background: #1f8f94;
+    color: #ffffff;
+}
+
+body.dark-mode .attraction-card {
+    background: #2f2f2f;
+    color: #f5f5f5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .attraction-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .card-content h3 {
+    color: #f5f5f5;
+}
+
+body.dark-mode .card-badge {
+    background: #8fb85f;
+}
+
+body.dark-mode .cta-section {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .cta-section h3,
+body.dark-mode .cta-section p {
+    color: #f5f5f5;
+}
+
+body.dark-mode .cta-button {
+    background: #1f8f94;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+body.dark-mode .cta-button:hover {
+    background: #27a7ad;
+}
+
+/* Attractions page dark mode */
+body.dark-mode {
+    background: #1b1b1b;
+}
+
+body.dark-mode .main {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .search-box {
+    background: #2f2f2f;
+}
+
+body.dark-mode .search-box input {
+    color: #f5f5f5;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #cccccc;
+}
+
+body.dark-mode .filter-btn {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .filter-btn:hover {
+    background: #3a3a3a;
+}
+
+body.dark-mode .filter-menu {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .filter-section label {
+    color: #f5f5f5;
+}
+
+body.dark-mode .filter-section select {
+    background: #3a3a3a;
+    color: #f5f5f5;
+}
+
+body.dark-mode .search-btn,
+body.dark-mode .apply-btn {
+    background: #f0aa48;
+    color: #111;
+}
+
+body.dark-mode .search-btn:hover,
+body.dark-mode .apply-btn:hover {
+    background: #dc993d;
+}
+
+body.dark-mode .featured span {
+    background: #8fb85f;
+    color: #111;
+}
+
+body.dark-mode .card {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card p {
+    color: #f5f5f5;
+}
+
+/* Alligator Farm page dark mode */
+body.dark-mode {
+    background: #1b1b1b;
+}
+
+body.dark-mode .content {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .title-pill {
+    background: #8fb85f;
+    color: #111;
+}
+
+body.dark-mode .desc-box {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .alligator {
+    background: #2f2f2f;
+}
+
+body.dark-mode .btn {
+    background: #1f8f94;
+    color: #ffffff;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .btn:hover {
+    background: #27a7ad;
+}
+
+/* optional: tone down bright background circles */
+body.dark-mode .circle {
+    opacity: 0.2;
+}
+
+body.dark-mode .top-bar {
+    background-color: #2a2a2a !important;
+}
+
+body.dark-mode .side-nav {
+    background-color: #242424 !important;
+}
+
+/* Skyline Rooftop page dark mode */
+body.dark-mode .content {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .title-pill {
+    background: #8fb85f;
+    color: #111;
+}
+
+body.dark-mode .desc-box {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+/* If Skyline uses a different image class like .rooftop or similar */
+body.dark-mode .rooftop,
+body.dark-mode .image-circle,
+body.dark-mode .image-container {
+    background: #2f2f2f;
+}
+
+body.dark-mode .btn {
+    background: #1f8f94;
+    color: #ffffff;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .btn:hover {
+    background: #27a7ad;
+}
+
+/* Dim decorative shapes if they exist */
+body.dark-mode .circle {
+    opacity: 0.2;
+}
+
+/* Profile page dark mode */
+body.dark-mode .profile-main {
+    background: #1b1b1b;
+    color: #f5f5f5;
+}
+
+body.dark-mode .profile-card {
+    background: #2f2f2f;
+    color: #f5f5f5;
+}
+
+body.dark-mode .card-title,
+body.dark-mode .info-label,
+body.dark-mode .info-value,
+body.dark-mode .profile-card p,
+body.dark-mode .profile-card span,
+body.dark-mode .profile-card div {
+    color: #f5f5f5;
+}
+
+body.dark-mode .welcome-banner {
+    background-color: #1f8f94;
+    color: #ffffff;
+}
+
+body.dark-mode .profile-btn-primary,
+body.dark-mode .profile-btn-secondary {
+    background-color: #1f8f94;
+    color: #ffffff;
+}
+
+body.dark-mode .profile-btn-primary:hover,
+body.dark-mode .profile-btn-secondary:hover {
+    background-color: #27a7ad;
+}
+
+body.dark-mode .profile-actions button {
+    background-color: #1f8f94;
+    color: #ffffff;
+}
+
+body.dark-mode .photo-circle {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .profile-photo {
+    border-color: transparent;
+}
+
+/* Forgot Password styling */
+.forgot-password-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #28aeb3;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.forgot-password-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgot-password-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.forgot-password-card h2 {
+    margin-bottom: 12px;
+    font-size: 28px;
+    color: #2f3e1f;
+}
+
+.forgot-password-subtext {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.forgot-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.forgot-password-form input {
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.forgot-password-form input:focus {
+    border-color: #BAD67F;
+}
+
+.forgot-password-form button {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #BAD67F;
+    color: #1f2a12;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.forgot-password-form button:hover {
+    background-color: #a8c86c;
+    transform: translateY(-1px);
+}
+
+.forgot-password-message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.forgot-password-message a {
+    color: #BAD67F;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.forgot-password-message a:hover {
+    text-decoration: underline;
+}
+
+.forgot-password-links {
+    margin-top: 20px;
+}
+
+.forgot-password-links a {
+    color: #5c7c2f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.forgot-password-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Reset Password styling */
+.reset-password-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #28aeb3;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.reset-password-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-password-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px 32px;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.reset-password-card h2 {
+    margin-bottom: 12px;
+    font-size: 28px;
+    color: #2f3e1f;
+}
+
+.reset-password-subtext {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.reset-password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.reset-password-form input {
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.reset-password-form input:focus {
+    border-color: #89a95c;
+}
+
+.reset-password-form button {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #bad67f;
+    color: #1f2a12;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.reset-password-form button:hover {
+    background-color: #a8c86c;
+    transform: translateY(-1px);
+}
+
+.reset-password-message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.reset-password-links {
+    margin-top: 20px;
+}
+
+.reset-password-links a {
+    color: #5c7c2f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.reset-password-links a:hover {
+    text-decoration: underline;
+}
+
+.reset-password-message.success {
+    color: #2e7d32;
+}
+
+.reset-password-message.error {
+    color: #c62828;
+}
+
+.password-field {
+    width: 100%;
+}
+
+.show-password-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+    margin-top: -5px;
+}
+
+.show-password-toggle input {
+    cursor: pointer;
+}
+
+/* Remove Attraction Button styling */
+.remove-btn {
+    background: #ffd55f;
+    color: black;
+    border: none;
+    border-radius: 40px;
+
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+
+    width: 100%;
+}
+
+.remove-btn:hover {
+    background: #f3c947;
+}
+
+.remove-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+.mini-card {
+    background: #e0e0e0;
+    border-radius: 25px;
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mini-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.mini-card p {
+    margin: 5px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mini-card-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.saved-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }

@@ -64,19 +64,21 @@
                 <input type="text" name="username" placeholder="Username" autocomplete="username">
                 <input type="email" name="email" placeholder="Email" autocomplete="email">
 
-                <input type="password" id="password" name="password" placeholder="Password" autocomplete="new-password">
 
-                <label class="show-password">
-                    <input type="checkbox" onclick="togglePassword('password')"> Show Password
+                <div class="password-field">
+                    <input type="password" id="password" name="password" placeholder="Password"
+                        autocomplete="new-password">
+                </div>
+
+                <div class="password-field">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+                        autocomplete="new-password">
+                </div>
+
+                <label class="show-password-toggle">
+                    <input type="checkbox" id="showPassword">
+                    Show Password
                 </label>
-
-                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
-                    autocomplete="new-password">
-
-                <label class="show-password">
-                    <input type="checkbox" onclick="togglePassword('confirmPassword')"> Show Password
-                </label>
-
                 <div class="login-actions">
                     <button type="button" onclick="goToLogin()">Back</button>
                     <button type="button" onclick="saveSignupStep1()">Next</button>
@@ -89,15 +91,15 @@
     </div>
 
     <script>
-        function togglePassword(fieldId) {
-            const passwordField = document.getElementById(fieldId);
+        const passwordInput = document.getElementById("password");
+        const confirmInput = document.getElementById("confirmPassword");
+        const toggle = document.getElementById("showPassword");
 
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-            } else {
-                passwordField.type = "password";
-            }
-        }
+        toggle.addEventListener("change", function () {
+            const type = this.checked ? "text" : "password";
+            passwordInput.type = type;
+            confirmInput.type = type;
+        });
 
         function saveSignupStep1() {
             const firstName = document.querySelector('input[name="firstName"]').value.trim();

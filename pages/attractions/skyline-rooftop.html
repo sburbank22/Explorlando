@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Explorlando Skyline Rooftop Lounge</title>
+    <link rel="stylesheet" href="../../css/style.css">
 
 
     <style>
@@ -103,7 +104,7 @@
             padding: 30px 50px;
             border-radius: 60px;
             font-size: 32px;
-
+            font-weight: bold;
             width: fit-content;
             margin-left: 420px;
             box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
@@ -120,6 +121,7 @@
             width: 520px;
             font-size: 15px;
             line-height: 1.5;
+            text-align: center;
             margin-top: 20px;
             margin-left: 420px;
             box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
@@ -381,7 +383,7 @@
 
                 <p>
                     <strong>Admission Pricing:</strong><br>
-                    General Admission FREE<br>
+                    General Admission $25<br>
                     Reserved Lounge Seating Available<br>
                     Special Event Pricing May Apply
                 </p>
@@ -399,22 +401,24 @@
             </div>
 
             <div class="buttons">
-                <a href="discounts/checkout/checkout.html" class="btn">
+                <a href="https://acskybar.com/" class="btn">
                     Purchase Tickets
                 </a>
                 <a href="../open-lobby/index.html" class="btn">
                     Open Lobby
                 </a>
-                <a href="../profile/saved-attractions.html" class="btn">
+                <a href="#" class="btn save-btn" data-attraction-id="3">
                     Save Attraction
                 </a>
                 <a href="discounts/skyline-rooftop.html" class="btn">
                     Available Discounts
                 </a>
             </div>
-          </main>
-        </div>
-      
-      </body>
-      
-      </html>
+        </main>
+    </div>
+
+    <script src="/js/save-attraction.js"></script>
+    <script src="../../js/script.js"></script>
+</body>
+
+</html>

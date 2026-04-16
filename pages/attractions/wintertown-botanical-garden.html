@@ -104,6 +104,7 @@
             padding: 30px 50px;
             border-radius: 60px;
             font-size: 32px;
+            font-weight: bold;
             width: fit-content;
             margin-left: 420px;
             box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
@@ -115,17 +116,18 @@
         .desc-box {
             background: #2ec4c6;
             color: black;
-            padding: 40px;
+            padding: 28px 36px;
             border-radius: 40px;
             width: 520px;
             font-size: 15px;
-            line-height: 1.4;
-            margin-top: 50px;
+            line-height: 1.5;
+            margin-top: 20px;
             margin-left: 420px;
             box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 2;
         }
+
 
         /* park image */
         .winter {
@@ -134,8 +136,9 @@
             background: white;
             border-radius: 50%;
             position: absolute;
-            top: 200px;
-            left: 170px;
+            overflow: hidden;
+            top: 120px;
+            left: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -314,6 +317,14 @@
         .top-search input:focus {
             border-color: #6b7676;
         }
+
+        .desc-box p {
+            margin: 0 0 10px 0;
+        }
+
+        .desc-box p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -355,40 +366,46 @@
             <div class="circle c3"></div>
             <div class="circle c4"></div>
 
-            <div class="title-pill">Winter Town Botanical Trails</div>
+            <div class="title-pill">Winter Town Botanical Garden</div>
+
             <div class="desc-box">
-                A peaceful botanical garden filled with seasonal blooms and cozy winter charm. Stroll through
-                beautifully curated walking paths, glowing evening light displays, and themed garden sections that
-                celebrate Florida's natural beauty year-round. Perfect for slow walks, quiet moments, date nights, and
-                nature lovers of all ages. <br>
+                <p style="margin: 0 0 16px 0;">
+                    A peaceful botanical garden filled with seasonal blooms and cozy winter charm. Stroll along quiet
+                    pathways lined with soft lighting, enjoy the crisp evening air, and take in the beauty of nature in
+                    a calm, relaxing setting. Perfect for slow walks, quiet moments, and nature lovers of all ages.
+                </p>
 
-                <br><strong>Hours: </strong> Sun-Sat 9AM - 9PM
-                <br><strong>Evening Light Walk: </strong>Fri-Sun 6PM - 10PM
-                <br>All hours are weather permitting
-                <br><strong>Admission Pricing: </strong>
-                <br>Adults $18
-                <br>Kids (Ages 4-12) $12
-                <br>Kids Under 4 FREE
-                <br><strong>Address: </strong>
-                <br>9102 Winter Bloom Way, Winter Garden, FL, 34787
-                <br>Visit our site for more information!
+                <p style="margin: 0 0 16px 0;">
+                    <strong>Hours:</strong> Sun-Sat 9AM - 9PM<br>
+                    <strong>Evening Light Walk:</strong><br>
+                    Daily 6PM - 9PM<br>
+                    <em>All hours are weather permitting</em>
+                </p>
 
+                <p style="margin: 0 0 16px 0;">
+                    <strong>Admission Pricing:</strong><br>
+                    Adults $12<br>
+                    Kids (4-12) $8<br>
+                    Kids Under 4 FREE
+                </p>
 
-
+                <p style="margin: 0;">
+                    <strong>Address:</strong><br>
+                    3456 Frost Bloom Lane, Orlando, FL, 32828
+                </p>
             </div>
-
             <div class="winter">
                 <img src="../../images/WinterTownBotanicalTrails.png" alt="botanical trails">
             </div>
 
             <div class="buttons">
-                <a href="discounts/checkout/checkout.html" target="_blank" class="btn">
+                <a href="https://meadgarden.org" target="_blank" class="btn">
                     Purchase Tickets
                 </a>
                 <a href="../open-lobby/index.html" class="btn">
                     Open Lobby
                 </a>
-                <a href="../profile/saved-attractions.html" class="btn">
+                <a href="#" class="btn save-btn" data-attraction-id="4">
                     Save Attraction
                 </a>
                 <a href="discounts/wintertown-botanical-trails.html" class="btn">
@@ -398,6 +415,9 @@
             </div>
         </main>
     </div>
+
+    <script src="/js/save-attraction.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 
 </html>

@@ -12,7 +12,7 @@
 
   <header class="top-bar">
     <a class="logo" href="../home/home.html">
-      <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
     </a>
 
     <form class="top-search" role="search">
@@ -20,7 +20,7 @@
     </form>
 
     <a href="../profile/profile.html" class="account-btn">
-      <img src="../images/user-1.png" alt="Account icon">
+      <img src="../../images/user-1.png" alt="Account icon">
       <span>My Account</span>
     </a>
   </header>
@@ -55,30 +55,49 @@
         </p>
       </div>
 
-      <div class="search-row">
-        <input type="text" placeholder="Match with a Group..." />
+      <!-- Filter Section-->
+      <div class="search-section">
+        <div class="search-row">
+          <input type="text" placeholder="Match with a Group..." />
 
-        <button class="filter-btn" id="filterToggle">
-          Filter ▼
-        </button>
+          <div class="filter-wrap">
+            <button class="filter-btn" id="filterToggle" type="button">Filters ▾</button>
 
-        <a href="search.html" class="search-btn">Search</a>
+            <div class="dropdown" id="filterMenu">
+              <div class="filter-section">
+                <label for="groupTypeFilter">Group Type</label>
+                <select id="groupTypeFilter">
+                  <option value="all">All</option>
+                  <option value="Wildlife">Wildlife</option>
+                  <option value="Outdoors">Outdoors</option>
+                  <option value="Dining">Dining</option>
+                </select>
+              </div>
 
-        <div class="dropdown" id="filterMenu">
-          <div>Amusement</div>
-          <div>Family</div>
-          <div>Museums / Cultural</div>
-          <div>Food / Drink</div>
+              <div class="filter-section">
+                <label for="groupSizeFilter">Group Size</label>
+                <select id="groupSizeFilter">
+                  <option value="all">All</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+              </div>
+
+              <button class="apply-btn" id="clearFilters" type="button">Clear Filters</button>
+            </div>
+          </div>
+
+          <button class="search-btn" type="button">Search</button>
         </div>
-      </div>
 
-      <a href="available-groups.html" class="action-btn available">
-        Available Groups
-      </a>
+        <a href="available-groups.html" class="action-btn available">
+          Available Groups
+        </a>
 
-      <a href="joined-groups.html" class="action-btn joined">
-        Joined Groups
-      </a>
+        <a href="joined-groups.html" class="action-btn joined">
+          Joined Groups
+        </a>
 
     </main>
   </div>

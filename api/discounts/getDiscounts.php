@@ -1,8 +1,36 @@
+<?php
+$conn = new mysqli("localhost","root","","ticket_store");
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+$last_name = $_POST['last_name'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$zipcode = $_POST['zipcode'];
+$qty = $_POST['quantity'];
+$total = $_POST['total_price'];
+$card = $_POST['card_number'];
+$expiry = $_POST['expiry'];
+$cvv = $_POST['cvv'];
+
+$sql = "INSERT INTO orders
+(last_name,email,phone,address,city,state,zipcode,ticket_qty,total_price,card_number,expiry,cvv)
+VALUES
+('$last_name','$email','$phone','$address','$city','$state','$zipcode','$qty','$total','$card','$expiry','$cvv')";
+
+$conn->query($sql);
+
+echo "Order placed successfully!";
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Checkout</title>
 
     <style>
@@ -174,7 +202,8 @@
             flex: 1;
         }
 
-
+        /* Search bar stuff */
+        /* Top header search bar (shared) */
         .top-bar {
             gap: 16px;
         }
@@ -198,15 +227,10 @@
         .top-search input:focus {
             border-color: #6b7676;
         }
-
-        .container {
-            background: white;
-            padding: 20px 40px;
-            width: 100%;
-        }
     </style>
 
     <script>
+
         function updateTotal() {
 
             let ticketPrice = 30;
@@ -219,36 +243,36 @@
             if (code == "gator") {
                 discount = subtotal * 0.15;
             }
+
             else if (code == "10off") {
                 discount = 10;
             }
+
             else if (code == "welcome") {
                 discount = subtotal * 0.30;
             }
+
             else if (code == "bogo") {
+
                 let freeTickets = Math.floor(qty / 2);
                 discount = freeTickets * ticketPrice;
+
             }
 
             let total = subtotal - discount;
-            if (total < 0) total = 0;
+
+            if (total < 0) {
+                total = 0;
+            }
 
             document.getElementById("subtotal").innerHTML = "$" + subtotal.toFixed(2);
             document.getElementById("discount_amount").innerHTML = "- $" + discount.toFixed(2);
             document.getElementById("total").innerHTML = "$" + total.toFixed(2);
 
             document.getElementById("total_price").value = total.toFixed(2);
+
         }
 
-        function handleSubmit(e) {
-            e.preventDefault();
-
-            let email = document.getElementById("email").value;
-            let total = document.getElementById("total_price").value;
-
-            // Redirect to confirmation page with data
-            window.location.href = "confirmation.html?email=" + encodeURIComponent(email) + "&total=" + total;
-        }
     </script>
 
 </head>
@@ -256,76 +280,79 @@
 <body onload="updateTotal()">
 
     <header class="top-bar">
-        <a class="logo" href="../../home/home.html">
-            <img src="../../../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+        <a class="logo" href="../pages/home/home.html">
+            <img src="../images/Explorlando-Logo.PNG" alt="Explorlando logo">
         </a>
 
         <form class="top-search" role="search">
             <input type="search" placeholder="Search..." aria-label="Search Explorlando">
         </form>
 
-        <a href="../../../profile/profile.html" class="account-btn">
-            <img src="../../../../images/user-1.png" alt="Account icon">
+        <a href="profile.html" class="account-btn">
+            <img src="../images/user-1.png" alt="Account icon">
             <span>My Account</span>
         </a>
     </header>
-
 
     <div class="app-layout">
 
         <!-- Left Sidebar Nav -->
         <nav class="side-nav">
-            <a class="nav-item" href="../../auth/login.html">Login</a>
-            <a class="nav-item" href="../../profile/profile.html">Profile</a>
-            <a class="nav-item" href="../../about.html">About Us</a>
-            <a class="nav-item active" href="../../../attractions/index.html">Attractions</a>
-            <a class="nav-item" href="../../open-lobby/index.html">Open Lobby</a>
-            <a class="nav-item" href="../../spotlight/spotlight.html">Explorlando Spotlight</a>
-            <a class="nav-item" href="../../for-business/index.html">For Businesses</a>
-            <a class="nav-item" href="../../profile/settings.html">Settings</a>
+            <a class="nav-item" href="login.html">Login</a>
+            <a class="nav-item active" href="profile.html">Profile</a>
+            <a class="nav-item" href="../aboutus.html">About Us</a>
+            <a class="nav-item" href="../ms5/pages/attractions.html">Attractions</a>
+            <a class="nav-item" href="../pages/open-lobby.html">Open Lobby</a>
+            <a class="nav-item" href="../pages/spotlight/spotlight.html">Explorlando Spotlight</a>
+            <a class="nav-item" href="../pages/for_business/for_business.html">For Businesses</a>
+            <a class="nav-item" href="../ms5/pages/settings.html">Settings</a>
         </nav>
 
         <div class="container">
 
             <h2>Checkout</h2>
 
-            <form onsubmit="handleSubmit(event)">
+
+            <form method="POST">
 
                 <h3>Contact Information</h3>
-                First Name<br>
-                <input type="text" required><br><br>
 
                 Last Name<br>
-                <input type="text" required><br><br>
+                <input type="text" name="last_name" required><br><br>
 
                 Email Address<br>
-                <input type="email" id="email" required><br><br>
+                <input type="email" name="email" required><br><br>
 
                 Phone Number<br>
-                <input type="text" required><br><br>
+                <input type="text" name="phone" required><br><br>
+
 
                 <h3>Billing Address</h3>
 
                 Address<br>
-                <input type="text" required><br><br>
+                <input type="text" name="address" required><br><br>
 
                 City<br>
-                <input type="text" required><br><br>
+                <input type="text" name="city" required><br><br>
 
                 State<br>
-                <input type="text" required><br><br>
+                <input type="text" name="state" required><br><br>
 
                 Zip Code<br>
-                <input type="text" required><br><br>
+                <input type="text" name="zipcode" required><br><br>
+
 
                 <h3>Tickets</h3>
 
                 Ticket Price: $30<br><br>
 
                 Quantity<br>
-                <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"><br><br>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" onchange="updateTotal()"><br><br>
+
 
                 <h3>Discount Code</h3>
+
+                <input type="text" id="discount" onkeyup="updateTotal()" placeholder="Enter code"><br><br>
 
                 Available Codes:<br>
                 gator (15% off)<br>
@@ -334,18 +361,17 @@
                 bogo (Buy One Get One)<br><br>
 
 
-                <input type="text" id="discount" onkeyup="updateTotal()" placeholder="Enter code"><br><br>
-
                 <h3>Payment</h3>
 
                 Card Number<br>
-                <input type="text" required><br><br>
+                <input type="text" name="card_number" required><br><br>
 
-                Expiry<br>
-                <input type="text" required><br><br>
+                Expiry (MM/YY)<br>
+                <input type="text" name="expiry" required><br><br>
 
                 CVV<br>
-                <input type="text" required><br><br>
+                <input type="text" name="cvv" required><br><br>
+
 
                 <h3>Order Review</h3>
 
@@ -353,14 +379,13 @@
                 Discount: <span id="discount_amount"></span><br>
                 Total: <span id="total"></span><br><br>
 
-                <input type="hidden" id="total_price">
+                <input type="hidden" name="total_price" id="total_price">
 
                 <button type="submit">Place Order</button>
 
             </form>
-        </div>
-    </div>
-
+            </div>
+            </div>
 </body>
 
 </html>

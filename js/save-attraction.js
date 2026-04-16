@@ -1,28 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var saveBtn = document.querySelector('.save-btn');
-    if (!saveBtn) return;
+document.addEventListener("DOMContentLoaded", () => {
+    const saveButtons = document.querySelectorAll(".save-btn");
 
-    saveBtn.addEventListener('click', async function (e) {
-        e.preventDefault();
-        var attractionId = parseInt(saveBtn.getAttribute('data-attraction-id'));
-        var userId = parseInt(localStorage.getItem('user_id') || '1');
+    saveButtons.forEach((button) => {
+        button.addEventListener("click", async (e) => {
+            e.preventDefault();
 
-        try {
-            const res = await fetch('../api/favorites/addFavorites.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ user_id: userId, attraction_id: attractionId, type: 'saved' })
-            });
-            if (!res.ok) {
-                const body = await res.json();
-                alert('Save failed: ' + (body.error || res.status));
-                return;
+            const attractionId = button.dataset.attractionId;
+            console.log("SAVING ID:", attractionId);
+
+            try {
+                const response = await fetch("/api/favorites/addFavorites.php", {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        attraction_id: attractionId,
+                    }),
+                });
+
+                const data = await response.json();
+                console.log("SAVE RESPONSE:", data);
+
+                if (response.ok) {
+                    alert(data.message || "Attraction saved!");
+                } else {
+                    alert(data.error || "Save failed");
+                }
+            } catch (error) {
+                console.error("Error saving attraction:", error);
+                alert("Something went wrong while saving.");
             }
-        } catch (err) {
-            alert('Could not reach the server. Is Docker running?');
-            return;
-        }
-
-        window.location.href = 'saved-attractions.html';
+        });
     });
 });

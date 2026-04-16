@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title> Local Attractions </title>
+  <link rel="stylesheet" href="../../css/style.css">
 
   <style>
     * {
@@ -16,16 +17,6 @@
       background: #f2f2f2;
     }
 
-    .logo {
-      background: white;
-      border-radius: 18px;
-      padding: 10px 16px;
-      font-size: 26px;
-      font-weight: bold;
-      color: orange;
-      display: inline-block;
-      margin-bottom: 30px;
-    }
 
     /*  Buttons  */
     .btn {
@@ -46,59 +37,6 @@
 
     }
 
-    /*  Layout  */
-    .container {
-      display: flex;
-      height: 100vh;
-    }
-
-    /*  Sidebar  */
-    .sidebar {
-      width: 220px;
-      background: #36c3c7;
-      padding-top: 20px;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .sidebar a.active {
-      background: white;
-      border-radius: 20px 0 0 20px;
-    }
-
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: orange;
-      background: white;
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 30px;
-    }
-
-    .nav a {
-      display: block;
-      padding: 12px;
-      margin: 10px 0;
-      text-decoration: none;
-      color: black;
-      border-bottom: 2px solid black;
-    }
-
-    .nav a.active {
-      background: white;
-      border-radius: 20px;
-      font-weight: bold;
-    }
-
     /*  Main  */
     .main {
       flex: 1;
@@ -106,24 +44,6 @@
       background: white;
       position: relative;
     }
-
-    /*  Top Bar  */
-    .top-barone {
-
-      height: 60px;
-      background: #36c3c7;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-    }
-
-    .top-bar {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
 
     .search-box {
       display: flex;
@@ -142,40 +62,18 @@
       outline: none;
     }
 
-    .filter {
-      position: relative;
-    }
-
-    .filter-btn {
-      background: #e0e0e0;
-      border-radius: 30px;
-      padding: 12px 30px;
-      cursor: pointer;
-    }
-
-    .filter-menu {
-      display: none;
-      position: absolute;
-      top: 55px;
-      left: 0;
-      background: #e0e0e0;
-      padding: 20px;
-      border-radius: 10px;
-      width: 220px;
-    }
-
-    .filter-menu div {
-      padding: 10px 0;
-      border-bottom: 1px solid #999;
-    }
-
     .search-btn {
-      background: #ffb655;
+      background: #f9b158;
+      ;
       border: none;
       border-radius: 30px;
       padding: 12px 30px;
       font-size: 20px;
       cursor: pointer;
+    }
+
+    .search-btn:hover {
+      background: #f0aa48;
     }
 
     /* Featured section */
@@ -221,63 +119,154 @@
       font-size: 14px;
     }
 
-    /* Profile Icon section */
-    .account {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(#63d8c6, #f7e36b);
+    .attractions-toolbar {
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      gap: 20px;
     }
 
-    .account img {
+    .filter-btn:hover {
+      background: #d6d6d6;
+    }
+
+    .filter {
+      position: relative;
+    }
+
+    .filter-btn {
+      background: #e0e0e0;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .filter-btn:hover {
+      background: #d4d4d4;
+    }
+
+    .filter-menu {
+      display: none;
+      position: absolute;
+      top: 55px;
+      left: 0;
+      background: #e0e0e0;
+      padding: 16px;
+      border-radius: 16px;
+      width: 240px;
+      z-index: 1000;
+    }
+
+    .filter-menu.show {
+      display: block;
+    }
+
+    .filter-section {
+      margin-bottom: 14px;
+    }
+
+    .filter-section label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .filter-section select {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .apply-btn {
+      width: 100%;
+      border: none;
+      border-radius: 20px;
+      padding: 10px;
+      background: #ffb655;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .apply-btn:hover {
+      background: #f0aa48;
+    }
+
+    .cards {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 90px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="top-barone">
-    <div class="logo">
-      <img src="../../images/logo.png" alt="logo" width="168" height="220">
-    </div>
-    <div class="account">
-      <a href="../profile/profile.html">
-        <img src="../../images/ProfileIconImage.png" alt="profile icon">
-      </a>
-    </div>
-  </div>
+  <header class="top-bar">
+    <a class="logo" href="../home/home.html">
+      <img src="../../images/Explorlando-Logo.PNG" alt="Explorlando logo">
+    </a>
 
-  <div class="container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <a href="../auth/login.html">Login</a>
-      <a href="../profile/profile.html">Profile</a>
-      <a href="../about.html">About Us</a>
-      <a href="index.html" class="active">Attractions</a>
-      <a href="../open-lobby/index.html">Open Lobby</a>
-      <a href="../spotlight/spotlight.html">Local Spotlight</a>
-      <a href="../for-business/index.html">For Businesses</a>
-      <a href="../profile/settings.html">Settings</a>
-    </div>
+    <form class="top-search" role="search">
+      <input type="search" placeholder="Search..." aria-label="Search Explorlando">
+    </form>
+
+    <a href="../profile/profile.html" class="account-btn">
+      <img src="../../images/user-1.png" alt="Account icon">
+      <span>My Account</span>
+    </a>
+  </header>
+
+  <!-- Main Layout -->
+  <!-- Sidebar -->
+  <div class="app-layout">
+    <nav class="side-nav">
+      <a class="nav-item" href="../auth/login.html">Login</a>
+      <a class="nav-item" href="../profile/profile.html">Profile</a>
+      <a class="nav-item" href="../about.html">About Us</a>
+      <a class="nav-item active" href="index.html">Attractions</a>
+      <a class="nav-item" href="../open-lobby/index.html">Open Lobby</a>
+      <a class="nav-item" href="../spotlight/spotlight.html">Explorlando Spotlight</a>
+      <a class="nav-item" href="../for-business/index.html">For Businesses</a>
+      <a class="nav-item" href="../profile/settings.html">Settings</a>
+    </nav>
+
     <!-- Main section -->
     <div class="main">
-      <div class="top-bar">
+      <div class="attractions-toolbar">
         <div class="search-box">
-          <input type="text" placeholder="Search Discounts">
+          <input type="text" id="searchInput" placeholder="Search Attractions">
         </div>
 
+        <!-- Filter Section -->
         <div class="filter">
-          <div class="filter-btn" onclick="toggleFilter()">Filters > </div>
+          <button class="filter-btn" id="filterToggle" type="button">Filters ▾</button>
+
+
           <div class="filter-menu" id="filterMenu">
-            <div>Attraction Type</div>
-            <div>Price Range</div>
+            <div class="filter-section">
+              <label for="typeFilter">Attraction Type</label>
+              <select id="typeFilter">
+                <option value="all">All</option>
+                <option value="Wildlife">Wildlife</option>
+                <option value="Outdoors">Outdoors</option>
+                <option value="Dining">Dining</option>
+              </select>
+            </div>
+
+            <div class="filter-section">
+              <label for="priceFilter">Price Range</label>
+              <select id="priceFilter">
+                <option value="all">All</option>
+                <option value="$">$</option>
+                <option value="$$">$$</option>
+                <option value="$$$">$$$</option>
+              </select>
+            </div>
+
+            <button class="apply-btn" id="clearFilters" type="button">Clear Filters</button>
           </div>
         </div>
 
@@ -285,90 +274,135 @@
       </div>
 
       <!-- Featured section -->
-      <div class="featured">
-        <span>Local Attractions</span>
-        <h2>Have some fun while you're in Orlando!</h2>
-        <h2>Some featured attractions</h2>
-      </div>
-
-      <!-- Cards section -->
       <div class="cards">
-        <div class="card">
+        <div class="card" data-type="Wildlife" data-price="$$">
           <h3>Baby Joeys Alligator Farm</h3>
           <a href="alligator-farm.html">
             <img src="../../images/alligator.jpg" alt="">
           </a>
         </div>
 
-        <div class="card">
+        <div class="card" data-type="Outdoors" data-price="$">
           <h3>Orange Grove Mini Golf</h3>
           <a href="orange-grove-mini-golf.html">
             <img src="../../images/golf.jpg" alt="">
           </a>
         </div>
-        <div class="card">
+
+        <div class="card" data-type="Dining" data-price="$$$">
           <h3>Skyline Rooftop Lounge</h3>
           <a href="skyline-rooftop.html">
             <img src="../../images/rooftop.jpg" alt="">
           </a>
         </div>
 
-        <div class="card">
+        <div class="card" data-type="Outdoors" data-price="$">
           <h3>Winter Town Botanical Trails</h3>
           <a href="wintertown-botanical-garden.html">
             <img src="../../images/botanical.jpg" alt="">
           </a>
         </div>
-
       </div>
-    </div>
-  </div>
-  </div>
 
-  <script>
-    function toggleFilter() {
-      const menu = document.getElementById("filterMenu");
-      menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-  </script>
+      <script>
+        const filterToggle = document.getElementById("filterToggle");
+        const filterMenu = document.getElementById("filterMenu");
+        const typeFilter = document.getElementById("typeFilter");
+        const priceFilter = document.getElementById("priceFilter");
+        const clearFilters = document.getElementById("clearFilters");
+        const searchInput = document.getElementById("searchInput");
 
-  <script>
-    fetch('/api/attractions/getAttractions.php')
-      .then(function(response) {
-        if (!response.ok) {
-          throw new Error('Network error: ' + response.status);
+        filterToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          filterMenu.classList.toggle("show");
+        });
+
+        filterMenu.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+          filterMenu.classList.remove("show");
+        });
+
+        function applyFilters() {
+          const searchValue = searchInput.value.toLowerCase().trim();
+          const selectedType = typeFilter.value;
+          const selectedPrice = priceFilter.value;
+          const cards = document.querySelectorAll(".card");
+
+          cards.forEach(function (card) {
+            const title = card.querySelector("h3").textContent.toLowerCase();
+            const cardType = card.dataset.type;
+            const cardPrice = card.dataset.price;
+
+            const matchesSearch = title.includes(searchValue);
+            const matchesType = selectedType === "all" || cardType === selectedType;
+            const matchesPrice = selectedPrice === "all" || cardPrice === selectedPrice;
+
+            if (matchesSearch && matchesType && matchesPrice) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
         }
-        return response.json();
-      })
-      .then(function(json) {
-        if (json.status !== 'success') {
-          console.error('Attractions API error:', json.message);
-          return;
-        }
 
-        var cards = document.querySelectorAll('.card');
-        var attractions = json.data;
+        searchInput.addEventListener("input", applyFilters);
+        typeFilter.addEventListener("change", applyFilters);
+        priceFilter.addEventListener("change", applyFilters);
 
-        for (var i = 0; i < Math.min(cards.length, attractions.length); i++) {
-          var card = cards[i];
-          var attraction = attractions[i];
+        clearFilters.addEventListener("click", function () {
+          typeFilter.value = "all";
+          priceFilter.value = "all";
+          searchInput.value = "";
+          applyFilters();
+        });
+      </script>
 
-          var h3 = card.querySelector('h3');
-          if (h3) {
-            h3.textContent = attraction.name;
-          }
+      <script>
+        fetch('/api/attractions/getAttractions.php')
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Network error: ' + response.status);
+            }
+            return response.json();
+          })
+          .then(function (json) {
+            if (json.status !== 'success') {
+              console.error('Attractions API error:', json.message);
+              return;
+            }
 
-          var img = card.querySelector('img');
-          if (img) {
-            img.src = attraction.image_url;
-            img.alt = attraction.name;
-          }
-        }
-      })
-      .catch(function(error) {
-        console.error('Failed to load attractions:', error);
-      });
-  </script>
+            var cards = document.querySelectorAll('.card');
+            var attractions = json.data;
+
+            cards.forEach(function (card) {
+              var title = card.querySelector('h3').textContent.trim();
+
+              var attraction = attractions.find(function (a) {
+                if (title === 'Baby Joeys Alligator Farm') return a.name === 'Alligator Farm';
+                if (title === 'Orange Grove Mini Golf') return a.name === 'Orange Grove Mini Golf';
+                if (title === 'Skyline Rooftop Lounge') return a.name === 'Skyline';
+                if (title === 'Winter Town Botanical Trails') return a.name === 'Winter Town';
+                return false;
+              });
+
+              if (!attraction) return;
+
+              var img = card.querySelector('img');
+              if (img) {
+                img.src = attraction.image_url;
+                img.alt = attraction.name;
+              }
+            });
+          })
+          .catch(function (error) {
+            console.error('Failed to load attractions:', error);
+          });
+      </script>
+
+      <script src="../../js/script.js"></script>
 
 </body>
 
