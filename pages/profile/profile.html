@@ -6,6 +6,13 @@
     <title>Explorlando Profile</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/profile.css">
+
+    <style>
+        body.profile-page {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body class="profile-page">
@@ -164,6 +171,7 @@
                 }
 
                 const user = data.user;
+                document.body.style.display = "block";
 
                 const name = user.username || user.name || "User";
                 document.getElementById("welcomeMessage").textContent = `Hello, welcome ${name}`;
@@ -183,6 +191,7 @@
 
             } catch (error) {
                 console.error("Error loading profile:", error);
+                window.location.href = "../auth/login.html";
             }
         }
 
