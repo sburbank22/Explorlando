@@ -1,29 +1,42 @@
 <?php
+session_start();
 header("Content-Type: application/json");
 require_once "../db.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-$user_id = isset($data["user_id"]) ? intval($data["user_id"]) : 0;
-$id = isset($data["id"]) ? intval($data["id"]) : 0;
+$user_id = $_SESSION["user_id"] ?? 0;
+$attraction_id = isset($data["attraction_id"]) ? intval($data["attraction_id"]) : 0;
 
-if (!$user_id || !$id) {
+if (!$user_id) {
+    http_response_code(401);
+    echo json_encode(["error" => "You must be logged in to remove saved attractions"]);
+    exit;
+}
+
+if (!$attraction_id) {
     http_response_code(400);
-    echo json_encode(["error" => "user_id and id are required"]);
+    echo json_encode(["error" => "attraction_id is required"]);
     exit;
 }
 
 try {
-    $stmt = $conn->prepare("DELETE FROM favorites WHERE id = :id AND user_id = :user_id");
-    $stmt->execute([":id" => $id, ":user_id" => $user_id]);
-    if ($stmt->rowCount() === 0) {
-        http_response_code(404);
-        echo json_encode(["error" => "Favorite not found"]);
-    } else {
-        echo json_encode(["message" => "Favorite removed"]);
-    }
+    $stmt = $conn->prepare("
+        DELETE FROM favorites
+        WHERE user_id = :user_id
+        AND attraction_id = :attraction_id
+    ");
+    $stmt->execute([
+        ":user_id" => $user_id,
+        ":attraction_id" => $attraction_id
+    ]);
+
+    echo json_encode([
+        "success" => true,
+        "message" => "Attraction removed"
+    ]);
 } catch (PDOException $e) {
     http_response_code(500);
-    echo json_encode(["error" => "Failed to remove favorite"]);
+    echo json_encode(["error" => "Failed to remove attraction"]);
 }
 ?>

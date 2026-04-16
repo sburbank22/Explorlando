@@ -60,7 +60,7 @@ try {
 $insertStmt->execute([$userId, $tokenHash, $expiresAt]);
 
     // To build the reset link
-    $resetLink = "http://localhost:8080/pages/reset-password.html?token=" . $token;
+   $resetLink = "http://localhost:8080/pages/auth/reset-password.html?token=" . $token;
 
     echo json_encode([
         "message" => "If that email exists, a reset link has been generated.",

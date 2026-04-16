@@ -116,12 +116,12 @@
         .desc-box {
             background: #2ec4c6;
             color: black;
-            padding: 40px;
+            padding: 28px 36px;
             border-radius: 40px;
             width: 520px;
             font-size: 15px;
-            line-height: 1.4;
-            margin-top: 50px;
+            line-height: 1.5;
+            margin-top: 20px;
             margin-left: 420px;
             box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
             position: relative;
@@ -136,8 +136,8 @@
             border-radius: 50%;
             position: absolute;
             overflow: hidden;
-            top: 200px;
-            left: 170px;
+            top: 120px;
+            left: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -317,6 +317,14 @@
         .top-search input:focus {
             border-color: #6b7676;
         }
+
+        .desc-box p {
+            margin: 0 0 10px 0;
+        }
+
+        .desc-box p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -362,22 +370,27 @@
             <div class="title-pill">Orange Grove Mini Golf</div>
 
             <div class="desc-box">
-                Fun and fantastical mini golf with a classic, retro-Florida twist! Enjoy hitting the links with our
-                variety of themed courses, all centered around the unique and vibrant history of Central Florida.
-                Perfect for outings with friends, date nights, team building, and more! <br>
+                <p style="margin: 0 0 16px 0;">Enjoy a fun-filled day at a charming, family-friendly mini golf course
+                    nestled among beautiful orange groves! Play through creative holes, relax in shaded seating areas,
+                    and grab refreshing snacks and drinks for the whole family!</p>
 
-                <br><strong> Hours: </strong> Sun-Sat 10AM - 11PM
-                <br>All hours are weather permitting <br>
+                <p style="margin: 0 0 16px 0;">
+                    <strong>Hours:</strong> Sun-Sat 10AM - 10PM<br>
+                    <strong>Glow Golf Night Hours</strong><br>
+                    Friday-Sat 7PM - 11PM<br>
+                    <em>All hours are weather permitting</em>
+                </p>
 
-                <br><strong> Admission Pricing: </strong>
-                <br>Adults $20
-                <br> Kids (Ages 4-12) $15
-                <br>Kids Under 4 FREE<br>
-
-                <br> <strong>Address:</strong>
-                <br>5678, Clermont, FL, 36767
-
-                <br>Visit our site for more information!<br>
+                <p style="margin: 0 0 16px 0;">
+                    <strong>Admission Pricing:</strong><br>
+                    Adults $15<br>
+                    Kids (4-12) $10<br>
+                    Kids Under 4 FREE
+                </p>
+                <p style="margin: 0;">
+                    <strong>Address:</strong><br>
+                    5678 Orange Grov Lane, Orlando, FL, 32819
+                </p>
             </div>
 
             <div class="golf">
@@ -385,13 +398,13 @@
             </div>
 
             <div class="buttons">
-                <a href="discounts/checkout/checkout.html" target="_blank" class="btn">
+                <a href="https://popstroke.com" target="_blank" class="btn">
                     Purchase Tickets
                 </a>
                 <a href="../open-lobby/index.html" class="btn">
                     Open Lobby
                 </a>
-                <a href="../profile/saved-attractions.html" class="btn">
+                <a href="#" class="btn save-btn" data-attraction-id="1">
                     Save Attraction
                 </a>
                 <a href="discounts/orange-grove-mini-golf.html" class="btn">
@@ -400,6 +413,8 @@
             </div>
         </main>
     </div>
+    <script src="../../js/save-attraction.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 
 </html>
