@@ -14,14 +14,25 @@
         }
 
         .container {
-            width: 700px;
+
             margin: 40px auto;
-            background: #31C3C9;
+            background: #BAD67F;
             padding: 25px;
-            border-radius: 8px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            height: 1800px;
+            max-width: 1100px;
+            margin: 40px auto;
         }
+
+        .left {
+            flex: 1;
+            margin-right: 90px;
+        }
+
+        .right {
+            flex: 1;
+        }
+
 
         h2 {
             text-align: center;
@@ -44,7 +55,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background: #BAD67F;
+            background: #31C3C9;
             color: white;
             border: none;
             border-radius: 5px;
@@ -72,7 +83,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #BAD67F;
+            background-color: #31C3C9;
             padding: 10px 30px;
         }
 
@@ -131,7 +142,7 @@
         /* ---Left sidebar navigation--- */
         .side-nav {
             width: 200px;
-            background-color: #BAD67F;
+            background-color: #31C3C9;
             padding: 24px 12px;
             box-sizing: border-box;
 
@@ -199,10 +210,10 @@
             border-color: #6b7676;
         }
 
-        .container {
-            background: white;
-            padding: 20px 40px;
-            width: 100%;
+
+
+        .checkout-layout {
+            display: flex;
         }
     </style>
 
@@ -291,71 +302,62 @@
 
             <form onsubmit="handleSubmit(event)">
 
-                <h3>Contact Information</h3>
-                First Name<br>
-                <input type="text" required><br><br>
+                <div class="checkout-layout">
 
-                Last Name<br>
-                <input type="text" required><br><br>
+                    <div class="left">
 
-                Email Address<br>
-                <input type="email" id="email" required><br><br>
+                        <h3>Contact Information</h3>
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="text" placeholder="Phone" required>
 
-                Phone Number<br>
-                <input type="text" required><br><br>
+                        <h3>Billing Address</h3>
+                        <input type="text" placeholder="Address" required>
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="Zip Code" required>
 
-                <h3>Billing Address</h3>
+                        <h3>Payment</h3>
+                        <input type="text" placeholder="Card Number" required>
+                        <input type="text" placeholder="Expiry (MM/YY)" required>
+                        <input type="text" placeholder="CVV" required>
 
-                Address<br>
-                <input type="text" required><br><br>
-
-                City<br>
-                <input type="text" required><br><br>
-
-                State<br>
-                <input type="text" required><br><br>
-
-                Zip Code<br>
-                <input type="text" required><br><br>
-
-                <h3>Tickets</h3>
-
-                Ticket Price: $30<br><br>
-
-                Quantity<br>
-                <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()"><br><br>
-
-                <h3>Discount Code</h3>
-
-                Available Codes:<br>
-                gator (15% off)<br>
-                10off ($10 off)<br>
-                welcome (30% off)<br>
-                bogo (Buy One Get One)<br><br>
+                    </div>
 
 
-                <input type="text" id="discount" onkeyup="updateTotal()" placeholder="Enter code"><br><br>
+                    <div class="right">
 
-                <h3>Payment</h3>
+                        <h3>Tickets</h3>
+                        Ticket Price: $30
 
-                Card Number<br>
-                <input type="text" required><br><br>
+                        <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
 
-                Expiry<br>
-                <input type="text" required><br><br>
+                        <h3>Discount Code</h3>
 
-                CVV<br>
-                <input type="text" required><br><br>
+                        <strong>Available Codes:</strong><br>
+                        <br> gator (15% off)<br>
+                        <br>10off ($10 off)<br>
+                        <br>welcome (30% off)<br>
+                        <br>bogo (Buy One Get One)<br><br>
 
-                <h3>Order Review</h3>
+                        <input type="text" id="discount" placeholder="Enter code" onkeyup="updateTotal()">
 
-                Subtotal: <span id="subtotal"></span><br>
-                Discount: <span id="discount_amount"></span><br>
-                Total: <span id="total"></span><br><br>
+                        <h3>Order Review</h3>
+                        <div class="review">
+                            Subtotal: <span id="subtotal"></span><br>
+                            Discount: <span id="discount_amount"></span><br>
+                            Total: <span id="total"></span>
+                        </div>
 
-                <input type="hidden" id="total_price">
+                        <input type="hidden" id="total_price">
 
-                <button type="submit">Place Order</button>
+                        <br>
+                        <button type="submit">Place Order</button>
+
+                    </div>
+
+                </div>
 
             </form>
         </div>
