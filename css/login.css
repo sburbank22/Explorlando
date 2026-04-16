@@ -1,0 +1,117 @@
+/* LOGIN PAGE ONLY (login.html)
+   This file styles only the login page.
+   Shared components (top-bar, login-card, buttons) are in style.css*/
+
+
+/* -------Page Background----- */
+/* Full-page background image + dark overlay */
+.login-page {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Explorlando-login-page.jpg") no-repeat center center/cover;
+    min-height: 100vh;
+}
+
+/* ------Page Layout------- */
+/* This centers the main login content area */
+.login-page main {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 0;
+    background: transparent;
+}
+
+
+/* Wrapper for the login content (banner + card) */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+/* Login Only */
+/* Extra spacing */
+.login-page .login-card input {
+    margin-top: 25px;
+}
+
+/* Forgot password link styling */
+.forgot {
+    font-size: 13px;
+    text-decoration: underline;
+    align-self: center;
+    margin-top: 5px;
+}
+
+.forgot:hover {
+    color: #1b8e92;
+}
+
+
+/* Login page buttons*/
+/* Pushes buttons lower on the login page */
+.login-page .login-actions {
+    margin-top: 25px;
+}
+
+
+/* ----Title / Badge---- */
+/* Title above login badge */
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Orange "login" badge */
+.login-badge {
+    background-color: #f4b942;
+    padding: 10px 26px;
+    border-radius: 16px;
+    font-weight: bold;
+    font-size: 27px;
+    color: #000;
+    display: inline-block;
+}
+
+.password-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.password-wrap input[type="password"] {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.password-wrap .show-password-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.password-wrap .show-password-label input[type="checkbox"] {
+    width: auto;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+}
+
+.password-wrap .show-password-label span {
+    vertical-align: middle;
+}
+
+.login-page .login-card {
+    height: auto;
+    min-height: 360px;
+}
+
+.login-page .login-card input[type="text"],
+.login-page .login-card input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+}
