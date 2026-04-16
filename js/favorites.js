@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function getAttractionPage(name) {
         if (name === 'Orange Grove Mini Golf') return '../attractions/orange-grove-mini-golf.html';
-        if (name === 'Alligator Farm') return '../attractions/alligator-farm.html';
-        if (name === 'Skyline') return '../attractions/skyline-rooftop.html';
-        if (name === 'Winter Town') return '../attractions/wintertown-botanical-garden.html';
+        if (name === "Baby Joey's Alligator Farm") return '../attractions/alligator-farm.html';
+        if (name === 'Skyline Rooftop') return '../attractions/skyline-rooftop.html';
+        if (name === 'Winter Town Botanical Garden') return '../attractions/wintertown-botanical-garden.html';
         return '#';
     }
 
