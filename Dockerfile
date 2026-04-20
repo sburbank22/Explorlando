@@ -10,8 +10,8 @@ COPY nginx.conf /etc/nginx/http.d/default.conf
 
 RUN chmod -R 755 /var/www/html && find /var/www/html -type f -exec chmod 644 {} \;
 
-RUN chmod +x /var/www/html/start.sh
+RUN printf '#!/bin/sh\nset -e\nphp-fpm -D\nnginx -g "daemon off;"\n' > /start.sh && chmod +x /start.sh
 
 EXPOSE 80
 
-CMD ["sh", "/var/www/html/start.sh"]
+CMD ["/start.sh"]
