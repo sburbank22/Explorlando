@@ -8,7 +8,7 @@ COPY . /var/www/html/
 
 COPY nginx.conf /etc/nginx/http.d/default.conf
 
-RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 755 /var/www/html && find /var/www/html -type f -exec chmod 644 {} \;
 
 EXPOSE 80
 
